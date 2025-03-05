@@ -1,8 +1,8 @@
 ---
 ---
 
-// Colors
-$primary: #e5261f;
+// Colors (default red: #e5261f, green: #00a86b)
+$primary: #469b8c;
 $primary-dark: #a01b16;
 $secondary: #f88379;
 $black: #2f2f41;
@@ -105,7 +105,7 @@ $sub-footer-text-color: $white;
 // Pages
 @import "pages/page-home";
 @import "pages/page-teams";
-@import "pages/page-service";
+@import "pages/page-resource";
 
 body {
   font-size: 16px;

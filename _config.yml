@@ -1,20 +1,20 @@
 baseurl: '/'
 permalink: pretty
-title: 'Jekyll Serif'
+title: 'Atriva Inc.'
 
 logo:
-  mobile: "images/logo/logo-mobile.svg"
+  mobile: "images/logo/logo.png" # "logo-mobile.svg"
   mobile_height: "32px"
   mobile_width: "32px"
-  desktop: "images/logo/logo.svg"
-  desktop_height: "32px"
-  desktop_width: "120px"
+  desktop: "images/logo/AtrivaTextOnly.svg" # "images/logo/logo.svg"
+  desktop_height: "120px" # "30px"
+  desktop_width: "240px" # "120px"
 
 home: 
-  limit_services: 6
+  limit_resources: 6
 
 collections:
-  services:
+  resources:
     output: true
     sort_by: weight
   team:
@@ -23,9 +23,9 @@ collections:
 defaults:
   - scope:
       path: ""
-      type: "services"
+      type: "resources"
     values:
-      layout: "service"
+      layout: "resource"
   - scope:
       path: ""
       type: "team"

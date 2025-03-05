@@ -1,13 +1,13 @@
 ---
-title: Jekyll Serif Theme
+title: Atriva AI - For every EDGE deployment
 layout: home
-description: Jekyll Serif contains content types for a typical business website. The theme is fully responsive, blazing fast and artfully illustrated.
-intro_image: "images/illustrations/pointing.svg"
+description: Atriva AI provides tools that help your edge deployment while you focus on your model and business logic.
+intro_image: "images/home/StreamlineEdgeAI2-0.svg" # "images/illustrations/pointing.svg"
 intro_image_absolute: true
 intro_image_hide_on_mobile: true
 show_call_box: true
 ---
 
-# Serif - A Jekyll Business Theme.
+# Free Resources on Making Edge AI Deployment Effortless!
 
-Serif contains content types for a typical business website. The theme is fully responsive, blazing fast and artfully illustrated.
+Atriva offers free tools that streamline edge deployment, allowing you to focus on developing AI model and business logic for your customers.

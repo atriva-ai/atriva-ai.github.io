@@ -1,16 +1,19 @@
 main:
-  - name: "Services"
-    url: "/services/"
+  - name: "Resources"
+    url: "/resources/"
     weight: 2
-  - name: "Team"
-    url: "/team/"
+  - name: "Why Atriva?"
+    url: "/benefits/"
     weight: 3
   - name: "About"
     url: "/about/"
     weight: 4
+  - name: "Team"
+    url: "/team/"
+    weight: 5
   - name: "Contact"
     url: "/contact/"
-    weight: 5
+    weight: 6
 
 footer:
   - name: "Home"

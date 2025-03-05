@@ -24,25 +24,37 @@ bodyClass: "page-home"
 <div class="strip">
   <div class="container pt-6 pb-6 pb-md-10">
     <div class="row justify-content-start">
-      {% assign limit = site.home.limit_services | default: 6 %}
-      {% for service in site.services limit: limit %}
+
+      <section class="custom-section-benefit">
+        <div class="container">
+          <h2 class="section-header-benefit">Resources</h2>
+          <p class="section-text-benefit">We provide useful resources on Edge AI deployment from hardware, performance, inference, software update, maintenance, etc.</p>
+        </div>
+
+
+      </section>
+      {% assign limit = site.home.limit_resources | default: 6 %}
+      {% for resource in site.resources limit: limit %}
       <div class="col-12 col-md-4 mb-1">
-        <div class="service service-summary">
-          <div class="service-content">
-            <h2 class="service-title">
-              <a href="{{ service.url | relative_url }}">{{ service.title }}</a>
+        <div class="resource resource-summary">
+          <div class="resource-content">
+            <h2 class="resource-title">
+              <a href="{{ resource.url | relative_url }}">{{ resource.title }}</a>
             </h2>
-            <p>{{ service.excerpt | markdownify | strip_html | truncate: 100 }}</p>
+            <p>{{ resource.excerpt | markdownify | strip_html | truncate: 100 }}</p>
           </div>
         </div>
       </div>
       {% endfor %}
+
     </div>
+    <!-- remove View All buttons -->
     <div class="row justify-content-center">
       <div class="col-auto">
-        <a class="button button-primary" href="{{ "services" | relative_url }}">View All Services</a>
+        <a class="button button-primary" href="{{ "resources" | relative_url }}">View All Resources</a>
       </div>
     </div>
+
   </div>
 </div>
 
@@ -50,6 +62,13 @@ bodyClass: "page-home"
 <div class="strip strip-grey">
   <div class="container pt-6 pb-6 pt-md-10 pb-md-10">
     <div class="row justify-content-center">
+
+      <section class="custom-section">
+        <div class="container">
+          <h2 class="section-header">Products</h2>
+          <p class="section-text">We provide pre-configured containers and tools that streamline AI applications development and enable seamless AI model inference on on target AI hardware, effortlessly.</p>
+        </div>
+      </section>
 
       {% for feature in site.data.features %}
       <div class="col-12 col-md-6 col-lg-4 mb-2">

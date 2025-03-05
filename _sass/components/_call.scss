@@ -22,14 +22,53 @@
     }
   }
   .call-box-bottom {
-    flex: auto;
-    padding: 20px;
+    display: inline-block;
+    width: 250px;
+    flex: none;
+    padding: 10px 10px; // wesley: original 10px 0
     border-top: 1px solid darken($white-offset, 5%);
+    text-align: right; // wesley: original center
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    justify-conent: right; // wesley
     @include media-breakpoint-up(sm) {
-      flex: 0 0 auto;
+      width: 250px;
       border: none;
     }
   }
+
+  .call-button {
+    display: inline-block;
+    background: $white-offset;
+    width: 30%;
+    flex: none;
+    padding: 10px 0;
+    border-top: 1px solid darken($white-offset, 5%);
+    text-align: center;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    @include media-breakpoint-up(sm) {
+      width: 250px;
+      border: none;
+    }
+  }
+
+  .call-button2 {
+    background-color: #5c998d;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    display: inline-block;
+    width: 200px; /* 🔹 Fixed width */
+    text-align: center; /* 🔹 Ensures text is centered */
+    white-space: nowrap; /* 🔹 Prevents text from wrapping */
+    overflow: hidden; /* 🔹 Hides overflow text if too long */
+    text-overflow: ellipsis; /* 🔹 Adds '...' if text overflows */
+}
+
   .call-name {
     font-size: 1.1rem;
     font-weight: bold;

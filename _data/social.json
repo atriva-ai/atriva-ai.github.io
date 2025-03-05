@@ -1,13 +1,8 @@
 [
   {
     "name": "Github",
-    "link": "https://github.com/zerostaticthemes/jekyll-serif-theme",
+    "link": "https://github.com/atriva-ai",
     "image": "images/social/github.svg"
-  },
-  {
-    "name": "Twitter",
-    "link": "https://twitter.com/zerostaticio",
-    "image": "images/social/twitter.svg"
   },
   {
       "name": "Facebook",
@@ -16,18 +11,12 @@
   },
   {
       "name": "Email",
-      "link": "mailto:ekyllserif@example.com ",
+      "link": "mailto:atriva.ai@gmail.com ",
       "image": "images/social/email.svg"
   },
   {
       "name": "Instagram",
       "link": "https://instagram.com",
       "image": "images/social/instagram.svg"
-  },
-  {
-      "name": "Discord",
-      "link": "https://discord.com",
-      "image": "images/social/discord.svg"
   }
-
 ]
