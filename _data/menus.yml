@@ -1,5 +1,5 @@
 main:
-  - name: "Resources"
+  - name: "Challenges"
     url: "/resources/"
     weight: 2
   - name: "Why Atriva?"

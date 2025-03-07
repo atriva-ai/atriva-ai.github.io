@@ -4,83 +4,21 @@ date: 2019-02-28T15:15:34+10:00
 weight: 3
 ---
 
-Lorem markdownum aequalis strigis. Saetigeri iubeas, vultu huic alvum nondum
-de obside ut laniavit arbor palmis, cum quin. Rupes vetat videndo, armigerae
-crimen habet Priamum nec.
+## Managing edge AI applications presents challenges such as ensuring **data security** and **privacy**, achieving **scalability** across diverse infrastructures, maintaining **reliability** amidst potential device failures, and effectively **monitoring** and **debugging** distributed systems. Addressing these issues requires robust engineering practices, vigilant security measures, and ethical considerations.
 
 ![Accounting Services](/images/austin-distel-nGc5RT2HmF0-unsplash.jpg)
 
-# Objectives
+## Managing edge AI applications involves navigating several challenges unique to decentralized computing environments:
 
-Financial accounting and financial reporting are often used as synonyms.
+### 1. **Data Security and Privacy:** Processing data at the network's edge can enhance privacy by limiting data transmission to central servers. However, it also introduces security risks, as edge devices may lack robust protection against unauthorized access. Ensuring data security across diverse and potentially less secure devices requires comprehensive encryption and security protocols.
 
-1. According to International Financial Reporting Standards: the objective of financial reporting is:
-2. To provide financial information that is useful to existing and potential investors, lenders and other creditors in making decisions about providing resources to the reporting entity.
-3. According to the European Accounting Association:
+### 2. **Scalability:** Edge computing environments often consist of heterogeneous devices with varying performance and connectivity. Scaling applications across such diverse infrastructures necessitates adaptable architectures capable of managing inconsistent resources and network reliability. 
 
-## Relevance
+### 3. **Reliability:** Maintaining continuous operation is critical, even if individual edge nodes fail or lose connectivity. Implementing fault-tolerant mechanisms and ensuring data consistency across distributed nodes are essential to uphold application reliability. 
 
-Relevance is the capacity of the financial information to influence the decision of its users. The ingredients of relevance are the predictive value and confirmatory value. Materiality is a sub-quality of relevance.
+### 4. **Monitoring and Debugging:** The distributed nature of edge AI applications complicates monitoring and debugging processes. Traditional tools may be inadequate, necessitating the development of specialized solutions to track performance and diagnose issues across multiple edge devices. 
 
-> The ingredients of relevance are the predictive value and confirmatory value.
+### 5. **Bias and Fairness:** Automated decision-making systems, including those deployed at the edge, can perpetuate biases present in their training data, leading to unfair outcomes. Addressing these biases is crucial to ensure ethical AI application. 
 
-Information is considered material if its omission or misstatement could influence the economic decisions of users taken on the basis of the financial statements.
+### Effectively addressing these challenges requires a multidisciplinary approach, combining robust engineering practices with vigilant security measures and ethical considerations. 
 
-## Faithful Representation
-
-Faithful representation means that the actual effects of the transactions shall be properly accounted for and reported in the financial statements. The words and numbers must match what really happened in the transaction. The ingredients of faithful representation are completeness, neutrality and free from error.
-
-## Enhancing Qualitative Characteristics
-
-### Verifiability
-
-Verifiability implies consensus between the different knowledgeable and independent users of financial information. Such information must be supported by sufficient evidence to follow the principle of objectivity.
-
-### Comparability
-
-Comparability is the uniform application of accounting methods across entities in the same industry. The principle of consistency is under comparability. Consistency is the uniform application of accounting across points in time within an entity.
-
-### Understandability
-
-Understandability means that accounting reports should be expressed as clearly as possible and should be understood by those to whom the information is relevant.
-Timeliness: Timeliness implies that financial information must be presented to the users before a decision is to be made.
-
----
-
-## Statement of cash flows
-
-The statement of cash flows considers the inputs and outputs in concrete cash within a stated period. The general template of a cash flow statement is as follows: Cash Inflow - Cash Outflow + Opening Balance = Closing Balance
-
-| Cash Inflow | Outflow   | Opening Balance |
-| ----------- | --------- | --------------- |
-| _Monday_    | `Tuesday` | **Wednesday**   |
-| 1           | 2         | 3               |
-
-**Example 1:** in the beginning of September, Ellen started out with $5 in her bank account. During that same month, Ellen borrowed $20 from Tom. At the end of the month, Ellen bought a pair of shoes for $7. Ellen's cash flow statement for the month of September looks like this:
-
-- Cash inflow: $20
-- Cash outflow:$7
-- Opening balance: $5
-- Closing balance: $20 – $7 + $5 = $18
-
-**Example 2:** in the beginning of June, WikiTables, a company that buys and resells tables, sold 2 tables. They'd originally bought the tables for $25 each, and sold them at a price of $50 per table. The first table was paid out in cash however the second one was bought in credit terms. WikiTables' cash flow statement for the month of June looks like this:
-
-> **Important:** the cash flow statement only considers the exchange of actual cash, and ignores what the person in question owes or is owed.
-
-## Statement of financial position (balance sheet)
-
-The balance sheet is the financial statement showing a firm's assets, liabilities and equity (capital) at a set point in time, usually the end of the fiscal year reported on the accompanying income statement.
-
-- **fixed assets**
-  - property
-  - building
-  - equipment (such as factory machinery)
-- **intangible assets**
-  - copyrights
-  - trademarks
-  - patents
-    - pending
-    - international
-- goodwill
-
-Owner's equity, sometimes referred to as net assets, is represented differently depending on the type of business ownership. Business ownership can be in the form of a sole proprietorship, partnership, or a corporation. For a corporation, the owner's equity portion usually shows common stock, and retained earnings (earnings kept in the company). Retained earnings come from the retained earnings statement, prepared prior to the balance sheet.

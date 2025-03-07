@@ -8,6 +8,6 @@ intro_image_hide_on_mobile: true
 show_call_box: true
 ---
 
-# Free Resources on Making Edge AI Deployment Effortless!
+# Making Edge AI Deployment Effortless!
 
 Atriva offers free tools that streamline edge deployment, allowing you to focus on developing AI model and business logic for your customers.
