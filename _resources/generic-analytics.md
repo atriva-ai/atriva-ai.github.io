@@ -1,87 +1,37 @@
 ---
-title: "Generic Analytics App"
+title: "Building UI Dashboards"
 date: 2019-06-18T12:33:46+10:00
 weight: 8
 ---
 
-Lorem markdownum **Achaica revolutaque amore**, penitus puppes nec furit,
-clipeus fatetur, mira inter accedere. Dedit dum raptoresque Oete dolorem
-Cretaeas enim [ipse pectora excusat](#in-poscat) candentibus fertur? Furtiva
-Orontes Erysicthona dona, est per Achille viridi draconis cultis mota milia.
+Building an application with a UI dashboard for Edge AI faces challenges like resource constraints, real-time data visualization, scalability, security, and cross-platform compatibility. Balancing local processing with cloud synchronization while ensuring a user-friendly design is essential for effective deployment.
 
 ![Accounting Services](/images/austin-distel-nGc5RT2HmF0-unsplash.jpg)
 
-# Objectives
+### **Challenges in Building an Application with a UI Dashboard for Edge AI**
 
-Financial accounting and financial reporting are often used as synonyms.
+1. **Resource Constraints** – Edge devices have limited CPU, memory, and storage, making it difficult to run complex UI dashboards.
+2. **Real-Time Data Visualization** – Ensuring low-latency updates while processing AI model inferences and system health metrics efficiently.
+3. **Scalability & Remote Access** – Managing multiple edge devices with a centralized or distributed dashboard while ensuring seamless connectivity.
+4. **Security & Authentication** – Protecting dashboard access against unauthorized users, data breaches, and cyber threats.
+5. **Cross-Platform Compatibility** – Ensuring the UI dashboard works smoothly across different devices, operating systems, and browsers.
+6. **Edge-to-Cloud Synchronization** – Balancing local processing with cloud-based dashboards for better data management and accessibility.
+7. **User-Friendly Design** – Creating an intuitive and responsive UI that provides actionable insights without overwhelming users.
 
-1. According to International Financial Reporting Standards: the objective of financial reporting is:
-2. To provide financial information that is useful to existing and potential investors, lenders and other creditors in making decisions about providing resources to the reporting entity.
-3. According to the European Accounting Association:
+Overcoming these challenges requires **lightweight, scalable, and secure UI frameworks** with efficient edge-to-cloud communication and real-time visualization tools. 🚀
 
-## Relevance
+### **Solutions for Building UI Dashboards with Easy and Fast Deployment**
 
-Relevance is the capacity of the financial information to influence the decision of its users. The ingredients of relevance are the predictive value and confirmatory value. Materiality is a sub-quality of relevance.
+1. **Streamlit (Open-Source)**: A Python-based library for building interactive web applications quickly. It's easy to integrate AI model visualizations, supports real-time data updates, and can be containerized with Docker for edge deployment.
 
-> The ingredients of relevance are the predictive value and confirmatory value.
+2. **Dash by Plotly (Open-Source)**: Another Python framework designed for building analytical web apps. It’s ideal for creating interactive dashboards and data visualizations, with Docker support for seamless deployment to edge devices.
 
-Information is considered material if its omission or misstatement could influence the economic decisions of users taken on the basis of the financial statements.
+3. **Grafana (Open-Source)**: A powerful tool for real-time monitoring dashboards. It integrates with various data sources (including IoT data from edge devices) and can be deployed using Docker to manage system health, AI inference data, and performance metrics.
 
-## Faithful Representation
+4. **Retool (Paid)**: A low-code app builder that allows you to quickly design UI dashboards, integrate APIs, and deploy with minimal effort. Retool can be hosted via Docker and is ideal for rapidly building dashboards with dynamic, real-time data.
 
-Faithful representation means that the actual effects of the transactions shall be properly accounted for and reported in the financial statements. The words and numbers must match what really happened in the transaction. The ingredients of faithful representation are completeness, neutrality and free from error.
+5. **Tableau (Paid)**: A robust, enterprise-grade data visualization tool with support for real-time data and integration of AI models. It supports Docker deployment, but licensing costs are higher compared to open-source solutions.
 
-## Enhancing Qualitative Characteristics
+6. **Vue.js + Quasar Framework (Open-Source)**: For more customized dashboards, Vue.js with the Quasar framework can help build responsive, interactive web applications that integrate with AI models. Both tools are Docker-ready, offering flexibility and speed in development.
 
-### Verifiability
-
-Verifiability implies consensus between the different knowledgeable and independent users of financial information. Such information must be supported by sufficient evidence to follow the principle of objectivity.
-
-### Comparability
-
-Comparability is the uniform application of accounting methods across entities in the same industry. The principle of consistency is under comparability. Consistency is the uniform application of accounting across points in time within an entity.
-
-### Understandability
-
-Understandability means that accounting reports should be expressed as clearly as possible and should be understood by those to whom the information is relevant.
-Timeliness: Timeliness implies that financial information must be presented to the users before a decision is to be made.
-
----
-
-## Statement of cash flows
-
-The statement of cash flows considers the inputs and outputs in concrete cash within a stated period. The general template of a cash flow statement is as follows: Cash Inflow - Cash Outflow + Opening Balance = Closing Balance
-
-| Cash Inflow | Outflow   | Opening Balance |
-| ----------- | --------- | --------------- |
-| _Monday_    | `Tuesday` | **Wednesday**   |
-| 1           | 2         | 3               |
-
-**Example 1:** in the beginning of September, Ellen started out with $5 in her bank account. During that same month, Ellen borrowed $20 from Tom. At the end of the month, Ellen bought a pair of shoes for $7. Ellen's cash flow statement for the month of September looks like this:
-
-- Cash inflow: $20
-- Cash outflow:$7
-- Opening balance: $5
-- Closing balance: $20 – $7 + $5 = $18
-
-**Example 2:** in the beginning of June, WikiTables, a company that buys and resells tables, sold 2 tables. They'd originally bought the tables for $25 each, and sold them at a price of $50 per table. The first table was paid out in cash however the second one was bought in credit terms. WikiTables' cash flow statement for the month of June looks like this:
-
-> **Important:** the cash flow statement only considers the exchange of actual cash, and ignores what the person in question owes or is owed.
-
-## Statement of financial position (balance sheet)
-
-The balance sheet is the financial statement showing a firm's assets, liabilities and equity (capital) at a set point in time, usually the end of the fiscal year reported on the accompanying income statement.
-
-- **fixed assets**
-  - property
-  - building
-  - equipment (such as factory machinery)
-- **intangible assets**
-  - copyrights
-  - trademarks
-  - patents
-    - pending
-    - international
-- goodwill
-
-Owner's equity, sometimes referred to as net assets, is represented differently depending on the type of business ownership. Business ownership can be in the form of a sole proprietorship, partnership, or a corporation. For a corporation, the owner's equity portion usually shows common stock, and retained earnings (earnings kept in the company). Retained earnings come from the retained earnings statement, prepared prior to the balance sheet.
+By leveraging these tools, you can create interactive, responsive, and scalable UI dashboards with minimal overhead, and deploy them on edge devices using Docker for ease of management and updates. 🚀
