@@ -10,7 +10,7 @@
   },
   {
     "title": "AI Model",
-    "description": "Simple tool to compile and deploy your AI model.",
+    "description": "Simple tool to import, update and deploy your AI model.",
     "image": {
       "url": "images/features/noun_The Process_1885341.svg",
       "width": 80,
@@ -19,7 +19,7 @@
   },
   {
     "title": "AI Application",
-    "description": "Nocode IDE to build your AI application.",
+    "description": "Sample app and template to build your first AI application.",
     "image": {
       "url": "images/features/noun_3d modeling_1885342.svg",
       "width": 80,
