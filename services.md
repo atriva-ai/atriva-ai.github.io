@@ -2,10 +2,10 @@
 layout: page
 description: Services
 bodyClass: page-about
-title: Edge AI - From Development to Deployment
+title: From Development to Deployment
 ---
   
-**Empowering Intelligent Solutions at the Edge**
+*Empowering Intelligent Solutions at the Edge*
 
 Unlock the full potential of AI at the edge with our comprehensive suite of services. From seamless AI hardware integration to advanced model management and secure application deployment, we help businesses harness edge computing for real-time intelligence and efficiency.
 

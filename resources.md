@@ -3,7 +3,7 @@ title: Resources
 layout: resources
 description: Resources
 intro_image: "images/illustrations/EdgeAIArchitecture.svg"
-intro_image_absolute: true
+intro_image_absolute: false
 intro_image_hide_on_mobile: true
 ---
 

@@ -2,8 +2,8 @@
 title: Why Atriva?
 layout: benefits
 description: Why Atriva?
-intro_image: "images/illustrations/EdgeAIArchitecture.svg"
-intro_image_absolute: true
+intro_image: "images/illustrations/AtrivaEdgeAIDiagram.svg"
+intro_image_absolute: false
 intro_image_hide_on_mobile: true
 ---
 
