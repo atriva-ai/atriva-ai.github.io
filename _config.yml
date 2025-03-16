@@ -3,10 +3,10 @@ permalink: pretty
 title: 'Atriva Inc.'
 
 logo:
-  mobile: "images/logo/logo.png" # "logo-mobile.svg"
+  mobile: "images/logo/logo.png"
   mobile_height: "32px"
   mobile_width: "32px"
-  desktop: "images/logo/AtrivaTextOnly.svg" # "images/logo/logo.svg"
+  desktop: "images/logo/AtrivaTextOnly.svg"
   desktop_height: "120px" # "30px"
   desktop_width: "240px" # "120px"
 
