@@ -7,6 +7,17 @@ intro_image_absolute: false
 intro_image_hide_on_mobile: true
 ---
 
-# Challenges on Edge AI Deployment
+# Unlock the Power of Your Cameras with Edge AI — Faster, Smarter, Easier
 
-Edge AI deployment may seem easy to start without prior planning, but developing project-specific custom applications can result in unmanageable and non-reusable code for future projects. Key considerations include hardware constraints, video decoder pipelines, camera interface integration, model management, real-time processing demands, and compatibility issues. Effective deployment requires careful optimization, modular design, and the use of efficient inference frameworks.
+Cameras are everywhere — but turning video into actionable business insights or enhanced security through Edge AI is no simple task.
+
+From development to deployment, the challenges are real:
+✅ Choosing the right hardware and ensuring performance
+✅ Navigating SDKs and complex video processing
+✅ Integrating with existing systems
+✅ Building custom logic and user interfaces
+✅ Managing licenses, health monitoring, and ongoing support
+
+Every Edge AI deployment is unique. Customization is the norm, not the exception.
+
+That’s why finding reusable, easily integrated modules is key. The right building blocks accelerate your timeline and simplify your path from concept to field-ready solution.
