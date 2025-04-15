@@ -1,7 +1,7 @@
 [
   {
-    "title": "AI Hardware",
-    "description": "Simple SDK to inference on any AI accelerator.",
+    "title": "AI Inference Engine",
+    "description": "Unified API for many AI hardware backends.",
     "image": {
       "url": "images/features/noun_branding_1885335.svg",
       "width": 80,
@@ -9,8 +9,8 @@
     }
   },
   {
-    "title": "AI Model",
-    "description": "Simple tool to import, update and deploy your AI model.",
+    "title": "Video Decode Pipeline",
+    "description": "Purpose-build video pipeline for AI, decoupled from your core logic.",
     "image": {
       "url": "images/features/noun_The Process_1885341.svg",
       "width": 80,
@@ -18,8 +18,8 @@
     }
   },
   {
-    "title": "AI Application",
-    "description": "Sample app and template to build your first AI application.",
+    "title": "AI Analytics Builder",
+    "description": "Simplify UI development with a unified analytics layer over AI and video",
     "image": {
       "url": "images/features/noun_3d modeling_1885342.svg",
       "width": 80,

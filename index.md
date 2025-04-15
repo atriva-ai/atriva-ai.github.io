@@ -8,6 +8,6 @@ intro_image_hide_on_mobile: true
 show_call_box: true
 ---
 
-# Making Edge AI Deployment Effortless!
+# Seamless Multi-Camera Vision AI at the Edge!
 
-Atriva offers free tools that streamline edge deployment, allowing you to focus on developing AI model and business logic for your customers.
+Build smarter, faster. Atriva’s free platform handles the heavy lifting of multi-camera edge deployment, letting you focus on your AI and your customers
