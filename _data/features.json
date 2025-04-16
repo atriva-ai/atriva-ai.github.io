@@ -12,7 +12,7 @@
     "title": "Video Decode Pipeline",
     "description": "Purpose-build video pipeline for AI, decoupled from your core logic.",
     "image": {
-      "url": "images/features/video_decode_pipeline_sq.svg",
+      "url": "images/features/video_decode_pipeline_sq.png",
       "width": 80,
       "height": 80
     }
