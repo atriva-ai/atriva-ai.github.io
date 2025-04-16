@@ -1,8 +1,9 @@
 ---
-title: Atriva AI - For every EDGE deployment
+title: Atriva AI - For every Multi-Cam EDGE AI deployment
 layout: home
-description: Atriva AI provides tools that help your edge deployment while you focus on your model and business logic.
-intro_image: "images/home/StreamlineEdgeAI2-0.svg" # "images/illustrations/pointing.svg"
+description: Boost your AI video analytics with Atriva’s edge-ready multi-camera tools.
+# intro_image: "images/home/StreamlineEdgeAI2-0.svg" # "images/illustrations/pointing.svg"
+intro_image: "images/home/AtrivaAI3Pillars.png"
 intro_image_absolute: false
 intro_image_hide_on_mobile: true
 show_call_box: true
