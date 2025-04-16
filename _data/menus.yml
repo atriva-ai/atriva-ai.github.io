@@ -2,7 +2,7 @@ main:
   - name: "Why Atriva?"
     url: "/benefits/"
     weight: 2
-  - name: "Challenges"
+  - name: "Resources"
     url: "/resources/"
     weight: 3
   - name: "Services"
