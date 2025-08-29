@@ -1,54 +1,58 @@
 ---
 // @ts-ignore
-import { Icon } from "astro-icon/components";
+import ReuseIcon from "@/assets/icons/bring-to-front.svg";
+import FastIcon from "@/assets/icons/rocket.svg";
+import CostIcon from "@/assets/icons/wallet.svg";
+import OpenIcon from "@/assets/icons/github.svg";
+import DevelopIcon from "@/assets/icons/git-pull-request-arrow.svg";
+import HardwareIcon from "@/assets/icons/microchip.svg";
 
 const features = [
   {
-    title: "Bring Your Own Framework",
+    title: "Reusable Architecture",
     description:
-      "Build your site using React, Svelte, Vue, Preact, web components, or just plain ol' HTML + JavaScript.",
-    icon: "bx:bxs-briefcase",
+      "Build once, deploy anywhere — our modular setup ensures long-term reusability across multiple edge AI projects.",
+    icon: ReuseIcon,
   },
   {
-    title: "100% Static HTML, No JS",
+    title: "Fast Deployment",
     description:
-      "Astro renders your entire page to static HTML, removing all JavaScript from your final build by default.",
-    icon: "bx:bxs-window-alt",
+      "Pre-configured Docker containers let you get AI apps running on edge devices in minutes, not weeks",
+    icon: FastIcon,
   },
   {
-    title: "On-Demand Components",
+    title: "Cost Effective",
     description:
-      "Need some JS? Astro can automatically hydrate interactive components when they become visible on the page.  ",
-    icon: "bx:bxs-data",
+      "Save on engineering and cloud costs with optimized hardware integration and efficient workflows.",
+    icon: CostIcon,
   },
   {
-    title: "Broad Integration",
+    title: "Open Source First",
     description:
-      "Astro supports TypeScript, Scoped CSS, CSS Modules, Sass, Tailwind, Markdown, MDX, and any other npm packages.",
-    icon: "bx:bxs-bot",
+      "Most of Atriva’s source code is open source — giving developers transparency, flexibility, and the freedom to customize without vendor lock-in.",
+    icon: OpenIcon,
   },
   {
-    title: "SEO Enabled",
+    title: "Developer Friendly",
     description:
-      "Automatic sitemaps, RSS feeds, pagination and collections take the pain out of SEO and syndication. It just works!",
-    icon: "bx:bxs-file-find",
+      "Simple APIs, clear docs, and prebuilt SDKs make it easy to go from prototype to production.",
+    icon: DevelopIcon,
   },
   {
-    title: "Community",
+    title: "Hardware Agnostic",
     description:
-      "Astro is an open source project powered by hundreds of contributors making thousands of individual contributions.",
-    icon: "bx:bxs-user",
+      "Run on any AI accelerator — GPUs, NPUs, SoCs — without being locked into a single vendor.",
+    icon: HardwareIcon,
   },
 ];
 ---
 
 <div class="mt-16 md:mt-0">
   <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">
-    Everything you need to start a website
+    Why Choose Atriva?
   </h2>
   <p class="text-lg mt-4 text-slate-600">
-    Astro comes batteries included. It takes the best parts of state-of-the-art
-    tools and adds its own innovations.
+    Six core advantages that make building and scaling Edge AI faster, easier, and more reliable.
   </p>
 </div>
 
@@ -56,14 +60,18 @@ const features = [
   {
     features.map((item) => (
       <div class="flex gap-4 items-start">
-        <div class="mt-1 bg-black rounded-full  p-2 w-8 h-8 shrink-0">
-          <Icon class="text-white" name={item.icon} />
+        {/* Icon container */}
+        <div class="flex-shrink-0">
+          <item.icon class="w-10 h-10 text-indigo-600" />
         </div>
+
+        {/* Text container */}
         <div>
-          <h3 class="font-semibold text-lg">{item.title}</h3>{" "}
+          <h3 class="font-semibold text-lg">{item.title}</h3>
           <p class="text-slate-500 mt-2 leading-relaxed">{item.description}</p>
         </div>
       </div>
     ))
   }
 </div>
+

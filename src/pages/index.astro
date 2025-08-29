@@ -1,4 +1,73 @@
 ---
+import Layout from "../layouts/Layout.astro"; // adjust if your layout name/path differs
+import { getEntryBySlug } from "astro:content";
+
+import Container from "@/components/container.astro";
+import Cta from "@/components/cta.astro";
+import Features from "@/components/features.astro";
+import Hero from "@/components/hero.astro";
+import Logos from "@/components/logos.astro";
+import Layout from "@/layouts/Layout.astro";
+
+
+const entry = await getEntryBySlug("pages", "index");
+if (!entry) {
+  throw new Error("Missing src/content/pages/index.md");
+}
+const { data, body } = entry;
+---
+
+<Layout title={data.title} description={data.description}>
+  <!-- Hero -->
+  <section class="relative bg-gradient-to-br from-indigo-900 via-sky-900 to-black text-white py-24">
+  <div class="max-w-4xl mx-auto px-6 text-center">
+    <h1 class="text-4xl md:text-6xl font-extrabold leading-tight">{data.title}</h1>
+    {data.description && (
+      <p class="mt-6 text-lg md:text-xl opacity-90">{data.description}</p>
+    )}
+    <div class="mt-8 flex flex-col sm:flex-row justify-center gap-4">
+      <a
+        href="/benefits"
+        class="px-6 py-3 bg-sky-500 hover:bg-sky-400 text-white rounded-full font-semibold shadow-lg transition"
+      >
+        🚀 Get Started
+      </a>
+      <a
+        href="/resources"
+        class="px-6 py-3 border border-white/40 text-white rounded-full font-semibold hover:bg-white/10 transition"
+      >
+        📘 Learn More
+      </a>
+    </div>
+  </div>
+  </section>
+
+
+
+
+  <!-- Markdown sections with alternating background 
+  <main class="max-w-5xl mx-auto">
+    {
+      body.split(/(?=## )/).map((section, i) => (
+        <section class={`prose prose-lg px-6 py-16 ${i % 2 === 0 ? "bg-white" : "bg-gray-50"}`}>
+          <Fragment set:html={section} />
+        </section>
+      ))
+    }
+  </main>
+  -->
+
+  <Container>
+    <Hero />
+    <Features />
+    <Logos />
+    <Cta />
+  </Container>
+
+</Layout>
+
+<!---
+---
 import Container from "@/components/container.astro";
 import Cta from "@/components/cta.astro";
 import Features from "@/components/features.astro";
@@ -15,3 +84,4 @@ import Layout from "@/layouts/Layout.astro";
     <Cta />
   </Container>
 </Layout>
+-->
