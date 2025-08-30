@@ -25,6 +25,7 @@ const { data, body } = entry;
     {data.description && (
       <p class="mt-6 text-lg md:text-xl opacity-90">{data.description}</p>
     )}
+    <!-- Remove CTA buttons for now
     <div class="mt-8 flex flex-col sm:flex-row justify-center gap-4">
       <a
         href="/benefits"
@@ -39,24 +40,10 @@ const { data, body } = entry;
         📘 Learn More
       </a>
     </div>
+    -->
   </div>
   </section>
 
-
-
-
-  <!-- Markdown sections with alternating background 
-  <main class="max-w-5xl mx-auto">
-    {
-      body.split(/(?=## )/).map((section, i) => (
-        <section class={`prose prose-lg px-6 py-16 ${i % 2 === 0 ? "bg-white" : "bg-gray-50"}`}>
-          <Fragment set:html={section} />
-        </section>
-      ))
-    }
-  </main>
-  -->
-
   <Container>
     <Hero />
     <Features />
@@ -65,23 +52,3 @@ const { data, body } = entry;
   </Container>
 
 </Layout>
-
-<!---
----
-import Container from "@/components/container.astro";
-import Cta from "@/components/cta.astro";
-import Features from "@/components/features.astro";
-import Hero from "@/components/hero.astro";
-import Logos from "@/components/logos.astro";
-import Layout from "@/layouts/Layout.astro";
----
-
-<Layout title="">
-  <Container>
-    <Hero />
-    <Features />
-    <Logos />
-    <Cta />
-  </Container>
-</Layout>
--->

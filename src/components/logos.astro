@@ -1,23 +1,46 @@
 ---
-// @ts-ignore
 import { Icon } from "astro-icon/components";
+
+// Logos list (SVGs or PNGs stored in /public/logos)
+const logos = [
+  { name: "Docker", src: "/images/logos/Docker.png" },
+  { name: "Ubuntu", src: "/images/logos/Ubuntu.png" },
+  { name: "OpenVINO", src: "/images/logos/openvino.png" },
+  { name: "TensorFlow", src: "/images/logos/tensorflow.svg" },
+  { name: "ultralytics", src: "/images/logos/ultralytics.png" },
+  { name: "FFMPEG", src: "/images/logos/ffmpeg.svg" },
+  { name: "ONNX", src: "/images/logos/ONNX.svg" },
+  { name: "NVIDIA", src: "/images/logos/nvidia.png" },
+  { name: "Intel", src: "/images/logos/intel.svg" },
+  { name: "Rockchip", src: "/images/logos/rockchip.png" },
+  { name: "MemryX", src: "/images/logos/memryx.png" },
+  { name: "Hailo", src: "/images/logos/hailo.png" },
+];
 ---
 
-<div class="mt-24">
-  <h2 class="text-center text-slate-500">Works with your technologies</h2>
-  <div class="flex gap-8 md:gap-20 items-center justify-center mt-10 flex-wrap">
+<section class="py-16 bg-white">
+  <div class="max-w-6xl mx-auto px-6 text-center">
+    <h2 class="text-2xl sm:text-3xl font-bold text-slate-800">
+      Powered by the tools you already use
+    </h2>
+    <p class="mt-2 text-slate-600">
+      Atriva integrates seamlessly with popular frameworks, hardware, and AI runtimes.  
+      You bring your stack — we make it work together.
+    </p>
 
-    <Icon class="size-8 md:size-16" name="simple-icons:docker" />
-    <Icon class="size-8 md:size-16" name="simple-icons:ubuntu" />
-    <Icon class="size-8 md:size-16" name="simple-icons:intel" />
-    <Icon class="size-8 md:size-16" name="simple-icons:nvidia" /> <!-- Jetson -->
-    <Icon class="size-8 md:size-16" name="simple-icons:onnx" />
-    <Icon class="size-8 md:size-16" name="simple-icons:tensorflow" /> <!-- TFLite -->
-    <Icon class="size-8 md:size-16" name="simple-icons:ffmpeg" />
-
-    <!-- If no simple-icons exist, fallback to custom SVG later -->
-    <!-- Example: Rockchip, MemryX, Hailo, OpenVINO -->
-    <!-- <img src="/images/logos/openvino.svg" alt="OpenVINO" class="h-12" /> -->
-
+    <div
+      class="mt-12 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-8 place-items-center"
+    >
+      {logos.map((logo) => (
+        <div class="flex items-center justify-center h-16 w-28 grayscale hover:grayscale-0 transition">
+          <img
+            src={logo.src}
+            alt={logo.name}
+            class="max-h-12 object-contain"
+            loading="lazy"
+          />
+        </div>
+      ))}
+    </div>
   </div>
-</div>
+</section>

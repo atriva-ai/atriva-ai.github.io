@@ -1,16 +1,40 @@
 ---
 import Link from "./ui/link.astro";
+import { Icon } from "astro-icon/components";
 ---
 
-<div
-  class="bg-black p-8 md:px-20 md:py-20 mt-20 mx-auto max-w-5xl rounded-lg flex flex-col items-center text-center">
-  <h2 class="text-white text-4xl md:text-6xl tracking-tight">
-    Build vision AI at the edge faster.
-  </h2>
-  <p class="text-slate-400 mt-4 text-lg md:text-xl">
-    Bring up your business idea and start building!
-  </p>
-  <div class="flex mt-5">
-    <Link href="https://github.com/atriva-ai" style="inverted">Get Started</Link>
+<section class="py-16 bg-gradient-to-r from-slate-50 to-slate-100">
+  <div class="max-w-4xl mx-auto px-6 text-center">
+    <h2 class="text-3xl font-bold text-slate-800 sm:text-4xl">
+      Ready to get started?
+    </h2>
+    <p class="mt-4 text-lg text-slate-600">
+      Join our community, explore the code, and help us shape the future of Edge AI.
+    </p>
+
+    <div class="mt-8 flex flex-wrap justify-center gap-4">
+      <!-- GitHub Repo Button -->
+      <Link
+        size="lg"
+        rel="noopener"
+        href="https://github.com/atriva-ai"
+        target="_blank"
+        class="flex gap-2 items-center justify-center bg-[#48A18D] !text-white px-6 py-3 rounded-lg hover:bg-[#3b8675] transition"
+      >
+        <Icon class="w-5 h-5 text-white" name="bx:bxl-github" />
+        <span class="text-white font-medium">GitHub Repo</span>
+      </Link>
+
+      <!-- Contact Button -->
+      <Link
+        size="lg"
+        href="/contact"
+        class="flex gap-2 items-center justify-center bg-slate-800 text-white px-6 py-3 rounded-lg hover:bg-slate-700 transition"
+      >
+        <Icon class="w-5 h-5 text-white" name="bx:bx-envelope" />
+        <span class="text-white font-medium">Contact Us</span>
+      </Link>
+    </div>
   </div>
-</div>
+</section>
+

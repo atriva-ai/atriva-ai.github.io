@@ -10,8 +10,28 @@ import Button from "./ui/button.astro";
   id="form"
   class="needs-validation"
   novalidate>
-  <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE" />
+  <input type="hidden" name="access_key" value="a12a1db9-8066-4263-bb27-c717f9ff70f1" />
   <!-- Create your free access key from https://web3forms.com/ -->
+  
+  <div class="mb-5">
+  <label for="category" class="sr-only">Category</label>
+  <select
+    id="category"
+    name="category"
+    required
+    class="w-full px-4 py-3 border-2 rounded-md border-gray-300 focus:border-gray-600 focus:ring-4 ring-gray-100"
+  >
+    <option value="">Select Inquiry Type</option>
+    <option value="developer">Open Source Contributor / Developer</option>
+    <option value="feature">Feature / Product Request</option>
+    <option value="general">General Query</option>
+  </select>
+  <div class="empty-feedback text-red-400 text-sm mt-1">
+    Please select a category.
+  </div>
+  </div>
+  
+  
   <input type="checkbox" class="hidden" style="display:none" name="botcheck" />
   <div class="mb-5">
     <input
