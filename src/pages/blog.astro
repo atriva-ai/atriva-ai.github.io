@@ -5,14 +5,17 @@ import Layout from "@/layouts/Layout.astro";
 import Container from "@/components/container.astro";
 import Sectionhead from "@/components/sectionhead.astro";
 
-// Filter blog entries with 'draft: false' & date before current date
+// Filter blog entries: draft false & publishDate before now
 const publishedBlogEntries = await getCollection("blog", ({ data }) => {
-  return !data.draft && data.publishDate < new Date();
+  const publishDate = new Date(data.publishDate);
+  return !data.draft && publishDate <= new Date();
 });
 
-// Sort content entries by publication date
-publishedBlogEntries.sort(function (a, b) {
-  return b.data.publishDate.valueOf() - a.data.publishDate.valueOf();
+// Sort content entries by publication date (newest first)
+publishedBlogEntries.sort((a, b) => {
+  const dateA = new Date(a.data.publishDate);
+  const dateB = new Date(b.data.publishDate);
+  return dateB.valueOf() - dateA.valueOf();
 });
 ---
 
@@ -24,10 +27,12 @@ publishedBlogEntries.sort(function (a, b) {
         We write about building startups and thoughts going on our mind.
       </Fragment>
     </Sectionhead>
+
     <main class="mt-16">
       <ul class="grid gap-16 max-w-4xl mx-auto">
-        {
-          publishedBlogEntries.map((blogPostEntry, index) => (
+        {publishedBlogEntries.map((blogPostEntry, index) => {
+          const publishDate = new Date(blogPostEntry.data.publishDate);
+          return (
             <li>
               <a href={`/blog/${blogPostEntry.slug}`}>
                 <div class="grid md:grid-cols-2 gap-5 md:gap-10 items-center">
@@ -46,27 +51,26 @@ publishedBlogEntries.sort(function (a, b) {
                       {blogPostEntry.data.category}
                     </span>
 
-                    <h2 class="text-3xl font-semibold leading-snug tracking-tight mt-1 ">
+                    <h2 class="text-3xl font-semibold leading-snug tracking-tight mt-1">
                       {blogPostEntry.data.title}
                     </h2>
 
                     <div class="flex gap-2 mt-3">
-                      <span class="text-gray-400">
-                        {blogPostEntry.data.author}
-                      </span>
-                      <span class="text-gray-400">• </span>
+                      <span class="text-gray-400">{blogPostEntry.data.author}</span>
+                      <span class="text-gray-400">•</span>
                       <time
                         class="text-gray-400"
-                        datetime={blogPostEntry.data.publishDate.toISOString()}>
-                        {blogPostEntry.data.publishDate.toDateString()}
+                        datetime={publishDate.toISOString()}
+                      >
+                        {publishDate.toDateString()}
                       </time>
                     </div>
                   </div>
                 </div>
               </a>
             </li>
-          ))
-        }
+          );
+        })}
       </ul>
     </main>
   </Container>
