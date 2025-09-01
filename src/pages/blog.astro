@@ -1,77 +1,29 @@
 ---
+import Layout from "../layouts/Layout.astro";
 import { getCollection } from "astro:content";
-import { Picture } from "astro:assets";
-import Layout from "@/layouts/Layout.astro";
-import Container from "@/components/container.astro";
-import Sectionhead from "@/components/sectionhead.astro";
 
-// Filter blog entries: draft false & publishDate before now
-const publishedBlogEntries = await getCollection("blog", ({ data }) => {
-  const publishDate = new Date(data.publishDate);
-  return !data.draft && publishDate <= new Date();
-});
-
-// Sort content entries by publication date (newest first)
-publishedBlogEntries.sort((a, b) => {
-  const dateA = new Date(a.data.publishDate);
-  const dateB = new Date(b.data.publishDate);
-  return dateB.valueOf() - dateA.valueOf();
-});
+const posts = await getCollection("blog");
 ---
 
 <Layout title="Blog">
-  <Container>
-    <Sectionhead>
-      <Fragment slot="title">Our Blog</Fragment>
-      <Fragment slot="desc">
-        We write about building startups and thoughts going on our mind.
-      </Fragment>
-    </Sectionhead>
-
-    <main class="mt-16">
-      <ul class="grid gap-16 max-w-4xl mx-auto">
-        {publishedBlogEntries.map((blogPostEntry, index) => {
-          const publishDate = new Date(blogPostEntry.data.publishDate);
-          return (
-            <li>
-              <a href={`/blog/${blogPostEntry.slug}`}>
-                <div class="grid md:grid-cols-2 gap-5 md:gap-10 items-center">
-                  <Picture
-                    src={blogPostEntry.data.image.src}
-                    alt={blogPostEntry.data.image.alt}
-                    sizes="(max-width: 800px) 100vw, 800px"
-                    width={800}
-                    height={600}
-                    loading={index <= 2 ? "eager" : "lazy"}
-                    decoding={index <= 2 ? "sync" : "async"}
-                    class="w-full rounded-md object-cover object-center bg-white"
-                  />
-                  <div>
-                    <span class="text-blue-400 uppercase tracking-wider text-sm font-medium">
-                      {blogPostEntry.data.category}
-                    </span>
-
-                    <h2 class="text-3xl font-semibold leading-snug tracking-tight mt-1">
-                      {blogPostEntry.data.title}
-                    </h2>
-
-                    <div class="flex gap-2 mt-3">
-                      <span class="text-gray-400">{blogPostEntry.data.author}</span>
-                      <span class="text-gray-400">•</span>
-                      <time
-                        class="text-gray-400"
-                        datetime={publishDate.toISOString()}
-                      >
-                        {publishDate.toDateString()}
-                      </time>
-                    </div>
-                  </div>
-                </div>
-              </a>
-            </li>
-          );
-        })}
-      </ul>
-    </main>
-  </Container>
+  <main class="max-w-4xl mx-auto px-6 py-16">
+    <h1 class="text-4xl font-bold mb-8">Blog</h1>
+    <ul class="space-y-8">
+      {posts
+        .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+        .map((post) => (
+          <li>
+            <a href={`/blog/${post.slug}/`} class="text-2xl font-semibold text-sky-600 hover:underline">
+              {post.data.title}
+            </a>
+            {post.data.description && (
+              <p class="text-gray-600 mt-2">{post.data.description}</p>
+            )}
+            <p class="text-sm text-gray-400 mt-1">
+              {post.data.pubDate.toDateString()}
+            </p>
+          </li>
+        ))}
+    </ul>
+  </main>
 </Layout>
