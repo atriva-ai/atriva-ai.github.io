@@ -1,22 +1,23 @@
 ---
-import Layout from "../layouts/Layout.astro"; // adjust if needed
+import Layout from "../layouts/Layout.astro";
 import { getCollection } from "astro:content";
-import { Markdown } from "astro/components";
 
 export async function getStaticPaths() {
-  const pages = await getCollection("pages");
-  return pages.map((page) => ({
-    params: { slug: page.slug },
-    props: { page },
+  const posts = await getCollection("blog");
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+    props: post,
   }));
 }
 
-const { page } = Astro.props;
-const { data, body } = page;
+const { data, render } = Astro.props;
+const { Content } = await render();
 ---
+
 <Layout title={data.title} description={data.description}>
-  <main class="prose prose-lg max-w-4xl mx-auto px-6 py-16">
+  <main class="prose prose-lg max-w-3xl mx-auto px-6 py-16">
     <h1>{data.title}</h1>
-    <Markdown content={body} />
+    {data.pubDate && <p class="text-gray-500">{data.pubDate.toDateString()}</p>}
+    <Content />   <!-- ✅ This renders markdown -->
   </main>
 </Layout>
