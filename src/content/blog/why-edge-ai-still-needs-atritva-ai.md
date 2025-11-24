@@ -115,7 +115,7 @@ Atriva AI exists to support **human judgment**, not replace it—by giving engin
 # 🔗 Join the Atriva AI Community
 Want to collaborate, learn, or contribute?
 
-👉 **https://www.atriva.ai/community**
+👉 **https://github.com/atriva-ai-community**
 
 Engineers, researchers, and hobbyists are all welcome.
 
