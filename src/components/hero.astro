@@ -6,15 +6,16 @@ import { Icon } from "astro-icon/components";
 ---
 
 <main
-  class="grid lg:grid-cols-2 place-items-center pt-16 pb-8 md:pt-12 md:pb-24">
-  <div class="py-6 md:order-1 hidden md:block">
+  class="grid lg:grid-cols-2 place-items-center pt-12 pb-12 md:pt-16 md:pb-32">
+  <div class="py-6 md:order-1 hidden md:block max-h-[360px] mx-auto">
     <Picture
       src={heroImage}
       alt="Astronaut in the air"
       widths={[200, 400, 600]}
-      sizes="(max-width: 800px) 100vw, 620px"
+      sizes="(max-width: 800px) 100vw, 591px"
       loading="eager"
       format="avif"
+      class="w-auto max-h-[360px] object-contain"
     />
   </div>
   <div>
@@ -39,14 +40,15 @@ import { Icon } from "astro-icon/components";
       -->
       <Link
         size="lg"
-        style="outline"
+        href="https://github.com/atriva-ai-community"
+        target="_blank"
         rel="noopener"
-        href="https://github.com/atriva-ai"
-        class="flex gap-1 items-center justify-center bg-[#48A18D] text-black px-5 py-2 rounded-lg hover:bg-[#3b8675]"
-        target="_blank">
-        <Icon class="text-black w-4 h-4" name="bx:bxl-github" />
-        GitHub Repo
+        class="flex gap-2 items-center justify-center bg-[#48A18D] text-white font-semibold px-6 py-3 rounded-lg hover:bg-[#3b8675] transition"
+      >
+        <Icon class="text-white w-4 h-4" name="bx:bxl-github" />
+        Visit GitHub →
       </Link>
+
     </div>
   </div>
 </main>

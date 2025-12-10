@@ -8,7 +8,10 @@ import Features from "@/components/features.astro";
 import Hero from "@/components/hero.astro";
 import Logos from "@/components/logos.astro";
 import Layout from "@/layouts/Layout.astro";
-
+import HowItWorks from "../components/HowItWorks.astro";
+import UseCases from "../components/UseCases.astro";
+import Screenshots from "../components/Screenshots.astro";
+import Community from "../components/Community.astro";
 
 const entry = await getEntryBySlug("pages", "index");
 if (!entry) {
@@ -46,8 +49,12 @@ const { data, body } = entry;
 
   <Container>
     <Hero />
+    <HowItWorks />
     <Features />
+    <UseCases />
+    <Screenshots />
     <Logos />
+    <Community />
     <Cta />
   </Container>
 

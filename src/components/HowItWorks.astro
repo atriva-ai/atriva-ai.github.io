@@ -1,0 +1,55 @@
+---
+import Step1Icon from "@/assets/icons/cpu.svg";
+import Step2Icon from "@/assets/icons/package.svg";
+import Step3Icon from "@/assets/icons/launch.svg";
+
+const steps = [
+  {
+    title: "1. Pick Your Hardware",
+    description:
+      "Choose from GPUs, NPUs, SoCs, or edge accelerators. Atriva supports any device.",
+    icon: Step1Icon,
+  },
+  {
+    title: "2. Use Prebuilt Containers",
+    description:
+      "Deploy optimized inference containers with zero manual setup.",
+    icon: Step2Icon,
+  },
+  {
+    title: "3. Build & Scale",
+    description:
+      "Add pipelines, APIs, and monitoring as your workload grows — all with minimal overhead.",
+    icon: Step3Icon,
+  },
+];
+---
+
+<section class="relative py-20 md:py-12 bg-slate-50">
+    <div class="container max-w-screen-xl mx-auto px-4">
+
+<div class="mt-16 md:mt-0">
+  <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">
+    How Atriva Works
+  </h2>
+  <p class="text-lg mt-4 text-slate-600 max-w-4xl">
+    Atriva simplifies the entire Edge AI lifecycle — from setup to deployment to scaling.
+  </p>
+
+  <div class="grid sm:grid-cols-2 md:grid-cols-3 mt-16 gap-16">
+    {steps.map((item) => (
+      <div class="flex gap-4 items-start">
+        <div class="flex-shrink-0">
+        <item.icon class="w-10 h-10 text-[#48A18D]" />
+        </div>
+        <div>
+          <h3 class="font-semibold text-lg">{item.title}</h3>
+          <p class="text-slate-500 mt-2 leading-relaxed">
+            {item.description}
+          </p>
+        </div>
+      </div>
+    ))}
+  </div>
+</div>
+</section>

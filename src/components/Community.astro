@@ -1,0 +1,56 @@
+---
+import GitIcon from "@/assets/icons/github.svg";
+import DiscordIcon from "@/assets/icons/message-square.svg";
+import DocIcon from "@/assets/icons/file-text.svg";
+
+const items = [
+  {
+    title: "Open-Source on GitHub",
+    description:
+      "All core components live on GitHub — transparent, forkable, and MIT-licensed.",
+    icon: GitIcon,
+  },
+  {
+    title: "Active Developer Community",
+    description:
+      "Join discussions, contribute code, and collaborate with other builders.",
+    icon: DiscordIcon,
+  },
+  {
+    title: "Growing Documentation",
+    description:
+      "Clear guides and examples help you get started quickly and build with confidence.",
+    icon: DocIcon,
+  },
+];
+---
+
+<section class="relative py-20 md:py-12">
+    <div class="container max-w-screen-xl mx-auto px-4">
+    <div class="mt-16 md:mt-0">
+
+  <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">
+    Open-Source & Community
+  </h2>
+  <p class="text-lg mt-4 text-slate-600 max-w-4xl">
+    Atriva is powered by a community of contributors building the future of edge AI together.
+  </p>
+
+  <div class="grid sm:grid-cols-2 md:grid-cols-3 mt-16 gap-16">
+    {items.map((item) => (
+      <div class="flex gap-4 items-start">
+        <div class="flex-shrink-0">
+        <item.icon class="w-10 h-10 text-[#48A18D]" />
+        </div>
+        <div>
+          <h3 class="font-semibold text-lg">{item.title}</h3>
+          <p class="text-slate-500 mt-2 leading-relaxed">
+            {item.description}
+          </p>
+        </div>
+      </div>
+    ))}
+  </div>
+</div>
+</div>
+</section>
