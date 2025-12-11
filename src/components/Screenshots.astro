@@ -1,24 +1,59 @@
+---
+import { Picture } from "astro:assets";
+
+// Import your real screenshots
+import retailScreenshot from "@/assets/screenshots/retail-dashboard.png";
+import lprScreenshot from "@/assets/screenshots/lpr-dashboard.png";
+---
+
 <section class="py-20 md:py-12">
-    <div class="container max-w-screen-xl mx-auto px-4">
-      <div class="mt-16 md:mt-0">
-        <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">See Atriva In Action</h2>
-        <p class="text-lg mt-4 text-slate-600 max-w-2xl">
-          Explore how Atriva streamlines building, deploying, and scaling Edge AI.
-        </p>
-      </div>
-  
-      <div class="mt-16">
-              <!-- Placeholder image container -->
-      <div class="w-full max-w-3xl h-[320px] bg-slate-100 rounded-xl flex items-center justify-center mx-auto">
-        <span class="text-slate-400">Screenshot coming soon</span>
-      </div>
-  
-        <div class="mt-6">
-          <a href="/docs/get-started" class="inline-block bg-[#48A18D] text-white font-semibold px-6 py-3 rounded-lg hover:bg-[#3b8675] transition">
-            Get Started
-          </a>
-        </div>
-      </div>
+  <div class="container max-w-screen-xl mx-auto px-4">
+    
+    <!-- Title & Description -->
+    <div class="mt-16 md:mt-0">
+      <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">
+        See Atriva In Action
+      </h2>
+      <p class="text-lg mt-4 text-slate-600 max-w-6xl">
+        Explore how Atriva powers real-world use cases—from retail analytics dashboards
+        to license plate recognition portable to any hardware easily.
+      </p>
     </div>
-  </section>
-  
+
+    <!-- Two Screenshot Grid -->
+    <div class="mt-16 grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-12">
+
+      <!-- Screenshot 1 -->
+      <div class="flex justify-center">
+        <Picture
+          src={retailScreenshot}
+          alt="Atriva Retail Analytics Dashboard"
+          width={600}
+          class="rounded-xl shadow-lg w-full max-w-md"
+        />
+      </div>
+
+      <!-- Screenshot 2 -->
+      <div class="flex justify-center">
+        <Picture
+          src={lprScreenshot}
+          alt="Atriva License Plate Recognition Dashboard"
+          width={600}
+          class="rounded-xl shadow-lg w-full max-w-md"
+        />
+      </div>
+
+    </div>
+
+    <!-- CTA Button -->
+    <div class="mt-12 flex justify-center">
+      <a
+        href="/docs/get-started"
+        class="inline-block bg-[#48A18D] text-white font-semibold px-6 py-3 rounded-lg hover:bg-[#3b8675] transition"
+      >
+        Get Started
+      </a>
+    </div>
+
+  </div>
+</section>
