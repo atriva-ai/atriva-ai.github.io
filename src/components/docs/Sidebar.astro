@@ -1,43 +1,46 @@
 ---
-import { getCollection } from "astro:content";
-
-const docs = await getCollection("docs");
-
-// group by top-level folder
-const groups = {};
-
-docs.forEach((item) => {
-  const parts = item.id.split("/");
-  
-  const group = parts.length > 1 ? parts[0] : "root";
-  if (!groups[group]) groups[group] = [];
-  groups[group].push(item);
-});
-
-// sort groups + sort items by "order" field
-for (const g in groups) {
-  groups[g] = groups[g].sort((a, b) => (a.data.order ?? 99) - (b.data.order ?? 99));
-}
+import { docsSidebar } from "@/config/docsSidebar";
 ---
 
-<aside class="w-64 p-6 border-r border-slate-200">
-  <h3 class="text-lg font-semibold mb-4">Documentation</h3>
+<nav class="space-y-6 text-sm">
+  {docsSidebar.map(section => (
+    <div>
+      <h4 class="font-semibold text-slate-800 mb-2">
+        {section.label}
+      </h4>
 
-  {Object.entries(groups).map(([group, items]) => (
-    <div class="mb-6">
-      {group !== "root" && <h4 class="text-sm uppercase text-slate-500 mb-2">{group}</h4>}
-      <ul class="space-y-1">
-        {items.map((doc) => (
+      <ul class="space-y-1 ml-2">
+        {section.items.map(item => (
           <li>
-            <a
-              href={`/docs/${doc.slug}/`}
-              class="block text-slate-700 hover:text-[#48A18D] transition"
-            >
-              {doc.data.title}
-            </a>
+            {item.items ? (
+              <>
+                <div class="font-medium text-slate-700 mt-2">
+                  {item.label}
+                </div>
+                <ul class="ml-4 space-y-1">
+                  {item.items.map(sub => (
+                    <li>
+                      <a
+                        href={sub.link}
+                        class="block text-slate-600 hover:text-[#48A18D]"
+                      >
+                        {sub.label}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </>
+            ) : (
+              <a
+                href={item.link}
+                class="block text-slate-600 hover:text-[#48A18D]"
+              >
+                {item.label}
+              </a>
+            )}
           </li>
         ))}
       </ul>
     </div>
   ))}
-</aside>
+</nav>

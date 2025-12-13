@@ -7,7 +7,7 @@ This document provides a high-level technical overview of how the Atriva AI Runt
 
 # 1. Overview
 
-The Atriva Runtime implements a unified inference abstraction layer with pluggable backends.  
+The Atriva Runtime implements a unified inference abstraction layer with pluggable backends for Atriva Core API.
 The OpenVINO backend provides CPU/GPU/NPU execution using the OpenVINO Runtime API.
 
 User API → Atriva Runtime → OpenVINO Backend → Device Plugin (CPU/GPU/NPU)
