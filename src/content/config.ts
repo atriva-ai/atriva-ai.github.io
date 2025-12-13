@@ -11,7 +11,17 @@ const blog = defineCollection({
   }),
 });
 
+const docs = defineCollection({
+  type: "content",
+  schema: z.object({
+    title: z.string(),
+    description: z.string().optional(),
+    order: z.number().optional(), // used for sidebar sorting
+  }),
+});
+
 export const collections = {
   blog,
+  docs,
 };
 

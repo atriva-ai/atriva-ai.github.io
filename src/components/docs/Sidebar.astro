@@ -1,0 +1,43 @@
+---
+import { getCollection } from "astro:content";
+
+const docs = await getCollection("docs");
+
+// group by top-level folder
+const groups = {};
+
+docs.forEach((item) => {
+  const parts = item.id.split("/");
+  
+  const group = parts.length > 1 ? parts[0] : "root";
+  if (!groups[group]) groups[group] = [];
+  groups[group].push(item);
+});
+
+// sort groups + sort items by "order" field
+for (const g in groups) {
+  groups[g] = groups[g].sort((a, b) => (a.data.order ?? 99) - (b.data.order ?? 99));
+}
+---
+
+<aside class="w-64 p-6 border-r border-slate-200">
+  <h3 class="text-lg font-semibold mb-4">Documentation</h3>
+
+  {Object.entries(groups).map(([group, items]) => (
+    <div class="mb-6">
+      {group !== "root" && <h4 class="text-sm uppercase text-slate-500 mb-2">{group}</h4>}
+      <ul class="space-y-1">
+        {items.map((doc) => (
+          <li>
+            <a
+              href={`/docs/${doc.slug}/`}
+              class="block text-slate-700 hover:text-[#48A18D] transition"
+            >
+              {doc.data.title}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  ))}
+</aside>

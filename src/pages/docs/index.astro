@@ -1,0 +1,10 @@
+---
+import { getEntryBySlug } from "astro:content";
+import DocsLayout from "@/layouts/DocsLayout.astro";
+
+const page = await getEntryBySlug("docs", "index");
+if (!page) throw new Error("Docs index page not found");
+const { Content } = await page.render();
+---
+
+<DocsLayout Content={Content} frontmatter={page.data} />

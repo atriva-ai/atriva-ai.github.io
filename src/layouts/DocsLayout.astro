@@ -1,0 +1,28 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Sidebar from "@/components/docs/Sidebar.astro";
+
+const { Content, frontmatter } = Astro.props;
+
+// Fallback title if frontmatter missing
+const title = frontmatter?.title ?? "Documentation";
+---
+
+<Layout title={title}>
+  <div class="bg-slate-50 min-h-screen">
+    <div class="max-w-screen-xl mx-auto px-4 py-8 flex gap-8">
+
+      <!-- Sidebar -->
+      <aside class="hidden md:block w-64 shrink-0">
+        <Sidebar />
+      </aside>
+
+      <!-- Main content -->
+      <main class="flex-1 bg-white rounded-xl shadow-sm px-8 py-6 prose prose-slate max-w-none">
+        <h1>{title}</h1>
+        <Content />
+      </main>
+
+    </div>
+  </div>
+</Layout>
