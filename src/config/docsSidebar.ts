@@ -11,7 +11,14 @@ export const docsSidebar = [
   {
     label: "Architecture",
     items: [
-      { label: "System Overview", link: "/docs/architecture" },
+      { label: "System Architecture", link: "/docs/architecture" },
+      { label: "OpenVINO Architecture", link: "/docs/ai-inference/openvino/architecture" },
+    ],
+  },
+  {
+    label: "Frontend",
+    items: [
+      { label: "Overview", link: "/docs/frontend" },
     ],
   },
   {
@@ -35,6 +42,21 @@ export const docsSidebar = [
           { label: "Samples", link: "/docs/ai-inference/openvino/samples" },
         ],
       },
+    ],
+  },
+  {
+    label: "Video Pipeline API",
+    items: [
+      { label: "Overview", link: "/docs/video-pipeline" },
+      { label: "Design", link: "/docs/video-pipeline/design" },
+    ],
+  },
+  {
+    label: "Community",
+    items: [
+      { label: "Overview", link: "/docs/community" },
+      { label: "How to Contribute", link: "/docs/community/how-to-contribute" },
+      { label: "Join Discord", link: "/docs/community/joining-discord" },
     ],
   },
 ];
