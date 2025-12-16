@@ -13,6 +13,7 @@ export const docsSidebar = [
     items: [
       { label: "System Architecture", link: "/docs/architecture" },
       { label: "OpenVINO Architecture", link: "/docs/ai-inference/openvino/architecture" },
+      { label: "FFMPEG x86 Architecture", link: "/docs/video-pipeline/ffmpeg-x86/architecture" }
     ],
   },
   {
@@ -36,10 +37,48 @@ export const docsSidebar = [
         label: "OpenVINO",
         items: [
           { label: "Overview", link: "/docs/ai-inference/openvino" },
-          { label: "Installation", link: "/docs/ai-inference/openvino/installation" },
-          { label: "Model Preparation", link: "/docs/ai-inference/openvino/model-preparation" },
-          { label: "Runtime API", link: "/docs/ai-inference/openvino/runtime-api" },
-          { label: "Samples", link: "/docs/ai-inference/openvino/samples" },
+          { label: "Installation",
+            collapsed: false,
+            items: [
+              { label: "Overview", link: "/docs/ai-inference/openvino/installation" },
+              { label: "Docker Environment", link: "/docs/ai-inference/openvino/installation/docker-env" },
+              { label: "Python Environment", link: "/docs/ai-inference/openvino/installation/python-env"}
+            ]
+          },
+          {
+            label: "Development",
+            collapsed: false,
+            items: [
+              {
+                label: "Overview",
+                link: "/docs/ai-inference/openvino/development",
+              },
+              {
+                label: "API Endpoints",
+                link: "/docs/ai-inference/openvino/development/api-endpoints",
+              },
+              {
+                label: "Pure Python Runtime",
+                link: "/docs/ai-inference/openvino/development/pure-python",
+              },
+            ],
+          },
+          { 
+            label: "Models", 
+            collapsed: false,
+            items: [
+              { label: "Overview", link: "/docs/ai-inference/openvino/models" },
+              { label: "Model Preparation", link: "/docs/ai-inference/openvino/models/preparation" },
+            ]
+          },
+          { 
+            label: "Testing",
+            collapsed: false,
+            items: [
+              { label: "Overview", link: "/docs/ai-inference/openvino/testing" },
+              { label: "Troubleshooting", link: "/docs/ai-inference/openvino/testing/troubleshooting" },
+            ]
+          },
         ],
       },
     ],
@@ -48,7 +87,38 @@ export const docsSidebar = [
     label: "Video Pipeline API",
     items: [
       { label: "Overview", link: "/docs/video-pipeline" },
-      { label: "Design", link: "/docs/video-pipeline/design" },
+      {
+        label: "FFMPEG x86",
+        items: [
+          { label: "Overview", link: "/docs/video-pipeline/ffmpeg-x86" },
+          {
+            label: "Installation",
+            items: [
+              {
+                label: "Overview", link: "/docs/video-pipeline/ffmpeg-x86/installation",
+              }
+            ],
+          },
+          { 
+            label: "Development",
+            items: [
+              { label: "Overview", link: "/docs/video-pipeline/ffmpeg-x86/development" },
+            ]
+          },
+          { 
+            label: "Integration",
+            items: [
+              { label: "Overview", link: "/docs/video-pipeline/ffmpeg-x86/integration" },
+            ]
+          },
+          { 
+            label: "Testing",
+            items: [
+              { label: "Overview", link: "/docs/video-pipeline/ffmpeg-x86/testing" },
+            ]
+          },
+        ],
+      },
     ],
   },
   {

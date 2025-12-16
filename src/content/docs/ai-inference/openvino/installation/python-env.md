@@ -1,9 +1,11 @@
 ---
-title: OpenVINO Installation
-order: 13
+title: Python Environment
+order: 34
 ---
 
-This page covers installing OpenVINO and preparing your system for CPU/iGPU/NPU inference.
+
+
+This page covers installing OpenVINO from scratch, only if you would like to play with raw OpenVINO API.
 
 ---
 

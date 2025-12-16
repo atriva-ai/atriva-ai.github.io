@@ -4,6 +4,8 @@ description: Atriva Edge AI Platform Documentation
 order: 0
 ---
 
+
+
 Welcome to the Atriva documentation.
 
 Atriva is an open, modular platform designed to simplify building, deploying, and scaling Edge AI applications across diverse hardware and runtimes.

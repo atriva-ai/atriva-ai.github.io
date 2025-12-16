@@ -1,46 +1,12 @@
 ---
-import { docsSidebar } from "@/config/docsSidebar";
+import SidebarItem from "@/components/docs/SidebarItem.astro";
+import { docsSidebar as sidebar } from "@/config/docsSidebar";
 ---
 
-<nav class="space-y-6 text-sm">
-  {docsSidebar.map(section => (
-    <div>
-      <h4 class="font-semibold text-slate-800 mb-2">
-        {section.label}
-      </h4>
-
-      <ul class="space-y-1 ml-2">
-        {section.items.map(item => (
-          <li>
-            {item.items ? (
-              <>
-                <div class="font-medium text-slate-700 mt-2">
-                  {item.label}
-                </div>
-                <ul class="ml-4 space-y-1">
-                  {item.items.map(sub => (
-                    <li>
-                      <a
-                        href={sub.link}
-                        class="block text-slate-600 hover:text-[#48A18D]"
-                      >
-                        {sub.label}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </>
-            ) : (
-              <a
-                href={item.link}
-                class="block text-slate-600 hover:text-[#48A18D]"
-              >
-                {item.label}
-              </a>
-            )}
-          </li>
-        ))}
-      </ul>
-    </div>
-  ))}
+<nav class="docs-sidebar">
+  <ul>
+    {sidebar.map((item) => (
+      <SidebarItem item={item} />
+    ))}
+  </ul>
 </nav>

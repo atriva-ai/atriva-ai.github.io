@@ -1,0 +1,20 @@
+---
+import SidebarItem from "./SidebarItem.astro"; // recursive import
+const { item, level = 0 } = Astro.props;
+---
+
+<li class={`pl-${level * 4}`}>
+  {item.link ? (
+    <a href={item.link} class="block py-1 hover:text-primary">{item.label}</a>
+  ) : (
+    <span class="block py-1 font-medium">{item.label}</span>
+  )}
+
+  {item.items && item.items.length > 0 ? (
+    <ul class="ml-4 border-l boarder-dashed border-slate-200/60">
+      {item.items.map((child) => {
+        return <SidebarItem item={child} level={level + 1} />;
+      })}
+    </ul>
+  ) : null}
+</li>
