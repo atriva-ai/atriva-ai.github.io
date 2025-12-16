@@ -3,6 +3,8 @@ title: Onboarding Checklist
 order: 3
 ---
 
+
+
 ### **Week 0 – Before Joining**
 
 * [ ] Install Python 3.10+

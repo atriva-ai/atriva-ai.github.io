@@ -3,6 +3,8 @@ title: Quickstart Guide
 order: 1
 ---
 
+
+
 This quickstart focuses **only** on the core repo:
 [https://github.com/atriva-ai/ai-inference-ov](https://github.com/atriva-ai/ai-inference-ov)
 
@@ -112,4 +114,3 @@ Run:
 ```bash
 python tests/test_image_classification.py
 ```
-

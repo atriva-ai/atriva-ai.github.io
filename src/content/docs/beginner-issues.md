@@ -3,6 +3,8 @@ title: Beginner Issues
 order: 5
 ---
 
+
+
 This document lists beginner‑friendly issues intended for new contributors joining the Atriva AI Inference (OpenVINO) project. These are specifically chosen to help new grads understand the structure, codebase, and workflow with minimal complexity.
 
 Each issue includes:
@@ -91,4 +93,3 @@ Each issue includes:
 **Goal:** Remove unused packages and pin minimum versions.
 
 **Skills:** Package management.
-

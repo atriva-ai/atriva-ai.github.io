@@ -3,6 +3,8 @@ title: High-Level System Architecture
 order: 2
 ---
 
+
+
 This document explains how the **frontend**, **backend**, **video pipeline**, and **AI inference engine** fit together.
 
 Below is an ASCII diagram representing the major components.
@@ -109,4 +111,3 @@ Below is an ASCII diagram representing the major components.
 * Structures inference outputs
 * Streams JSON results to frontend
 * Can generate thumbnails or overlay frames
-

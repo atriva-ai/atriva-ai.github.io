@@ -3,6 +3,7 @@ title: Community
 order: 50
 ---
 
+
 Atriva is built by an open community.
 
 We welcome developers, testers, and users.
