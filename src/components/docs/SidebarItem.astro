@@ -1,20 +1,51 @@
 ---
-import SidebarItem from "./SidebarItem.astro"; // recursive import
-const { item, level = 0 } = Astro.props;
+import SidebarItem from "./SidebarItem.astro";
+
+const { item, currentPath, level = 0 } = Astro.props;
+
+const isActive = item.link === currentPath;
+
+// Expand if:
+// - this item is active
+// - OR one of its children matches
+const hasActiveChild = item.items?.some(child =>
+  child.link === currentPath ||
+  child.items?.some(grand => grand.link === currentPath)
+);
+
+const isExpanded =
+  level === 0 || hasActiveChild || !item.link;
+
+
 ---
 
 <li class={`pl-${level * 4}`}>
   {item.link ? (
-    <a href={item.link} class="block py-1 hover:text-primary">{item.label}</a>
+    <a
+      href={item.link}
+      class={`block py-1 rounded px-2 ${
+        isActive
+          ? "bg-[#48A18D]/10 text-[#48A18D] font-medium"
+          : "text-slate-600 hover:text-[#48A18D]"
+      }`}
+    >
+      {item.label}
+    </a>
   ) : (
-    <span class="block py-1 font-medium">{item.label}</span>
+    <div class="block py-1 font-medium text-slate-700 px-2">
+      {item.label}
+    </div>
   )}
 
-  {item.items && item.items.length > 0 ? (
-    <ul class="ml-4 border-l boarder-dashed border-slate-200/60">
-      {item.items.map((child) => {
-        return <SidebarItem item={child} level={level + 1} />;
-      })}
+  {item.items && isExpanded && (
+    <ul class="ml-3 border-l border-slate-200/60">
+      {item.items.map(child => (
+        <SidebarItem
+          item={child}
+          currentPath={currentPath}
+          level={level + 1}
+        />
+      ))}
     </ul>
-  ) : null}
+  )}
 </li>

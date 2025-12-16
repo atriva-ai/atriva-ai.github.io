@@ -1,12 +1,14 @@
 ---
 import SidebarItem from "@/components/docs/SidebarItem.astro";
-import { docsSidebar as sidebar } from "@/config/docsSidebar";
+import { docsSidebar } from "@/config/docsSidebar";
+
+const currentPath = Astro.url.pathname;
 ---
 
-<nav class="docs-sidebar">
+<nav class="docs-sidebar overflow-y-auto max-h-[calc(100vh-6rem)] pr-2">
   <ul>
-    {sidebar.map((item) => (
-      <SidebarItem item={item} />
+    {docsSidebar.map(item => (
+      <SidebarItem item={item} currentPath={currentPath} />
     ))}
   </ul>
 </nav>
