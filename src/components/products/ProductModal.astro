@@ -1,0 +1,230 @@
+---
+import { Icon } from "astro-icon/components";
+import type { Product } from "@/config/products";
+
+interface Props {
+  products: Product[];
+}
+
+const { products } = Astro.props;
+---
+
+<!-- Modal Overlay -->
+<div
+  id="product-modal"
+  class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-black/60 backdrop-blur-sm"
+  role="dialog"
+  aria-modal="true"
+  aria-labelledby="modal-title"
+>
+  <div
+    class="modal-content relative w-full max-w-4xl max-h-[90vh] bg-white rounded-2xl shadow-2xl overflow-hidden transform transition-all"
+  >
+    <!-- Close Button -->
+    <button
+      type="button"
+      id="modal-close"
+      class="absolute top-4 right-4 z-10 w-10 h-10 flex items-center justify-center rounded-full bg-slate-100 hover:bg-slate-200 text-slate-600 hover:text-slate-900 transition-colors"
+      aria-label="Close modal"
+    >
+      <Icon name="bx:bx-x" class="w-6 h-6" />
+    </button>
+
+    <!-- Modal Body - Scrollable -->
+    <div class="overflow-y-auto max-h-[90vh]">
+      {products.map((product) => (
+        <div
+          class="product-modal-content hidden"
+          data-product-id={product.id}
+        >
+          <div class="grid md:grid-cols-2 gap-0">
+            <!-- Left Side - Image/Visual -->
+            <div class="relative bg-gradient-to-br from-slate-900 to-slate-800 p-8 flex items-center justify-center min-h-[300px] md:min-h-[500px]">
+              <div class="absolute inset-0 opacity-10">
+                <div class="absolute inset-0 bg-[url('/images/grid-pattern.svg')] bg-repeat"></div>
+              </div>
+              
+              <!-- Product Visual Placeholder -->
+              <div class="relative z-10 w-full max-w-sm">
+                <div class="aspect-video rounded-xl bg-slate-800/50 border border-slate-700 shadow-2xl overflow-hidden">
+                  <!-- Mock Dashboard UI -->
+                  <div class="h-8 bg-slate-900 flex items-center px-3 gap-1.5">
+                    <div class="w-2.5 h-2.5 rounded-full bg-red-500"></div>
+                    <div class="w-2.5 h-2.5 rounded-full bg-yellow-500"></div>
+                    <div class="w-2.5 h-2.5 rounded-full bg-green-500"></div>
+                    <span class="ml-2 text-xs text-slate-500">{product.name}</span>
+                  </div>
+                  <div class="p-4 space-y-3">
+                    <div class="flex gap-2">
+                      <div class="h-16 flex-1 rounded bg-[#48A18D]/20 animate-pulse"></div>
+                      <div class="h-16 flex-1 rounded bg-slate-700/50 animate-pulse delay-100"></div>
+                      <div class="h-16 flex-1 rounded bg-slate-700/50 animate-pulse delay-200"></div>
+                    </div>
+                    <div class="h-24 rounded bg-slate-700/30 animate-pulse delay-300"></div>
+                  </div>
+                </div>
+                
+                <!-- Floating Stats -->
+                <div class="absolute -bottom-4 -right-4 bg-white rounded-lg shadow-lg p-3 border border-slate-200">
+                  <div class="flex items-center gap-2">
+                    <div class="w-8 h-8 rounded-full bg-[#48A18D]/10 flex items-center justify-center">
+                      <Icon name="bx:bx-trending-up" class="w-4 h-4 text-[#48A18D]" />
+                    </div>
+                    <div>
+                      <p class="text-xs text-slate-500">Processing</p>
+                      <p class="text-sm font-bold text-slate-900">30+ FPS</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right Side - Content -->
+            <div class="p-8 md:p-10">
+              <!-- Header -->
+              <div class="mb-6">
+                <div class="flex gap-2 mb-3">
+                  {product.useCaseIcons.map((icon) => (
+                    <div class="w-8 h-8 rounded-lg bg-[#48A18D]/10 flex items-center justify-center">
+                      <Icon name={icon} class="w-4 h-4 text-[#48A18D]" />
+                    </div>
+                  ))}
+                </div>
+                <h2 id="modal-title" class="text-2xl md:text-3xl font-bold text-slate-900 mb-2">
+                  {product.name}
+                </h2>
+                <p class="text-[#48A18D] font-medium">{product.tagline}</p>
+              </div>
+
+              <!-- Description -->
+              <p class="text-slate-600 mb-6 leading-relaxed">
+                {product.description}
+              </p>
+
+              <!-- Key Capabilities -->
+              <div class="mb-6">
+                <h3 class="text-sm font-semibold text-slate-900 uppercase tracking-wide mb-3">
+                  Key Capabilities
+                </h3>
+                <ul class="grid grid-cols-1 gap-2">
+                  {product.capabilities.map((capability) => (
+                    <li class="flex items-start gap-2 text-sm text-slate-700">
+                      <Icon name="bx:bx-check-circle" class="w-4 h-4 text-[#48A18D] flex-shrink-0 mt-0.5" />
+                      <span>{capability}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <!-- Applied To -->
+              <div class="mb-8">
+                <h3 class="text-sm font-semibold text-slate-900 uppercase tracking-wide mb-3">
+                  Applied To
+                </h3>
+                <div class="flex flex-wrap gap-2">
+                  {product.appliedTo.map((apply) => (
+                    <span class="px-3 py-1 text-xs font-medium bg-slate-100 text-slate-700 rounded-full border border-slate-200">
+                      {apply}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              <!-- CTAs -->
+              <div class="flex flex-col sm:flex-row gap-3">
+                {product.status === "ready" ? (
+                  <a
+                    href={`/contact?product=${product.id}`}
+                    class="flex-1 px-6 py-3 text-center font-semibold text-white bg-[#48A18D] hover:bg-[#3b8675] rounded-lg transition-colors flex items-center justify-center gap-2"
+                  >
+                    <Icon name="bx:bx-calendar" class="w-5 h-5" />
+                    Request Demo
+                  </a>
+                ) : (
+                  <a
+                    href={`/contact?product=${product.id}&type=feature`}
+                    class="flex-1 px-6 py-3 text-center font-semibold text-slate-700 bg-slate-200 hover:bg-slate-300 rounded-lg transition-colors flex items-center justify-center gap-2 border border-slate-300"
+                  >
+                    <Icon name="bx:bx-heart" class="w-5 h-5" />
+                    Show Interest
+                  </a>
+                )}
+                <a
+                  href="/docs"
+                  class="flex-1 px-6 py-3 text-center font-semibold text-slate-700 bg-slate-100 hover:bg-slate-200 rounded-lg transition-colors flex items-center justify-center gap-2"
+                >
+                  <Icon name="bx:bx-book-open" class="w-5 h-5" />
+                  View Documentation
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</div>
+
+<script>
+  // Modal functionality
+  document.addEventListener('DOMContentLoaded', () => {
+    const modal = document.getElementById('product-modal');
+    const closeBtn = document.getElementById('modal-close');
+    const detailButtons = document.querySelectorAll('.product-details-btn');
+    const modalContents = document.querySelectorAll('.product-modal-content');
+
+    function openModal(productId: string) {
+      // Hide all modal contents
+      modalContents.forEach((content) => {
+        content.classList.add('hidden');
+      });
+
+      // Show the selected product content
+      const selectedContent = document.querySelector(
+        `.product-modal-content[data-product-id="${productId}"]`
+      );
+      if (selectedContent) {
+        selectedContent.classList.remove('hidden');
+      }
+
+      // Show modal
+      modal?.classList.remove('hidden');
+      modal?.classList.add('flex');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+      modal?.classList.add('hidden');
+      modal?.classList.remove('flex');
+      document.body.style.overflow = '';
+    }
+
+    // Open modal on button click
+    detailButtons.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const productId = btn.getAttribute('data-product-id');
+        if (productId) {
+          openModal(productId);
+        }
+      });
+    });
+
+    // Close modal on close button click
+    closeBtn?.addEventListener('click', closeModal);
+
+    // Close modal on overlay click
+    modal?.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        closeModal();
+      }
+    });
+
+    // Close modal on Escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closeModal();
+      }
+    });
+  });
+</script>
+
