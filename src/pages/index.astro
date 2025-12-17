@@ -12,6 +12,7 @@ import HowItWorks from "../components/HowItWorks.astro";
 import UseCases from "../components/UseCases.astro";
 import Screenshots from "../components/Screenshots.astro";
 import Community from "../components/Community.astro";
+import BusinessModel from "../components/BusinessModel.astro";
 
 const entry = await getEntryBySlug("pages", "index");
 if (!entry) {
@@ -43,6 +44,7 @@ const { data, body } = entry;
     <Screenshots />
     <Logos />
     <Community />
+    <BusinessModel />
     <Cta />
   </Container>
 

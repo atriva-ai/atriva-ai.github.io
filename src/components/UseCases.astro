@@ -1,56 +1,95 @@
 ---
-import RetailIcon from "@/assets/icons/store.svg";
-import SafetyIcon from "@/assets/icons/shield-check.svg";
-import RobotsIcon from "@/assets/icons/bot.svg";
+import { Icon } from "astro-icon/components";
 
 const cases = [
   {
     title: "Retail Analytics",
     description:
-      "Run person detection, tracking, and attribute recognition at the store edge — no cloud dependency.",
-    icon: RetailIcon,
+      "Track foot traffic, analyze customer flow, and optimize store layouts with real-time edge-based insights.",
+    icon: "bx:bx-store",
+    link: "/products#retail-analytics",
   },
   {
-    title: "Safety & Security",
+    title: "Workplace Safety",
     description:
-      "Deploy occupancy monitoring, anomaly detection, and access alerts on low-power edge devices.",
-    icon: SafetyIcon,
+      "Detect PPE compliance, monitor restricted zones, and alert on safety incidents automatically.",
+    icon: "bx:bx-hard-hat",
+    link: "/products#safety-monitor",
   },
   {
-    title: "Robotics & Automation",
+    title: "Smart Parking",
     description:
-      "Optimize robot navigation, perception, and on-device inference with Atriva containers.",
-    icon: RobotsIcon,
+      "Automate license plate recognition, occupancy tracking, and violation detection at scale.",
+    icon: "bx:bx-car",
+    link: "/products#smart-parking",
+  },
+  {
+    title: "Fall Detection",
+    description:
+      "Monitor spaces for falls and trigger instant alerts—no wearables required, just existing cameras.",
+    icon: "bx:bx-health",
+    link: "/products#ai-vision-fall-detection",
+  },
+  {
+    title: "Food Service",
+    description:
+      "Verify meal orders, detect anomalies, and ensure quality before delivery with AI inspection.",
+    icon: "bx:bx-dish",
+    link: "/products#meal-inspection-system",
+  },
+  {
+    title: "Access Control",
+    description:
+      "Enable frictionless, privacy-compliant face recognition for secure entry management.",
+    icon: "bx:bx-scan",
+    link: "/products#access-control",
   },
 ];
 ---
 
-<section class="relative py-20 md:py-12  bg-slate-50">
-    <div class="container max-w-screen-xl mx-auto px-4">
+<section class="relative py-20 md:py-12 bg-slate-50">
+  <div class="container max-w-screen-xl mx-auto px-4">
     <div class="mt-16 md:mt-0">
-  <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">
-    Use Cases
-  </h2>
-  <p class="text-lg mt-4 text-slate-600 max-w-2xl">
-    Real-world applications powered by Atriva’s edge-optimized stack.
-  </p>
+      <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">
+        Use Cases
+      </h2>
+      <p class="text-lg mt-4 text-slate-600 max-w-2xl">
+        Real-world applications powered by Atriva's edge-optimized AI stack.
+      </p>
 
-  <div class="grid sm:grid-cols-2 md:grid-cols-3 mt-16 gap-16">
-    {cases.map((item) => (
-      <div class="flex gap-4 items-start">
-        <div class="flex-shrink-0">
-        <item.icon class="w-10 h-10 text-[#48A18D]" />
-        </div>
-        <div>
-          <h3 class="font-semibold text-lg">{item.title}</h3>
-          <p class="text-slate-500 mt-2 leading-relaxed">
-            {item.description}
-          </p>
-        </div>
+      <div class="grid sm:grid-cols-2 md:grid-cols-3 mt-16 gap-12">
+        {cases.map((item) => (
+          <a 
+            href={item.link}
+            class="group flex gap-4 items-start p-4 -m-4 rounded-xl hover:bg-white hover:shadow-lg hover:shadow-slate-200/50 transition-all duration-300"
+          >
+            <div class="flex-shrink-0">
+              <div class="w-12 h-12 rounded-xl bg-[#48A18D]/10 group-hover:bg-[#48A18D]/20 flex items-center justify-center transition-colors">
+                <Icon name={item.icon} class="w-6 h-6 text-[#48A18D]" />
+              </div>
+            </div>
+            <div>
+              <h3 class="font-semibold text-lg text-slate-900 group-hover:text-[#48A18D] transition-colors">
+                {item.title}
+              </h3>
+              <p class="text-slate-500 mt-2 leading-relaxed text-sm">
+                {item.description}
+              </p>
+            </div>
+          </a>
+        ))}
       </div>
-    ))}
-  </div>
-</div>
 
-</div>
+      <!-- View All Products Link -->
+      <div class="mt-12 text-center">
+        <a
+          href="/products"
+          class="inline-flex items-center gap-2 text-[#48A18D] hover:text-[#3b8675] font-medium transition-colors"
+        >
+          View all products
+          <Icon name="bx:bx-right-arrow-alt" class="w-5 h-5" />
+        </a>
+      </div>
+    </div>
+  </div>
 </section>
