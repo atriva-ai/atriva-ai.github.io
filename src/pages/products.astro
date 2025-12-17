@@ -1,0 +1,254 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Container from "@/components/container.astro";
+import ProductCard from "@/components/products/ProductCard.astro";
+import ProductModal from "@/components/products/ProductModal.astro";
+import { 
+  products, 
+  heroContent, 
+  getReadyProducts, 
+  getComingSoonProducts, 
+  getPlanningProducts 
+} from "@/config/products";
+import { Icon } from "astro-icon/components";
+
+const readyProducts = getReadyProducts();
+const comingSoonProducts = getComingSoonProducts();
+const planningProducts = getPlanningProducts();
+---
+
+<Layout title="Products">
+  <!-- Hero Section -->
+  <section class="relative overflow-hidden">
+    <!-- Background Pattern - gradient from bottom-right fading to top-left -->
+    <div class="absolute inset-0 bg-gradient-to-tl from-[#48A18D]/15 via-[#48A18D]/5 to-transparent"></div>
+    <div class="absolute bottom-0 right-0 w-[500px] h-[500px] bg-[#48A18D]/10 rounded-full blur-3xl translate-x-1/4 translate-y-1/4"></div>
+
+    <Container>
+      <div class="relative pt-20 pb-16 text-center">
+        <!-- Badge -->
+        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#48A18D]/10 text-[#48A18D] text-sm font-medium mb-6">
+          <Icon name="bx:bx-cube" class="w-4 h-4" />
+          {heroContent.subtitle}
+        </div>
+
+        <!-- Title -->
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6 tracking-tight">
+          {heroContent.title}
+        </h1>
+
+        <!-- Description -->
+        <p class="text-lg md:text-xl text-slate-600 max-w-2xl mx-auto mb-10">
+          {heroContent.description}
+        </p>
+
+        <!-- Hero CTAs -->
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a
+            href="/contact"
+            class="inline-flex items-center justify-center gap-2 px-8 py-4 text-white bg-[#48A18D] hover:bg-[#3b8675] font-semibold rounded-lg transition-colors shadow-lg shadow-[#48A18D]/25"
+          >
+            <Icon name="bx:bx-message-rounded-dots" class="w-5 h-5" />
+            Talk to Us
+          </a>
+          <a
+            href="/docs"
+            class="inline-flex items-center justify-center gap-2 px-8 py-4 text-slate-700 bg-white hover:bg-slate-50 font-semibold rounded-lg transition-colors border border-slate-200"
+          >
+            <Icon name="bx:bx-book-open" class="w-5 h-5" />
+            Explore Docs
+          </a>
+        </div>
+      </div>
+    </Container>
+  </section>
+
+  <!-- Trust Indicators -->
+  <section class="border-y border-slate-200 bg-slate-50/50">
+    <Container>
+      <div class="py-8 flex flex-wrap items-center justify-center gap-8 md:gap-16 text-slate-500">
+        <div class="flex items-center gap-2">
+          <Icon name="bx:bx-check-shield" class="w-5 h-5 text-[#48A18D]" />
+          <span class="text-sm font-medium">Privacy-First</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <Icon name="bx:bx-chip" class="w-5 h-5 text-[#48A18D]" />
+          <span class="text-sm font-medium">Edge-Optimized</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <Icon name="bx:bx-code-alt" class="w-5 h-5 text-[#48A18D]" />
+          <span class="text-sm font-medium">Open Source Core</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <Icon name="bx:bx-conversation" class="w-5 h-5 text-[#48A18D]" />
+          <span class="text-sm font-medium">Community-Driven</span>
+        </div>
+      </div>
+    </Container>
+  </section>
+
+  <!-- Ready to Deploy Section -->
+  {readyProducts.length > 0 && (
+    <section class="py-20">
+      <Container>
+        <div class="text-center mb-12">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-100 text-emerald-700 text-sm font-medium mb-4">
+            <Icon name="bx:bx-check-circle" class="w-4 h-4" />
+            Ready to Deploy
+          </div>
+          <h2 class="text-3xl font-bold text-slate-900 mb-4">
+            Available Now
+          </h2>
+          <p class="text-slate-600 max-w-xl mx-auto">
+            Production-ready solutions you can deploy today. Request a demo to see them in action.
+          </p>
+        </div>
+
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+          {readyProducts.map((product) => (
+            <ProductCard product={product} />
+          ))}
+        </div>
+      </Container>
+    </section>
+  )}
+
+  <!-- Coming Soon Section -->
+  {comingSoonProducts.length > 0 && (
+    <section class="py-20 bg-slate-50/50">
+      <Container>
+        <div class="text-center mb-12">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-100 text-amber-700 text-sm font-medium mb-4">
+            <Icon name="bx:bx-time" class="w-4 h-4" />
+            Coming Soon
+          </div>
+          <h2 class="text-3xl font-bold text-slate-900 mb-4">
+            In Development
+          </h2>
+          <p class="text-slate-600 max-w-xl mx-auto">
+            These solutions are actively being built. Show your interest to help us prioritize and get early access.
+          </p>
+        </div>
+
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+          {comingSoonProducts.map((product) => (
+            <ProductCard product={product} />
+          ))}
+        </div>
+      </Container>
+    </section>
+  )}
+
+  <!-- Planning Section -->
+  {planningProducts.length > 0 && (
+    <section class="py-20">
+      <Container>
+        <div class="text-center mb-12">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-200 text-slate-600 text-sm font-medium mb-4">
+            <Icon name="bx:bx-bulb" class="w-4 h-4" />
+            In Planning
+          </div>
+          <h2 class="text-3xl font-bold text-slate-900 mb-4">
+            On the Roadmap
+          </h2>
+          <p class="text-slate-600 max-w-xl mx-auto">
+            We're exploring these solutions. Your feedback helps us decide what to build next.
+          </p>
+        </div>
+
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+          {planningProducts.map((product) => (
+            <ProductCard product={product} />
+          ))}
+        </div>
+      </Container>
+    </section>
+  )}
+
+  <!-- Why Atriva Section -->
+  <section class="py-20 bg-slate-900 text-white">
+    <Container>
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold mb-4">Why Build on Atriva?</h2>
+        <p class="text-slate-400 max-w-xl mx-auto">
+          Our products are powered by a battle-tested open-source stack, giving you the flexibility to customize and scale.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+        <div class="text-center p-6">
+          <div class="w-14 h-14 rounded-2xl bg-[#48A18D]/20 flex items-center justify-center mx-auto mb-4">
+            <Icon name="bx:bx-bolt-circle" class="w-7 h-7 text-[#48A18D]" />
+          </div>
+          <h3 class="text-xl font-semibold mb-2">Edge-Native Performance</h3>
+          <p class="text-slate-400 text-sm">
+            Sub-100ms inference on edge hardware. Process video streams locally without cloud latency.
+          </p>
+        </div>
+
+        <div class="text-center p-6">
+          <div class="w-14 h-14 rounded-2xl bg-[#48A18D]/20 flex items-center justify-center mx-auto mb-4">
+            <Icon name="bx:bx-lock-alt" class="w-7 h-7 text-[#48A18D]" />
+          </div>
+          <h3 class="text-xl font-semibold mb-2">Privacy by Design</h3>
+          <p class="text-slate-400 text-sm">
+            All processing happens on-device. No cloud uploads required. GDPR and privacy regulation ready.
+          </p>
+        </div>
+
+        <div class="text-center p-6">
+          <div class="w-14 h-14 rounded-2xl bg-[#48A18D]/20 flex items-center justify-center mx-auto mb-4">
+            <Icon name="bx:bx-git-branch" class="w-7 h-7 text-[#48A18D]" />
+          </div>
+          <h3 class="text-xl font-semibold mb-2">Open Source Foundation</h3>
+          <p class="text-slate-400 text-sm">
+            Built on our open-source stack. No vendor lock-in. Full access to customize and extend.
+          </p>
+        </div>
+      </div>
+    </Container>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-20">
+    <Container>
+      <div class="relative rounded-3xl bg-gradient-to-br from-[#48A18D] to-[#3b8675] p-12 md:p-16 text-center overflow-hidden">
+        <!-- Background decoration -->
+        <div class="absolute inset-0 opacity-10">
+          <div class="absolute top-0 right-0 w-64 h-64 bg-white rounded-full blur-3xl transform translate-x-1/2 -translate-y-1/2"></div>
+          <div class="absolute bottom-0 left-0 w-96 h-96 bg-white rounded-full blur-3xl transform -translate-x-1/2 translate-y-1/2"></div>
+        </div>
+
+        <div class="relative z-10">
+          <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
+            Have a Use Case in Mind?
+          </h2>
+          <p class="text-white/80 max-w-xl mx-auto mb-8">
+            We're building solutions based on real customer needs. Tell us what you're looking for and help shape our roadmap.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a
+              href="/contact?type=feature"
+              class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-[#48A18D] font-semibold rounded-lg hover:bg-slate-50 transition-colors"
+            >
+              <Icon name="bx:bx-message-rounded-dots" class="w-5 h-5" />
+              Share Your Ideas
+            </a>
+            <a
+              href="https://github.com/atriva-ai-community"
+              target="_blank"
+              rel="noopener"
+              class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white/10 text-white font-semibold rounded-lg hover:bg-white/20 transition-colors border border-white/20"
+            >
+              <Icon name="bx:bxl-github" class="w-5 h-5" />
+              View on GitHub
+            </a>
+          </div>
+        </div>
+      </div>
+    </Container>
+  </section>
+
+  <!-- Product Modal -->
+  <ProductModal products={products} />
+</Layout>
