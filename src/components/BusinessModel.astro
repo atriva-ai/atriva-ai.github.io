@@ -1,0 +1,82 @@
+---
+import { Icon } from "astro-icon/components";
+
+const models = [
+  {
+    title: "Build & Sell Freely",
+    description:
+      "Use our open-source components in your own products and solutions. Ship to your customers with no licensing fees or revenue share required.",
+    icon: "bx:bx-package",
+    highlight: "100% yours to commercialize",
+  },
+  {
+    title: "Add Premium Features",
+    description:
+      "Enhance your offering with our premium modules—device management, analytics dashboards, priority support, and enterprise integrations.",
+    icon: "bx:bx-crown",
+    highlight: "Flexible licensing options",
+  },
+  {
+    title: "Partner & Profit Share",
+    description:
+      "Contribute to premium feature development and share in the revenue. Turn your expertise into ongoing income while helping shape the platform.",
+    icon: "bx:bx-group",
+    highlight: "Grow together",
+  },
+];
+---
+
+<section class="relative py-20 md:py-24 bg-slate-50">
+  <div class="container max-w-screen-xl mx-auto px-4">
+    <!-- Header -->
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#48A18D]/10 text-[#48A18D] text-sm font-medium mb-4">
+        <Icon name="bx:bx-bulb" class="w-4 h-4" />
+        Open Source Business Model
+      </div>
+      <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight text-slate-900">
+        Build Your Business on Atriva
+      </h2>
+      <p class="text-lg mt-4 text-slate-600">
+        Open source doesn't mean giving up revenue. Choose the model that works for you—from completely free to revenue-sharing partnerships.
+      </p>
+    </div>
+
+    <!-- Models Grid -->
+    <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+      {models.map((model, index) => (
+        <div class="relative bg-white rounded-2xl p-8 border border-slate-200 hover:border-[#48A18D]/40 hover:shadow-xl hover:shadow-[#48A18D]/5 transition-all duration-300">
+          {/* Icon */}
+          <div class="w-14 h-14 rounded-xl bg-[#48A18D]/10 flex items-center justify-center mb-6">
+            <Icon name={model.icon} class="w-7 h-7 text-[#48A18D]" />
+          </div>
+          
+          {/* Content */}
+          <h3 class="text-xl font-bold text-slate-900 mb-3">{model.title}</h3>
+          <p class="text-slate-600 leading-relaxed mb-4">{model.description}</p>
+          
+          {/* Highlight badge */}
+          <div class="inline-flex items-center gap-1.5 text-sm font-medium text-[#48A18D]">
+            <Icon name="bx:bx-check-circle" class="w-4 h-4" />
+            {model.highlight}
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Bottom CTA -->
+    <div class="text-center mt-12">
+      <p class="text-slate-600 mb-4">
+        Questions about licensing or partnerships?
+      </p>
+      <a
+        href="/contact?type=partnership"
+        class="inline-flex items-center gap-2 px-6 py-3 bg-[#48A18D] hover:bg-[#3b8675] text-white font-semibold rounded-lg transition-colors"
+      >
+        <Icon name="bx:bx-message-rounded-dots" class="w-5 h-5" />
+        Let's Talk
+      </a>
+    </div>
+  </div>
+</section>
+
