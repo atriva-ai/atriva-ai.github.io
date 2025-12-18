@@ -22,8 +22,12 @@ import Button from "./ui/button.astro";
     class="w-full px-4 py-3 border-2 rounded-md border-gray-300 focus:border-gray-600 focus:ring-4 ring-gray-100"
   >
     <option value="">Select Inquiry Type</option>
+    <option value="demo">Request a Demo</option>
+    <option value="partnership">Partnership / Business Inquiry</option>
     <option value="developer">Open Source Contributor / Developer</option>
     <option value="feature">Feature / Product Request</option>
+    <option value="support">Technical Support</option>
+    <option value="use-case">Share a Use Case Idea</option>
     <option value="general">General Query</option>
   </select>
   <div class="empty-feedback text-red-400 text-sm mt-1">
@@ -99,6 +103,37 @@ import Button from "./ui/button.astro";
 <script is:inline>
   const form = document.getElementById("form");
   const result = document.getElementById("result");
+  const categorySelect = document.getElementById("category");
+
+  // Auto-select inquiry type from URL params (e.g., ?product=retail-analytics&type=demo)
+  const urlParams = new URLSearchParams(window.location.search);
+  const productParam = urlParams.get("product");
+  const typeParam = urlParams.get("type");
+
+  // Map URL type params to select values
+  const typeMapping = {
+    "demo": "demo",
+    "feature": "feature",
+    "partnership": "partnership",
+    "support": "support",
+    "use-case": "use-case"
+  };
+
+  if (typeParam && typeMapping[typeParam]) {
+    categorySelect.value = typeMapping[typeParam];
+  } else if (productParam) {
+    // Default to demo request if product param exists without type
+    categorySelect.value = "demo";
+  }
+
+  // Pre-fill message with product name if provided
+  if (productParam) {
+    const messageField = document.querySelector('textarea[name="message"]');
+    const productName = productParam.replace(/-/g, " ").replace(/\b\w/g, c => c.toUpperCase());
+    if (messageField && !messageField.value) {
+      messageField.placeholder = `I'm interested in ${productName}. `;
+    }
+  }
 
   form.addEventListener("submit", function (e) {
     e.preventDefault();
