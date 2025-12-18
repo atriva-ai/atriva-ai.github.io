@@ -1,6 +1,4 @@
 ---
-import { Icon } from "astro-icon/components";
-
 // Logos list (SVGs or PNGs stored in /public/logos)
 const logos = [
   { name: "Docker", src: "/images/logos/Docker.png" },
@@ -18,32 +16,82 @@ const logos = [
 ];
 ---
 
-<section class="relative py-20 md:py-12  bg-slate-50">
-    <div class="container max-w-screen-xl mx-auto px-4">
-    <div class="mt-16 md:mt-0">
-
-     <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">
-      Built for Your Tools and Hardware
-     </h2>
-    <p class="mt-2 text-slate-600">
-      Atriva integrates seamlessly with popular frameworks, hardware, and AI runtimes.  
-      You bring your stack — we make it work together.
-    </p>
-
-    <div
-      class="mt-12 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-8 place-items-center"
-    >
-      {logos.map((logo) => (
-        <div class="flex items-center justify-center h-16 w-28 grayscale hover:grayscale-0 transition">
-          <img
-            src={logo.src}
-            alt={logo.name}
-            class="max-h-12 object-contain"
-            loading="lazy"
-          />
-        </div>
-      ))}
+<section class="relative py-20 md:py-12 bg-slate-50 overflow-hidden">
+  <div class="container max-w-screen-xl mx-auto px-4">
+    <div class="mt-16 md:mt-0 text-center">
+      <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">
+        Built for Your Tools and Hardware
+      </h2>
+      <p class="mt-4 text-slate-600 max-w-2xl mx-auto">
+        Atriva integrates seamlessly with popular frameworks, hardware, and AI runtimes.
+        You bring your stack — we make it work together.
+      </p>
     </div>
   </div>
+
+  <!-- Marquee Container -->
+  <div class="mt-12 relative">
+    <!-- Fade edges -->
+    <div class="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-slate-50 to-transparent z-10 pointer-events-none"></div>
+    <div class="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-slate-50 to-transparent z-10 pointer-events-none"></div>
+    
+    <!-- Scrolling track -->
+    <div class="logo-marquee flex">
+      <!-- First set of logos -->
+      <div class="logo-track flex items-center gap-16 animate-marquee">
+        {logos.map((logo) => (
+          <div class="flex-shrink-0 flex items-center justify-center h-16 w-32 grayscale hover:grayscale-0 transition-all duration-300 hover:scale-110">
+            <img
+              src={logo.src}
+              alt={logo.name}
+              class="max-h-12 max-w-full object-contain"
+              loading="lazy"
+            />
+          </div>
+        ))}
+      </div>
+      <!-- Duplicate set for seamless loop -->
+      <div class="logo-track flex items-center gap-16 animate-marquee" aria-hidden="true">
+        {logos.map((logo) => (
+          <div class="flex-shrink-0 flex items-center justify-center h-16 w-32 grayscale hover:grayscale-0 transition-all duration-300 hover:scale-110">
+            <img
+              src={logo.src}
+              alt={logo.name}
+              class="max-h-12 max-w-full object-contain"
+              loading="lazy"
+            />
+          </div>
+        ))}
+      </div>
+    </div>
   </div>
 </section>
+
+<style>
+  .logo-marquee {
+    width: max-content;
+  }
+  
+  .logo-track {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+  
+  @keyframes marquee {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+  
+  .animate-marquee {
+    animation: marquee 30s linear infinite;
+  }
+  
+  /* Pause animation on hover */
+  .logo-marquee:hover .animate-marquee {
+    animation-play-state: paused;
+  }
+</style>
