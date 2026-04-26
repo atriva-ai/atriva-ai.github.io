@@ -3,6 +3,7 @@ title: Atriva Core API
 order: 30
 ---
 
+> **Source Code:** [`atriva-ai/atriva-ai-platform-backend`](https://github.com/atriva-ai/atriva-ai-platform-backend) — contributions welcome via the [community hub](https://github.com/atriva-ai-community/community).
 
 Atriva exposes consistent APIs across applications.
 
