@@ -1,6 +1,6 @@
 ---
 title: Effortless Vision AI at the Edge
-description: Atriva simplifies edge AI video analytics with production-ready containers, multi-camera pipelines, and real-time intelligence.
+description: Atriva is the edge AI platform that gives AI agents eyes and ears in the physical world — production-ready containers, real-time event detection, and LLM-ready APIs.
 heroImage: /images/hero-graphic.png
 navLabel: Home
 order: 0

@@ -122,6 +122,15 @@ export const docsSidebar = [
     ],
   },
   {
+    label: "Agentic Patterns",
+    items: [
+      { label: "Overview", link: "/docs/agentic-patterns" },
+      { label: "Event-Triggered VLM", link: "/docs/agentic-patterns/event-triggered-vlm" },
+      { label: "Natural Language Alerts", link: "/docs/agentic-patterns/natural-language-alerts" },
+      { label: "Multi-Agent Smart Spaces", link: "/docs/agentic-patterns/multi-agent-spaces" },
+    ],
+  },
+  {
     label: "Community",
     items: [
       { label: "Overview", link: "/docs/community" },

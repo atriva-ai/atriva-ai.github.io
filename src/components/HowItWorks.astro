@@ -2,6 +2,7 @@
 import Step1Icon from "@/assets/icons/cpu.svg";
 import Step2Icon from "@/assets/icons/package.svg";
 import Step3Icon from "@/assets/icons/launch.svg";
+import Step4Icon from "@/assets/icons/bot.svg";
 
 const steps = [
   {
@@ -17,10 +18,16 @@ const steps = [
     icon: Step2Icon,
   },
   {
-    title: "3. Build & Scale",
+    title: "3. Detect Events in Real Time",
     description:
-      "Add pipelines, APIs, and monitoring as your workload grows — all with minimal overhead.",
+      "Atriva pipelines analyze every frame locally — triggering structured events when something meaningful happens.",
     icon: Step3Icon,
+  },
+  {
+    title: "4. Connect AI Agents & LLMs",
+    description:
+      "Route events to LLMs, VLMs, or agentic workflows for deeper reasoning, automated reports, and intelligent actions.",
+    icon: Step4Icon,
   },
 ];
 ---
@@ -33,10 +40,10 @@ const steps = [
     How Atriva Works
   </h2>
   <p class="text-lg mt-4 text-slate-600 max-w-4xl">
-    Atriva simplifies the entire Edge AI lifecycle — from setup to deployment to scaling.
+    Atriva simplifies the entire Edge AI lifecycle — from setup to deployment to intelligent action.
   </p>
 
-  <div class="grid sm:grid-cols-2 md:grid-cols-3 mt-16 gap-16">
+  <div class="grid sm:grid-cols-2 lg:grid-cols-4 mt-16 gap-12">
     {steps.map((item) => (
       <div class="flex gap-4 items-start">
         <div class="flex-shrink-0">
