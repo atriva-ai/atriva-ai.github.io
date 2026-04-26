@@ -209,6 +209,38 @@ export const products: Product[] = [
     status: "coming-soon",
   },
   {
+    id: "ai-vision-agent",
+    name: "AI Vision Agent",
+    tagline: "Give your AI agents eyes at the edge",
+    description:
+      "Connect Atriva's real-time video intelligence to any LLM or agentic framework. Atriva observes continuously on-device; your agent reasons only when something matters — keeping costs low, latency minimal, and data private.",
+    useCaseIcons: ["bx:bx-bot", "bx:bx-brain", "bx:bx-link"],
+    features: [
+      "Structured event stream for LLM tool calls",
+      "VLM-augmented incident investigation",
+      "Natural language alert generation",
+      "Multi-agent orchestration support",
+    ],
+    capabilities: [
+      "Emit typed events (fall, intrusion, crowd, anomaly) as JSON",
+      "Attach snapshot frames to events for VLM analysis",
+      "Compatible with LangGraph, CrewAI, AutoGen, and custom agents",
+      "Webhook and REST delivery to any LLM pipeline",
+      "On-device pre-filtering — only meaningful events reach the agent",
+      "Privacy-first: raw video never leaves the edge",
+    ],
+    apis: ["OpenVINO Inference", "Video Pipeline", "Core API", "Alerts API"],
+    appliedTo: [
+      "Agentic AI applications",
+      "Autonomous monitoring systems",
+      "LLM-powered dashboards",
+      "Physical AI and robotics",
+      "Smart buildings and facilities",
+    ],
+    featured: true,
+    status: "coming-soon",
+  },
+  {
     id: "traffic-intelligence",
     name: "Traffic Intelligence Platform",
     tagline: "Smart city traffic optimization at the edge",

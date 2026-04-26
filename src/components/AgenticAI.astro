@@ -1,0 +1,81 @@
+---
+import { Icon } from "astro-icon/components";
+
+const pillars = [
+  {
+    icon: "bx:bx-camera",
+    label: "Perceive",
+    headline: "Eyes at the Edge",
+    body: "Atriva processes every frame on-device. No cloud round-trip. No latency. No privacy risk.",
+  },
+  {
+    icon: "bx:bx-pulse",
+    label: "Detect",
+    headline: "Structured Events",
+    body: "Meaningful moments — a fall, a crowd surge, a safety violation — become structured JSON events your systems can act on.",
+  },
+  {
+    icon: "bx:bx-bot",
+    label: "Reason & Act",
+    headline: "AI Agent Integration",
+    body: "Route events to LLMs, VLMs, or autonomous agents to investigate, summarize, and respond — only when it matters.",
+  },
+];
+---
+
+<section class="relative py-20 md:py-16">
+  <div class="container max-w-screen-xl mx-auto px-4">
+
+    <!-- Badge -->
+    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#48A18D]/10 text-[#48A18D] text-sm font-medium mb-6">
+      <Icon name="bx:bx-brain" class="w-4 h-4" />
+      The Hybrid Edge-AI Architecture
+    </div>
+
+    <div class="max-w-3xl">
+      <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">
+        Your Edge Cameras, Powered by AI Agents
+      </h2>
+      <p class="text-lg mt-4 text-slate-600">
+        Sending every frame to a cloud LLM is expensive, slow, and privacy-invasive. The right architecture is: lightweight edge AI observes continuously, and agents reason only when something meaningful happens.
+      </p>
+    </div>
+
+    <!-- Three pillars -->
+    <div class="mt-14 grid sm:grid-cols-3 gap-6">
+      {pillars.map((pillar) => (
+        <div class="flex flex-col items-center text-center px-8 py-10 rounded-2xl bg-slate-50 hover:bg-white hover:shadow-md transition-all duration-300 group">
+          <div class="w-20 h-20 rounded-2xl bg-[#48A18D]/10 group-hover:bg-[#48A18D]/20 flex items-center justify-center transition-colors mb-5">
+            <Icon name={pillar.icon} class="w-9 h-9 text-[#48A18D]" />
+          </div>
+
+          <span class="text-xs font-semibold uppercase tracking-wider text-[#48A18D] mb-2">
+            {pillar.label}
+          </span>
+
+          <h3 class="font-bold text-xl text-slate-900 mb-3">
+            {pillar.headline}
+          </h3>
+          <p class="text-slate-500 leading-relaxed text-sm">
+            {pillar.body}
+          </p>
+        </div>
+      ))}
+    </div>
+
+    <!-- Closing statement -->
+    <div class="mt-10 text-center">
+      <p class="text-slate-700 font-medium text-lg">
+        The edge observes. The agent decides. You stay in control.
+      </p>
+      <a
+        href="/docs/agentic-patterns"
+        class="inline-flex items-center gap-2 mt-4 text-[#48A18D] hover:text-[#3b8675] font-medium transition-colors"
+      >
+        Explore agentic patterns
+        <Icon name="bx:bx-right-arrow-alt" class="w-5 h-5" />
+      </a>
+    </div>
+
+  </div>
+</section>

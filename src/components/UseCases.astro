@@ -6,6 +6,7 @@ const cases = [
     title: "Retail Analytics",
     description:
       "Track foot traffic, analyze customer flow, and optimize store layouts with real-time edge-based insights.",
+    agentCapability: "Agent answers natural-language queries about store performance",
     icon: "bx:bx-store",
     link: "/products#retail-analytics",
   },
@@ -13,6 +14,7 @@ const cases = [
     title: "Workplace Safety",
     description:
       "Detect PPE compliance, monitor restricted zones, and alert on safety incidents automatically.",
+    agentCapability: "Agent auto-generates incident reports for compliance",
     icon: "bx:bx-hard-hat",
     link: "/products#safety-monitor",
   },
@@ -20,6 +22,7 @@ const cases = [
     title: "Smart Parking",
     description:
       "Automate license plate recognition, occupancy tracking, and violation detection at scale.",
+    agentCapability: "Agent creates enforcement evidence packages automatically",
     icon: "bx:bx-car",
     link: "/products#smart-parking",
   },
@@ -27,6 +30,7 @@ const cases = [
     title: "Fall Detection",
     description:
       "Monitor spaces for falls and trigger instant alerts—no wearables required, just existing cameras.",
+    agentCapability: "Agent summarizes incident context for first responders",
     icon: "bx:bx-health",
     link: "/products#ai-vision-fall-detection",
   },
@@ -75,6 +79,12 @@ const cases = [
               <p class="text-slate-500 mt-2 leading-relaxed text-sm">
                 {item.description}
               </p>
+              {item.agentCapability && (
+                <p class="mt-2 text-xs font-medium text-[#48A18D] flex items-center gap-1">
+                  <Icon name="bx:bx-bot" class="w-3.5 h-3.5" />
+                  {item.agentCapability}
+                </p>
+              )}
             </div>
           </a>
         ))}
