@@ -3,6 +3,7 @@ title: OpenVINO Overview
 order: 30
 ---
 
+> **Source Code:** [`atriva-ai/ai-inference-ov`](https://github.com/atriva-ai/ai-inference-ov) — contributions welcome via the [community hub](https://github.com/atriva-ai-community/community).
 
 This is a FastAPI-based AI API that leverages **OpenVINO** for optimized deep learning inference.  
 It provides a RESTful interface for running AI models, such as object detection and image classification.
@@ -56,8 +57,8 @@ This section covers everything you need to get the Atriva AI API up and running.
 
 #### **1️⃣ Clone the Repository**
 ```sh
-git clone https://github.com/atriva-ai/atriva-ai-openvino.git
-cd atriva-ai-openvino
+git clone https://github.com/atriva-ai/ai-inference-ov.git
+cd ai-inference-ov
 ```
 
 #### **2️⃣ Create a Virtual Environment**

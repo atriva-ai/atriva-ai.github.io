@@ -3,6 +3,8 @@ title: Atriva Video Pipeline API Service - FFMPEG x86
 order: 11
 ---
 
+> **Source Code:** [`atriva-ai/video-pipeline-ffmpeg-x86`](https://github.com/atriva-ai/video-pipeline-ffmpeg-x86) — contributions welcome via the [community hub](https://github.com/atriva-ai-community/community).
+
 ## Overview
 
 The **Atriva Video Pipeline API Service** is a containerized microservice that provides FFmpeg-based video processing capabilities for the Atriva AI platform. This service is specifically built for **x86 architectures** and serves as a critical component in the video processing pipeline, decoding video streams and extracting frames for downstream AI inference services.
