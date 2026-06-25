@@ -9,6 +9,9 @@ const personas = [
     body: "You have edge AI skills — using your own stack or ours. We connect you with customers who need solutions built and hardware partners who want developers on their platform.",
     cta: "Find a Project",
     href: "/contact?type=find-project",
+    secondaryCta: "Visit GitHub",
+    secondaryHref: "https://github.com/atriva-ai-community",
+    secondaryExternal: true,
   },
   {
     icon: "bx:bx-buildings",
@@ -68,17 +71,30 @@ const personas = [
             {p.body}
           </p>
 
-          <a
-            href={p.href}
-            class={`inline-flex items-center gap-2 px-5 py-2.5 rounded-lg font-semibold text-sm transition-colors self-start ${
-              p.highlight
-                ? "bg-white text-[#48A18D] hover:bg-slate-100"
-                : "bg-[#48A18D] text-white hover:bg-[#3b8675]"
-            }`}
-          >
-            {p.cta}
-            <Icon name="bx:bx-right-arrow-alt" class="w-4 h-4" />
-          </a>
+          <div class="flex flex-col gap-2 self-start">
+            <a
+              href={p.href}
+              class={`inline-flex items-center gap-2 px-5 py-2.5 rounded-lg font-semibold text-sm transition-colors ${
+                p.highlight
+                  ? "bg-white text-[#48A18D] hover:bg-slate-100"
+                  : "bg-[#48A18D] text-white hover:bg-[#3b8675]"
+              }`}
+            >
+              {p.cta}
+              <Icon name="bx:bx-right-arrow-alt" class="w-4 h-4" />
+            </a>
+            {p.secondaryCta && (
+              <a
+                href={p.secondaryHref}
+                target={p.secondaryExternal ? "_blank" : undefined}
+                rel={p.secondaryExternal ? "noopener" : undefined}
+                class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg font-semibold text-sm border-2 border-[#48A18D] text-[#48A18D] hover:bg-[#48A18D]/10 transition-colors"
+              >
+                <Icon name="bx:bxl-github" class="w-4 h-4" />
+                {p.secondaryCta}
+              </a>
+            )}
+          </div>
         </div>
       ))}
     </div>
