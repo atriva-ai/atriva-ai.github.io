@@ -48,6 +48,38 @@ export const products: Product[] = [
     status: "ready",
   },
   {
+    id: "atriva-facial-intelligence",
+    name: "Atriva Facial Intelligence",
+    tagline: "High-precision face search and tracking across cameras",
+    description:
+      "Atriva Facial Intelligence is a high-precision face intelligence platfogrm designed for large-scale camera environments. Built for retail, healthcare, and enterprise security teams, it enables fast face search, cross-camera tracking, and incident investigation—entirely on the edge, without cloud dependency.",
+    useCaseIcons: ["bx:bx-camera", "bx:bx-search", "bx:bx-shield-quarter"],
+    features: [
+      "Cross-camera face tracking without enrollment",
+      "Rapid face search across live and recorded video",
+      "Incident investigation in minutes, not hours",
+      "Designed for privacy-aware deployments",
+    ],
+    capabilities: [
+      "High-accuracy face matching with partial occlusion",
+      "Automatic face indexing and clustering",
+      "Track individuals across time and cameras",
+      "Works with existing IP cameras",
+      "Edge-based processing (no cloud required)",
+      "Evidence export and case management",
+    ],
+    appliedTo: [
+      "Retail loss prevention",
+      "Hospital security",
+      "Enterprise investigations",
+      "Public space safety",
+      "Factory staff monitoring",
+    ],
+    image: "/images/products/atriva-facial-intelligence.png",
+    featured: true,
+    status: "ready",
+  },  
+  {
     id: "smart-parking",
     name: "Smart Parking System",
     tagline: "Intelligent parking management with edge AI",
@@ -206,7 +238,7 @@ export const products: Product[] = [
       "Meal delivery operations",
       "Catering services"
     ],
-    status: "coming-soon",
+    status: "ready",
   },
   {
     id: "ai-vision-agent",
