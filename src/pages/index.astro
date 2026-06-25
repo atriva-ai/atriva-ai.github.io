@@ -12,7 +12,9 @@ import HowItWorks from "../components/HowItWorks.astro";
 import AgenticAI from "../components/AgenticAI.astro";
 import UseCases from "../components/UseCases.astro";
 import Screenshots from "../components/Screenshots.astro";
+import WhoWeHelp from "../components/WhoWeHelp.astro";
 import Community from "../components/Community.astro";
+import EcosystemPartners from "../components/EcosystemPartners.astro";
 import BusinessModel from "../components/BusinessModel.astro";
 
 const entry = await getEntryBySlug("pages", "index");
@@ -39,13 +41,13 @@ const { data, body } = entry;
 
   <Container>
     <Hero />
-    <HowItWorks />
+    <WhoWeHelp />
+    <UseCases />
     <AgenticAI />
     <Features />
-    <UseCases />
-    <Screenshots />
-    <Logos />
+    <HowItWorks />
     <Community />
+    <Logos />
     <BusinessModel />
     <Cta />
   </Container>

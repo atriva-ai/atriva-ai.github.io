@@ -1,0 +1,86 @@
+---
+import { Icon } from "astro-icon/components";
+
+const personas = [
+  {
+    icon: "bx:bx-code-alt",
+    tag: "For Developers",
+    headline: "Find real projects and customers",
+    body: "You have edge AI skills — using your own stack or ours. We connect you with customers who need solutions built and hardware partners who want developers on their platform.",
+    cta: "Find a Project",
+    href: "/contact?type=find-project",
+  },
+  {
+    icon: "bx:bx-buildings",
+    tag: "For Customers & System Integrators",
+    headline: "Tell us your problem. We find the solution.",
+    body: "You don't need to know the technology. Tell us the business outcome you need — we match you to a working solution or the right team to build it.",
+    cta: "Describe Your Need",
+    href: "/contact?type=find-solution",
+    highlight: true,
+  },
+  {
+    icon: "bx:bx-chip",
+    tag: "For Hardware OEMs",
+    headline: "Reach developers who build real products",
+    body: "We work with developers building production edge AI solutions. We help put your hardware in front of the right builders — and the customers who depend on them.",
+    cta: "Explore Partnership",
+    href: "/contact?type=hardware-partner",
+  },
+];
+---
+
+<section class="relative pt-4 pb-20 md:pb-24">
+  <div class="container max-w-screen-xl mx-auto px-4">
+    <div class="text-center max-w-2xl mx-auto mb-14">
+      <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight text-slate-900">
+        Who We Help
+      </h2>
+      <p class="text-lg mt-4 text-slate-600">
+        Whether you build software, run a business, or make hardware — we connect you to the right people.
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+      {personas.map((p) => (
+        <div class={`relative flex flex-col rounded-2xl p-8 border transition-all duration-300 ${
+          p.highlight
+            ? "bg-[#48A18D] border-[#48A18D] text-white shadow-xl shadow-[#48A18D]/20"
+            : "bg-white border-slate-200 hover:border-[#48A18D]/40 hover:shadow-xl hover:shadow-[#48A18D]/5"
+        }`}>
+          <div class={`w-12 h-12 rounded-xl flex items-center justify-center mb-5 ${
+            p.highlight ? "bg-white/20" : "bg-[#48A18D]/10"
+          }`}>
+            <Icon name={p.icon} class={`w-6 h-6 ${p.highlight ? "text-white" : "text-[#48A18D]"}`} />
+          </div>
+
+          <div class={`text-xs font-semibold uppercase tracking-widest mb-2 ${
+            p.highlight ? "text-white/70" : "text-[#48A18D]"
+          }`}>
+            {p.tag}
+          </div>
+
+          <h3 class={`text-xl font-bold mb-3 ${p.highlight ? "text-white" : "text-slate-900"}`}>
+            {p.headline}
+          </h3>
+
+          <p class={`leading-relaxed mb-8 flex-1 ${p.highlight ? "text-white/85" : "text-slate-600"}`}>
+            {p.body}
+          </p>
+
+          <a
+            href={p.href}
+            class={`inline-flex items-center gap-2 px-5 py-2.5 rounded-lg font-semibold text-sm transition-colors self-start ${
+              p.highlight
+                ? "bg-white text-[#48A18D] hover:bg-slate-100"
+                : "bg-[#48A18D] text-white hover:bg-[#3b8675]"
+            }`}
+          >
+            {p.cta}
+            <Icon name="bx:bx-right-arrow-alt" class="w-4 h-4" />
+          </a>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

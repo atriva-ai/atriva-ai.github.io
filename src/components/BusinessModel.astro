@@ -26,7 +26,7 @@ const models = [
 ];
 ---
 
-<section class="relative py-20 md:py-24 bg-slate-50">
+<section class="relative py-20 md:py-24 bg-white">
   <div class="container max-w-screen-xl mx-auto px-4">
     <!-- Header -->
     <div class="text-center max-w-3xl mx-auto mb-16">
@@ -35,28 +35,28 @@ const models = [
         Open Source Business Model
       </div>
       <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight text-slate-900">
-        Build Your Business on Atriva
+        Grow the Edge AI Ecosystem on Atriva
       </h2>
       <p class="text-lg mt-4 text-slate-600">
-        Open source doesn't mean giving up revenue. Choose the model that works for you—from completely free to revenue-sharing partnerships.
+        Whether you're a developer, system integrator, or hardware partner — there's a model here that works for you.
       </p>
     </div>
 
     <!-- Models Grid -->
     <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
       {models.map((model, index) => (
-        <div class="relative bg-white rounded-2xl p-8 border border-slate-200 hover:border-[#48A18D]/40 hover:shadow-xl hover:shadow-[#48A18D]/5 transition-all duration-300">
+        <div class="relative bg-[#48A18D] rounded-2xl p-8 transition-all duration-300 hover:bg-[#3b8675] hover:shadow-xl hover:shadow-[#48A18D]/30">
           {/* Icon */}
-          <div class="w-14 h-14 rounded-xl bg-[#48A18D]/10 flex items-center justify-center mb-6">
-            <Icon name={model.icon} class="w-7 h-7 text-[#48A18D]" />
+          <div class="w-14 h-14 rounded-xl bg-white/20 flex items-center justify-center mb-6">
+            <Icon name={model.icon} class="w-7 h-7 text-white" />
           </div>
-          
+
           {/* Content */}
-          <h3 class="text-xl font-bold text-slate-900 mb-3">{model.title}</h3>
-          <p class="text-slate-600 leading-relaxed mb-4">{model.description}</p>
-          
+          <h3 class="text-xl font-bold text-white mb-3">{model.title}</h3>
+          <p class="text-white/80 leading-relaxed mb-4">{model.description}</p>
+
           {/* Highlight badge */}
-          <div class="inline-flex items-center gap-1.5 text-sm font-medium text-[#48A18D]">
+          <div class="inline-flex items-center gap-1.5 text-sm font-medium text-white/90">
             <Icon name="bx:bx-check-circle" class="w-4 h-4" />
             {model.highlight}
           </div>
