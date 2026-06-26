@@ -23,7 +23,7 @@ export const products: Product[] = [
   {
     id: "retail-analytics",
     name: "Retail Analytics Suite",
-    tagline: "Real-time customer insights for smarter retail decisions",
+    tagline: "Understand how customers move through your store — and act on it.",
     description:
       "AI-powered retail analytics built for real-world stores. Understand customer flow, optimize layouts, and improve operations using real-time, edge-based insights—without sending video to the cloud.",    
     useCaseIcons: ["bx:bx-store", "bx:bx-user", "bx:bx-line-chart"],
@@ -82,7 +82,7 @@ export const products: Product[] = [
   {
     id: "smart-parking",
     name: "Smart Parking System",
-    tagline: "Intelligent parking management with edge AI",
+    tagline: "Automate parking enforcement and occupancy tracking using cameras you already have.",
     description: "Automate parking operations with license plate recognition, occupancy tracking, and violation detection. Deploy quickly using existing cameras for real-time, reliable enforcement.",
     useCaseIcons: ["bx:bx-car", "bx:bx-camera", "bx:bx-check-shield"],
     features: [
@@ -107,7 +107,7 @@ export const products: Product[] = [
   {
     id: "safety-monitor",
     name: "Workplace Safety Monitor",
-    tagline: "Smart AI safety for a worry-free workforce",
+    tagline: "Enforce safety compliance automatically — without relying on manual inspections.",
     description:
       "Improve workplace safety with automated PPE detection, restricted zone monitoring, and incident alerts. Real-time analysis helps enforce compliance without manual oversight.",
     useCaseIcons: ["bx:bx-hard-hat", "bx:bx-shield-alt-2", "bx:bx-bell"],
@@ -170,7 +170,7 @@ export const products: Product[] = [
   {
     id: "ai-vision-fall-detection",
     name: "AI Vision Fall Detection",
-    tagline: "Zero-blind-spot protection with instant response",
+    tagline: "Detect falls immediately and alert staff — no wearables, no cloud, no delay.",
     description:
       "An AI-powered fall detection system that continuously monitors environments using video analytics to detect falls in real time, trigger immediate alerts, and reduce response time without requiring wearable devices.",
     useCaseIcons: [
@@ -209,7 +209,7 @@ export const products: Product[] = [
   {
     id: "meal-inspection-system",
     name: "Meal Inspection System",
-    tagline: "AI meal checker for zero-mistake orders",
+    tagline: "Verify every order before it leaves the kitchen — automatically.",
     description:
       "An AI-powered meal inspection solution that verifies food orders, detects anomalies, and ensures correct plating before delivery, helping food service operations eliminate mistakes and improve quality control.",
     useCaseIcons: [
@@ -243,7 +243,7 @@ export const products: Product[] = [
   {
     id: "ai-vision-agent",
     name: "AI Vision Agent",
-    tagline: "Give your AI agents eyes at the edge",
+    tagline: "Connect real-time video intelligence to any AI agent or LLM workflow.",
     description:
       "Connect Atriva's real-time video intelligence to any LLM or agentic framework. Atriva observes continuously on-device; your agent reasons only when something matters — keeping costs low, latency minimal, and data private.",
     useCaseIcons: ["bx:bx-bot", "bx:bx-brain", "bx:bx-link"],
@@ -340,9 +340,9 @@ export const products: Product[] = [
 
 export const heroContent = {
   title: "Edge AI Solutions",
-  subtitle: "Built for Real-World Impact",
+  subtitle: "Deployment Experience",
   description:
-    "We're building AI solutions that solve real problems. Some are ready today, others are coming soon—your feedback helps us prioritize what matters most.",
+    "Examples of Edge AI solutions we have helped design, integrate, and deploy. Every project is customized to the customer's environment, hardware, and requirements.",
 };
 
 // Helper functions to filter products by status

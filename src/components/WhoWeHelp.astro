@@ -3,30 +3,27 @@ import { Icon } from "astro-icon/components";
 
 const personas = [
   {
-    icon: "bx:bx-code-alt",
-    tag: "For Developers",
-    headline: "Find real projects and customers",
-    body: "You have edge AI skills — using your own stack or ours. We connect you with customers who need solutions built and hardware partners who want developers on their platform.",
-    cta: "Find a Project",
-    href: "/contact?type=find-project",
-    secondaryCta: "Visit GitHub",
-    secondaryHref: "https://github.com/atriva-ai-community",
-    secondaryExternal: true,
+    icon: "bx:bx-network-chart",
+    tag: "System Integrators",
+    headline: "Win more AI projects",
+    body: "We provide AI expertise, technology selection, and partner coordination so you can take on edge AI projects with confidence — without building everything from scratch.",
+    cta: "Let's Work Together",
+    href: "/contact?type=find-solution",
   },
   {
     icon: "bx:bx-buildings",
-    tag: "For Customers & System Integrators",
-    headline: "Tell us your problem. We find the solution.",
-    body: "You don't need to know the technology. Tell us the business outcome you need — we match you to a working solution or the right team to build it.",
+    tag: "Enterprise Customers",
+    headline: "Get the right solution, not just software",
+    body: "We help you identify the right technology, assemble the right partners, and deploy a complete edge AI solution — without needing to manage vendors and hardware yourself.",
     cta: "Describe Your Need",
     href: "/contact?type=find-solution",
     highlight: true,
   },
   {
-    icon: "bx:bx-chip",
-    tag: "For Hardware OEMs",
-    headline: "Reach developers who build real products",
-    body: "We work with developers building production edge AI solutions. We help put your hardware in front of the right builders — and the customers who depend on them.",
+    icon: "bx:bx-globe",
+    tag: "Software Partners (ISVs)",
+    headline: "Reach customers you can't reach alone",
+    body: "We open doors to customers you can't reach alone and coordinate the local ecosystem to help deals close. We don't build competing products — we extend your reach.",
     cta: "Explore Partnership",
     href: "/contact?type=hardware-partner",
   },
@@ -37,13 +34,14 @@ const personas = [
   <div class="container max-w-screen-xl mx-auto px-4">
     <div class="text-center max-w-2xl mx-auto mb-14">
       <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight text-slate-900">
-        Who We Help
+        Who We Work With
       </h2>
       <p class="text-lg mt-4 text-slate-600">
-        Whether you build software, run a business, or make hardware — we connect you to the right people.
+        We complement your team, your software, and your business — we don't replace them.
       </p>
     </div>
 
+    <!-- Primary audience cards -->
     <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
       {personas.map((p) => (
         <div class={`relative flex flex-col rounded-2xl p-8 border transition-all duration-300 ${
@@ -71,32 +69,58 @@ const personas = [
             {p.body}
           </p>
 
-          <div class="flex flex-col gap-2 self-start">
-            <a
-              href={p.href}
-              class={`inline-flex items-center gap-2 px-5 py-2.5 rounded-lg font-semibold text-sm transition-colors ${
-                p.highlight
-                  ? "bg-white text-[#48A18D] hover:bg-slate-100"
-                  : "bg-[#48A18D] text-white hover:bg-[#3b8675]"
-              }`}
-            >
-              {p.cta}
-              <Icon name="bx:bx-right-arrow-alt" class="w-4 h-4" />
-            </a>
-            {p.secondaryCta && (
-              <a
-                href={p.secondaryHref}
-                target={p.secondaryExternal ? "_blank" : undefined}
-                rel={p.secondaryExternal ? "noopener" : undefined}
-                class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg font-semibold text-sm border-2 border-[#48A18D] text-[#48A18D] hover:bg-[#48A18D]/10 transition-colors"
-              >
-                <Icon name="bx:bxl-github" class="w-4 h-4" />
-                {p.secondaryCta}
-              </a>
-            )}
-          </div>
+          <a
+            href={p.href}
+            class={`inline-flex items-center gap-2 px-5 py-2.5 rounded-lg font-semibold text-sm transition-colors self-start ${
+              p.highlight
+                ? "bg-white text-[#48A18D] hover:bg-slate-100"
+                : "bg-[#48A18D] text-white hover:bg-[#3b8675]"
+            }`}
+          >
+            {p.cta}
+            <Icon name="bx:bx-right-arrow-alt" class="w-4 h-4" />
+          </a>
         </div>
       ))}
     </div>
+
+    <!-- Secondary: Developer row -->
+    <div class="mt-8 max-w-6xl mx-auto border border-slate-200 rounded-2xl px-8 py-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 bg-slate-50">
+      <div class="flex items-center gap-4">
+        <div class="w-10 h-10 rounded-xl bg-[#48A18D]/10 flex items-center justify-center flex-shrink-0">
+          <Icon name="bx:bx-code-alt" class="w-5 h-5 text-[#48A18D]" />
+        </div>
+        <div>
+          <p class="font-semibold text-slate-900 text-sm">Individual Developers</p>
+          <p class="text-slate-500 text-sm">Use our open-source building blocks — your stack or ours.</p>
+        </div>
+      </div>
+      <div class="flex items-center gap-3 flex-shrink-0">
+        <a
+          href="https://github.com/atriva-ai-community"
+          target="_blank"
+          rel="noopener"
+          class="inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-semibold border-2 border-slate-300 text-slate-700 hover:border-[#48A18D] hover:text-[#48A18D] transition-colors"
+        >
+          <Icon name="bx:bxl-github" class="w-4 h-4" />
+          GitHub
+        </a>
+        <a
+          href="/docs"
+          class="inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-semibold border-2 border-slate-300 text-slate-700 hover:border-[#48A18D] hover:text-[#48A18D] transition-colors"
+        >
+          <Icon name="bx:bx-file" class="w-4 h-4" />
+          Docs
+        </a>
+        <a
+          href="/contact?type=find-project"
+          class="inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-semibold border-2 border-slate-300 text-slate-700 hover:border-[#48A18D] hover:text-[#48A18D] transition-colors"
+        >
+          <Icon name="bx:bx-briefcase" class="w-4 h-4" />
+          Find a Project
+        </a>
+      </div>
+    </div>
+
   </div>
 </section>

@@ -1,0 +1,108 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Container from "@/components/container.astro";
+import ProductCard from "@/components/products/ProductCard.astro";
+import ProductModal from "@/components/products/ProductModal.astro";
+import { products } from "@/config/products";
+import { Icon } from "astro-icon/components";
+
+const solutionIds = [
+  "retail-analytics",
+  "safety-monitor",
+  "smart-parking",
+  "ai-vision-fall-detection",
+  "meal-inspection-system",
+  "ai-vision-agent",
+];
+
+const solutions = solutionIds
+  .map(id => products.find(p => p.id === id))
+  .filter(Boolean);
+---
+
+<Layout title="Solutions">
+  <!-- Hero Section -->
+  <section class="relative overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-tl from-[#48A18D]/15 via-[#48A18D]/5 to-transparent"></div>
+    <div class="absolute bottom-0 right-0 w-[500px] h-[500px] bg-[#48A18D]/10 rounded-full blur-3xl translate-x-1/4 translate-y-1/4"></div>
+
+    <Container>
+      <div class="relative pt-20 pb-16 text-center">
+        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#48A18D]/10 text-[#48A18D] text-sm font-medium mb-6">
+          <Icon name="bx:bx-cube" class="w-4 h-4" />
+          Deployment Experience
+        </div>
+
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6 tracking-tight">
+          Edge AI Solutions
+        </h1>
+
+        <p class="text-lg md:text-xl text-slate-600 max-w-2xl mx-auto mb-4">
+          Examples of Edge AI solutions we have helped design, integrate, and deploy. Every project is customized to the customer's environment, hardware, and requirements.
+        </p>
+
+        <!-- ISV partnership note -->
+        <p class="text-sm text-slate-500 max-w-xl mx-auto mb-10">
+          Already have software in one of these areas? We work with existing software partners — we don't require you to use ours. <a href="/contact?type=hardware-partner" class="text-[#48A18D] hover:underline font-medium">Talk to us about partnering →</a>
+        </p>
+
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a
+            href="/contact"
+            class="inline-flex items-center justify-center gap-2 px-8 py-4 text-white bg-[#48A18D] hover:bg-[#3b8675] font-semibold rounded-lg transition-colors shadow-lg shadow-[#48A18D]/25"
+          >
+            <Icon name="bx:bx-message-rounded-dots" class="w-5 h-5" />
+            Discuss Your Requirements
+          </a>
+          <a
+            href="/docs"
+            class="inline-flex items-center justify-center gap-2 px-8 py-4 text-slate-700 bg-white hover:bg-slate-50 font-semibold rounded-lg transition-colors border border-slate-200"
+          >
+            <Icon name="bx:bx-book-open" class="w-5 h-5" />
+            Technical Docs
+          </a>
+        </div>
+      </div>
+    </Container>
+  </section>
+
+  <!-- Solutions Grid -->
+  <section class="py-20">
+    <Container>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+        {solutions.map((solution) => (
+          <ProductCard product={solution} />
+        ))}
+      </div>
+    </Container>
+  </section>
+
+  <!-- Bottom CTA -->
+  <section class="py-20 bg-slate-50">
+    <Container>
+      <div class="relative rounded-3xl bg-gradient-to-br from-[#48A18D] to-[#3b8675] p-12 md:p-16 text-center overflow-hidden">
+        <div class="absolute inset-0 opacity-10">
+          <div class="absolute top-0 right-0 w-64 h-64 bg-white rounded-full blur-3xl transform translate-x-1/2 -translate-y-1/2"></div>
+          <div class="absolute bottom-0 left-0 w-96 h-96 bg-white rounded-full blur-3xl transform -translate-x-1/2 translate-y-1/2"></div>
+        </div>
+        <div class="relative z-10">
+          <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
+            Don't see exactly what you need?
+          </h2>
+          <p class="text-white/80 max-w-xl mx-auto mb-8">
+            Most deployments are adapted to the customer's environment. Tell us the business problem and we'll work out the right approach together.
+          </p>
+          <a
+            href="/contact"
+            class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-[#48A18D] font-semibold rounded-lg hover:bg-slate-50 transition-colors"
+          >
+            <Icon name="bx:bx-message-rounded-dots" class="w-5 h-5" />
+            Start a Conversation
+          </a>
+        </div>
+      </div>
+    </Container>
+  </section>
+
+  <ProductModal products={products} />
+</Layout>
