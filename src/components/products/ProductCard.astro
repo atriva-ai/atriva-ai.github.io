@@ -7,46 +7,14 @@ interface Props {
 }
 
 const { product } = Astro.props;
-
-// Determine CTA based on product status
-const isReady = product.status === "ready";
-const ctaText = isReady ? "Request Demo" : "Show Interest";
-const ctaIcon = isReady ? "bx:bx-calendar" : "bx:bx-heart";
-const ctaUrl = isReady 
-  ? `/contact?product=${product.id}` 
-  : `/contact?product=${product.id}&type=feature`;
-
-// Status badge styling
-const statusConfig = {
-  "ready": { label: "Ready to Deploy", bgClass: "bg-emerald-500", textClass: "text-emerald-500" },
-  "coming-soon": { label: "Coming Soon", bgClass: "bg-amber-500", textClass: "text-amber-500" },
-  "planning": { label: "In Planning", bgClass: "bg-slate-400", textClass: "text-slate-400" },
-};
-const status = statusConfig[product.status];
 ---
 
 <div
   class="product-card group relative bg-white rounded-2xl border border-slate-200 p-6 hover:border-[#48A18D]/40 hover:shadow-xl hover:shadow-[#48A18D]/5 transition-all duration-300"
   data-product-id={product.id}
-  data-product-status={product.status}
 >
-  {/* Status Badge */}
-  <div class="absolute -top-3 left-6 flex gap-2">
-    <span class:list={[
-      "text-white text-xs font-semibold px-3 py-1 rounded-full shadow-sm",
-      status.bgClass
-    ]}>
-      {status.label}
-    </span>
-    {product.featured && (
-      <span class="bg-gradient-to-r from-[#48A18D] to-[#3b8675] text-white text-xs font-semibold px-3 py-1 rounded-full shadow-sm">
-        Featured
-      </span>
-    )}
-  </div>
-
   <!-- Use Case Icons -->
-  <div class="flex gap-2 mb-4 mt-2">
+  <div class="flex gap-2 mb-4">
     {product.useCaseIcons.map((icon) => (
       <div class="w-10 h-10 rounded-lg bg-slate-100 group-hover:bg-[#48A18D]/10 flex items-center justify-center transition-colors">
         <Icon name={icon} class="w-5 h-5 text-slate-600 group-hover:text-[#48A18D] transition-colors" />
@@ -54,7 +22,7 @@ const status = statusConfig[product.status];
     ))}
   </div>
 
-  <!-- Product Name -->
+  <!-- Solution Name -->
   <h3 class="text-xl font-bold text-slate-900 mb-2 group-hover:text-[#48A18D] transition-colors">
     {product.name}
   </h3>
@@ -85,16 +53,11 @@ const status = statusConfig[product.status];
       View Details
     </button>
     <a
-      href={ctaUrl}
-      class:list={[
-        "flex-1 px-4 py-2.5 text-sm font-medium rounded-lg transition-colors flex items-center justify-center gap-1.5",
-        isReady 
-          ? "text-white bg-[#48A18D] hover:bg-[#3b8675]" 
-          : "text-slate-700 bg-slate-200 hover:bg-slate-300 border border-slate-300"
-      ]}
+      href={`/contact?product=${product.id}`}
+      class="flex-1 px-4 py-2.5 text-sm font-medium rounded-lg transition-colors flex items-center justify-center gap-1.5 text-white bg-[#48A18D] hover:bg-[#3b8675]"
     >
-      <Icon name={ctaIcon} class="w-4 h-4" />
-      {ctaText}
+      <Icon name="bx:bx-message-rounded-dots" class="w-4 h-4" />
+      Discuss This
     </a>
   </div>
 </div>
