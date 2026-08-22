@@ -3,18 +3,18 @@ import Layout from "@/layouts/Layout.astro";
 import Container from "@/components/container.astro";
 import ProductCard from "@/components/products/ProductCard.astro";
 import ProductModal from "@/components/products/ProductModal.astro";
-import { 
-  products, 
-  heroContent, 
-  getReadyProducts, 
-  getComingSoonProducts, 
-  getPlanningProducts 
+import {
+  products,
+  heroContent,
+  getDeployedProducts,
+  getAvailableProducts,
+  getInDevelopmentProducts
 } from "@/config/products";
 import { Icon } from "astro-icon/components";
 
-const readyProducts = getReadyProducts();
-const comingSoonProducts = getComingSoonProducts();
-const planningProducts = getPlanningProducts();
+const readyProducts = getDeployedProducts();
+const comingSoonProducts = getAvailableProducts();
+const planningProducts = getInDevelopmentProducts();
 ---
 
 <Layout title="Products">
