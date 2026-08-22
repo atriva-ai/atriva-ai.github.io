@@ -1,54 +1,22 @@
 ---
 import { Icon } from "astro-icon/components";
+import { products } from "@/config/products";
 
-const cases = [
-  {
-    title: "Retail Analytics",
-    description:
-      "Track foot traffic, analyze customer flow, and optimize store layouts with real-time edge-based insights.",
-    agentCapability: "Agent answers natural-language queries about store performance",
-    icon: "bx:bx-store",
-    link: "/products#retail-analytics",
-  },
-  {
-    title: "Workplace Safety",
-    description:
-      "Detect PPE compliance, monitor restricted zones, and alert on safety incidents automatically.",
-    agentCapability: "Agent auto-generates incident reports for compliance",
-    icon: "bx:bx-hard-hat",
-    link: "/products#safety-monitor",
-  },
-  {
-    title: "Smart Parking",
-    description:
-      "Automate license plate recognition, occupancy tracking, and violation detection at scale.",
-    agentCapability: "Agent creates enforcement evidence packages automatically",
-    icon: "bx:bx-car",
-    link: "/products#smart-parking",
-  },
-  {
-    title: "Fall Detection",
-    description:
-      "Monitor spaces for falls and trigger instant alerts—no wearables required, just existing cameras.",
-    agentCapability: "Agent summarizes incident context for first responders",
-    icon: "bx:bx-health",
-    link: "/products#ai-vision-fall-detection",
-  },
-  {
-    title: "Food Service",
-    description:
-      "Verify meal orders, detect anomalies, and ensure quality before delivery with AI inspection.",
-    icon: "bx:bx-dish",
-    link: "/products#meal-inspection-system",
-  },
-  {
-    title: "Access Control",
-    description:
-      "Enable frictionless, privacy-compliant face recognition for secure entry management.",
-    icon: "bx:bx-scan",
-    link: "/products#access-control",
-  },
+const solutionIds = [
+  "retail-analytics",
+  "safety-monitor",
+  "smart-parking",
+  "ai-vision-fall-detection",
+  "meal-inspection-system",
+  "ai-vision-agent",
 ];
+
+const cases = solutionIds
+  .map(id => products.find(p => p.id === id))
+  .filter(Boolean);
+
+const featured = cases.find(p => p.featured);
+const rest = cases.filter(p => !p.featured);
 ---
 
 <section class="relative py-20 md:py-12 bg-slate-50">
@@ -61,36 +29,100 @@ const cases = [
         Examples of Edge AI solutions we have helped design, integrate, and deploy across industries.
       </p>
 
-      <div class="grid sm:grid-cols-2 md:grid-cols-3 mt-16 gap-12">
-        {cases.map((item) => (
-          <a 
-            href={item.link}
+      <!-- Tier 1: Featured solution -->
+      {featured && (
+        <div class="mt-12 rounded-2xl border border-[#48A18D]/30 bg-white shadow-sm overflow-hidden">
+          <div class="grid md:grid-cols-2 gap-0">
+            <div class="p-8">
+              <div class="flex flex-wrap gap-2 mb-4">
+                {featured.status && (
+                  <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium border bg-[#48A18D]/10 text-[#48A18D] border-[#48A18D]/20">
+                    {featured.status}
+                  </span>
+                )}
+                {featured.partner && (
+                  <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium border bg-purple-50 text-purple-700 border-purple-200">
+                    Partner solution
+                  </span>
+                )}
+              </div>
+              <div class="flex gap-2 mb-4">
+                {featured.useCaseIcons.map((icon) => (
+                  <div class="w-10 h-10 rounded-lg bg-[#48A18D]/10 flex items-center justify-center">
+                    <Icon name={icon} class="w-5 h-5 text-[#48A18D]" />
+                  </div>
+                ))}
+              </div>
+              <h3 class="text-xl font-bold text-slate-900 mb-2">{featured.name}</h3>
+              <p class="text-[#48A18D] font-medium text-sm mb-3">{featured.tagline}</p>
+              <p class="text-slate-600 text-sm leading-relaxed mb-6">{featured.description}</p>
+              <ul class="space-y-2 mb-6">
+                {featured.features.map((feature) => (
+                  <li class="flex items-start gap-2 text-sm text-slate-700">
+                    <Icon name="bx:bx-check" class="w-4 h-4 text-[#48A18D] flex-shrink-0 mt-0.5" />
+                    <span>{feature}</span>
+                  </li>
+                ))}
+              </ul>
+              <a
+                href={`/solutions`}
+                class="inline-flex items-center gap-1.5 text-sm font-medium text-[#48A18D] hover:text-[#3b8675] transition-colors"
+              >
+                View full details
+                <Icon name="bx:bx-right-arrow-alt" class="w-4 h-4" />
+              </a>
+            </div>
+            <div class="p-8 bg-slate-50 border-t md:border-t-0 md:border-l border-slate-200">
+              <h4 class="text-xs font-semibold text-slate-900 uppercase tracking-widest mb-4">Key Capabilities</h4>
+              <ul class="space-y-2">
+                {featured.capabilities.map((cap) => (
+                  <li class="flex items-start gap-2 text-sm text-slate-700">
+                    <Icon name="bx:bx-check-circle" class="w-4 h-4 text-[#48A18D] flex-shrink-0 mt-0.5" />
+                    <span>{cap}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+      )}
+
+      <!-- Tier 2: Remaining solutions -->
+      <p class="text-base font-medium text-slate-500 mt-12 mb-6">Same pipeline, different model and placement.</p>
+      <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-8">
+        {rest.map((item) => (
+          <a
+            href={`/solutions`}
             class="group flex gap-4 items-start p-4 -m-4 rounded-xl hover:bg-white hover:shadow-lg hover:shadow-slate-200/50 transition-all duration-300"
           >
             <div class="flex-shrink-0">
               <div class="w-12 h-12 rounded-xl bg-[#48A18D]/10 group-hover:bg-[#48A18D]/20 flex items-center justify-center transition-colors">
-                <Icon name={item.icon} class="w-6 h-6 text-[#48A18D]" />
+                <Icon name={item.useCaseIcons[0]} class="w-6 h-6 text-[#48A18D]" />
               </div>
             </div>
             <div>
+              <div class="flex flex-wrap gap-1.5 mb-1">
+                {item.status && item.status !== "In deployment" && (
+                  <span class:list={[
+                    "inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium border",
+                    item.status === "Available" && "bg-blue-50 text-blue-700 border-blue-200",
+                    item.status === "In development" && "bg-slate-100 text-slate-500 border-slate-200",
+                  ]}>
+                    {item.status}
+                  </span>
+                )}
+              </div>
               <h3 class="font-semibold text-lg text-slate-900 group-hover:text-[#48A18D] transition-colors">
-                {item.title}
+                {item.name}
               </h3>
               <p class="text-slate-500 mt-2 leading-relaxed text-sm">
-                {item.description}
+                {item.tagline}
               </p>
-              {item.agentCapability && (
-                <p class="mt-2 text-xs font-medium text-[#48A18D] flex items-center gap-1">
-                  <Icon name="bx:bx-bot" class="w-3.5 h-3.5" />
-                  {item.agentCapability}
-                </p>
-              )}
             </div>
           </a>
         ))}
       </div>
 
-      <!-- View All Products Link -->
       <div class="mt-12 text-center">
         <a
           href="/solutions"

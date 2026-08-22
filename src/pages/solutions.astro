@@ -18,6 +18,9 @@ const solutionIds = [
 const solutions = solutionIds
   .map(id => products.find(p => p.id === id))
   .filter(Boolean);
+
+const featured = solutions.find(p => p.featured);
+const rest = solutions.filter(p => !p.featured);
 ---
 
 <Layout title="Solutions">
@@ -66,13 +69,102 @@ const solutions = solutionIds
     </Container>
   </section>
 
-  <!-- Solutions Grid -->
-  <section class="py-20">
+  <!-- Tier 1: Featured solution -->
+  {featured && (
+    <section class="py-12">
+      <Container>
+        <div class="max-w-6xl mx-auto rounded-2xl border border-[#48A18D]/30 bg-white shadow-sm overflow-hidden">
+          <div class="grid md:grid-cols-2 gap-0">
+            <!-- Left: headline + description + features -->
+            <div class="p-8 md:p-10">
+              <div class="flex flex-wrap gap-2 mb-4">
+                {featured.status && (
+                  <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium border bg-[#48A18D]/10 text-[#48A18D] border-[#48A18D]/20">
+                    {featured.status}
+                  </span>
+                )}
+                {featured.partner && (
+                  <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium border bg-purple-50 text-purple-700 border-purple-200">
+                    Partner solution
+                  </span>
+                )}
+              </div>
+              <div class="flex gap-2 mb-4">
+                {featured.useCaseIcons.map((icon) => (
+                  <div class="w-10 h-10 rounded-lg bg-[#48A18D]/10 flex items-center justify-center">
+                    <Icon name={icon} class="w-5 h-5 text-[#48A18D]" />
+                  </div>
+                ))}
+              </div>
+              <h2 class="text-2xl md:text-3xl font-bold text-slate-900 mb-2">{featured.name}</h2>
+              <p class="text-[#48A18D] font-medium mb-4">{featured.tagline}</p>
+              <p class="text-slate-600 leading-relaxed mb-6">{featured.description}</p>
+              <ul class="space-y-2 mb-8">
+                {featured.features.map((feature) => (
+                  <li class="flex items-start gap-2 text-sm text-slate-700">
+                    <Icon name="bx:bx-check" class="w-4 h-4 text-[#48A18D] flex-shrink-0 mt-0.5" />
+                    <span>{feature}</span>
+                  </li>
+                ))}
+              </ul>
+              <div class="flex flex-col sm:flex-row gap-3">
+                <button
+                  type="button"
+                  class="product-details-btn flex-1 px-5 py-2.5 text-sm font-medium text-slate-700 bg-slate-100 hover:bg-slate-200 rounded-lg transition-colors flex items-center justify-center gap-1.5"
+                  data-product-id={featured.id}
+                >
+                  <Icon name="bx:bx-show" class="w-4 h-4" />
+                  View Details
+                </button>
+                <a
+                  href={`/contact?product=${featured.id}`}
+                  class="flex-1 px-5 py-2.5 text-sm font-medium rounded-lg transition-colors flex items-center justify-center gap-1.5 text-white bg-[#48A18D] hover:bg-[#3b8675]"
+                >
+                  <Icon name="bx:bx-message-rounded-dots" class="w-4 h-4" />
+                  Discuss This
+                </a>
+              </div>
+            </div>
+            <!-- Right: capabilities + applied to -->
+            <div class="p-8 md:p-10 bg-slate-50 border-t md:border-t-0 md:border-l border-slate-200">
+              <h3 class="text-xs font-semibold text-slate-900 uppercase tracking-widest mb-4">Key Capabilities</h3>
+              <ul class="space-y-2 mb-8">
+                {featured.capabilities.map((cap) => (
+                  <li class="flex items-start gap-2 text-sm text-slate-700">
+                    <Icon name="bx:bx-check-circle" class="w-4 h-4 text-[#48A18D] flex-shrink-0 mt-0.5" />
+                    <span>{cap}</span>
+                  </li>
+                ))}
+              </ul>
+              {featured.appliedTo && (
+                <>
+                  <h3 class="text-xs font-semibold text-slate-900 uppercase tracking-widest mb-3">Applied To</h3>
+                  <div class="flex flex-wrap gap-2">
+                    {featured.appliedTo.map((tag) => (
+                      <span class="px-3 py-1 text-xs font-medium bg-white text-slate-700 rounded-full border border-slate-200">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                </>
+              )}
+            </div>
+          </div>
+        </div>
+      </Container>
+    </section>
+  )}
+
+  <!-- Tier 2: Remaining solutions -->
+  <section class="py-12 pb-20">
     <Container>
-      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
-        {solutions.map((solution) => (
-          <ProductCard product={solution} />
-        ))}
+      <div class="max-w-6xl mx-auto">
+        <h2 class="text-xl font-semibold text-slate-700 mb-8">Same pipeline, different model and placement.</h2>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {rest.map((solution) => (
+            <ProductCard product={solution} />
+          ))}
+        </div>
       </div>
     </Container>
   </section>

@@ -1,44 +1,21 @@
 ---
-import Layout from "../layouts/Layout.astro"; // adjust if your layout name/path differs
-import { getEntryBySlug } from "astro:content";
-
+import Layout from "@/layouts/Layout.astro";
 import Container from "@/components/container.astro";
 import Cta from "@/components/cta.astro";
 import Features from "@/components/features.astro";
 import Hero from "@/components/hero.astro";
 import Logos from "@/components/logos.astro";
-import Layout from "@/layouts/Layout.astro";
-import HowItWorks from "../components/HowItWorks.astro";
-import AgenticAI from "../components/AgenticAI.astro";
-import UseCases from "../components/UseCases.astro";
-import Screenshots from "../components/Screenshots.astro";
-import WhoWeHelp from "../components/WhoWeHelp.astro";
-import Community from "../components/Community.astro";
-import EcosystemPartners from "../components/EcosystemPartners.astro";
-import BusinessModel from "../components/BusinessModel.astro";
-
-const entry = await getEntryBySlug("pages", "index");
-if (!entry) {
-  throw new Error("Missing src/content/pages/index.md");
-}
-const { data, body } = entry;
+import HowItWorks from "@/components/HowItWorks.astro";
+import AgenticAI from "@/components/AgenticAI.astro";
+import UseCases from "@/components/UseCases.astro";
+import Screenshots from "@/components/Screenshots.astro";
+import WhoWeHelp from "@/components/WhoWeHelp.astro";
+import Community from "@/components/Community.astro";
+import EcosystemPartners from "@/components/EcosystemPartners.astro";
+import BusinessModel from "@/components/BusinessModel.astro";
 ---
 
-<Layout title={data.title} description={data.description}>
-  <!-- Hero -->
-  <section class="relative overflow-hidden py-24">
-    <!-- Background Pattern - gradient from bottom-right fading to top-left -->
-    <div class="absolute inset-0 bg-gradient-to-tl from-[#48A18D]/15 via-[#48A18D]/5 to-transparent"></div>
-    <div class="absolute bottom-0 right-0 w-[500px] h-[500px] bg-[#48A18D]/10 rounded-full blur-3xl translate-x-1/4 translate-y-1/4"></div>
-    
-    <div class="relative max-w-4xl mx-auto px-6 text-center">
-      <h1 class="text-4xl md:text-6xl font-extrabold leading-tight text-slate-900">{data.title}</h1>
-      {data.description && (
-        <p class="mt-6 text-lg md:text-xl text-slate-600">{data.description}</p>
-      )}
-    </div>
-  </section>
-
+<Layout title="Edge AI Deployment Partner">
   <Container>
     <Hero />
     <WhoWeHelp />
@@ -51,5 +28,4 @@ const { data, body } = entry;
     <BusinessModel />
     <Cta />
   </Container>
-
 </Layout>
