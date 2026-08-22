@@ -7,7 +7,6 @@ tags: ["Edge AI", "Open Source", "Developer Community", "AI Product Thinking"]
 image:
   src: "/images/blog/atriva-community-launch-banner.jpg"
   alt: "Atriva AI Community launch announcement"
-draft: false
 ---
 
 ## 🌍 Why We’re Building This Community

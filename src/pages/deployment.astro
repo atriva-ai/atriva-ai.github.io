@@ -1,0 +1,56 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Container from "@/components/container.astro";
+import { Icon } from "astro-icon/components";
+
+const specs = [
+  { label: "Runs on",           value: "NVIDIA Jetson, Intel, Rockchip, Hailo, MemryX" },
+  { label: "Cameras",           value: "Any RTSP/ONVIF IP camera — existing cameras are fine" },
+  { label: "Network",           value: "Local processing. No cloud dependency, no video leaves the site" },
+  { label: "On-site footprint", value: "One edge device per 8–16 cameras" },
+  { label: "Output",            value: "Structured JSON events to your systems, or our dashboard" },
+  { label: "Time to stand up",  value: "1–3 days per site once hardware is on-site" },
+];
+---
+
+<Layout title="Deployment">
+  <Container>
+    <div class="max-w-2xl mx-auto py-20">
+
+      <!-- Heading -->
+      <h1 class="text-4xl md:text-5xl font-bold text-slate-900 mb-4">Deployment</h1>
+      <p class="text-lg text-slate-600 mb-12">
+        Every Atriva solution runs on the same stack. If a site has cameras and power, it's deployable.
+      </p>
+
+      <!-- Spec table -->
+      <dl class="divide-y divide-slate-200 border-y border-slate-200 mb-12">
+        {specs.map(({ label, value }) => (
+          <div class="grid grid-cols-5 gap-4 py-4">
+            <dt class="col-span-2 text-sm font-semibold text-slate-500 uppercase tracking-wide self-center">
+              {label}
+            </dt>
+            <dd class="col-span-3 text-sm text-slate-800">
+              {value}
+            </dd>
+          </div>
+        ))}
+      </dl>
+
+      <!-- Stack note -->
+      <p class="text-slate-600 leading-relaxed mb-12">
+        Deployed as containers. The same image runs across every supported accelerator — the runtime is selected at install, so switching hardware doesn't mean rebuilding the application.
+      </p>
+
+      <!-- CTA -->
+      <a
+        href="/contact"
+        class="inline-flex items-center gap-2 px-8 py-4 text-white bg-[#48A18D] hover:bg-[#3b8675] font-semibold rounded-lg transition-colors shadow-lg shadow-[#48A18D]/25"
+      >
+        <Icon name="bx:bx-message-rounded-dots" class="w-5 h-5" />
+        Talk to us about your site
+      </a>
+
+    </div>
+  </Container>
+</Layout>

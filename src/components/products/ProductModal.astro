@@ -130,9 +130,36 @@ const { products } = Astro.props;
                 </div>
               </div>
 
+              <!-- Deployment specs -->
+              {product.deployment && (
+                <div class="mb-8">
+                  <h3 class="text-sm font-semibold text-slate-900 uppercase tracking-wide mb-3">
+                    Deployment
+                  </h3>
+                  <dl class="divide-y divide-slate-100 border-y border-slate-100">
+                    <div class="grid grid-cols-5 gap-2 py-2">
+                      <dt class="col-span-2 text-xs text-slate-500 self-center">Accelerators</dt>
+                      <dd class="col-span-3 text-xs text-slate-700">{product.deployment.accelerators.join(", ")}</dd>
+                    </div>
+                    <div class="grid grid-cols-5 gap-2 py-2">
+                      <dt class="col-span-2 text-xs text-slate-500 self-center">Coverage</dt>
+                      <dd class="col-span-3 text-xs text-slate-700">{product.deployment.camerasPerDevice}</dd>
+                    </div>
+                    <div class="grid grid-cols-5 gap-2 py-2">
+                      <dt class="col-span-2 text-xs text-slate-500 self-center">Stand-up time</dt>
+                      <dd class="col-span-3 text-xs text-slate-700">{product.deployment.standUpTime}</dd>
+                    </div>
+                    <div class="grid grid-cols-5 gap-2 py-2">
+                      <dt class="col-span-2 text-xs text-slate-500 self-center">Integration</dt>
+                      <dd class="col-span-3 text-xs text-slate-700">{product.deployment.integration}</dd>
+                    </div>
+                  </dl>
+                </div>
+              )}
+
               <!-- CTAs -->
               <div class="flex flex-col sm:flex-row gap-3">
-                {product.status === "ready" ? (
+                {product.status !== "In development" ? (
                   <a
                     href={`/contact?product=${product.id}`}
                     class="flex-1 px-6 py-3 text-center font-semibold text-white bg-[#48A18D] hover:bg-[#3b8675] rounded-lg transition-colors flex items-center justify-center gap-2"

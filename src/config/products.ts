@@ -1,7 +1,7 @@
 // Products configuration - Easy to edit product details
 // Icons use Boxicons names from astro-icon (prefix: bx:)
 
-export type ProductStatus = "ready" | "coming-soon" | "planning";
+export type ProductStatus = "In deployment" | "Available" | "In development";
 
 export interface Product {
   id: string;
@@ -16,7 +16,14 @@ export interface Product {
   image?: string; // Path to product screenshot/mock
   gif?: string; // Optional looping GIF
   featured?: boolean;
-  status: ProductStatus; // ready, coming-soon, or planning
+  partner?: boolean;
+  status: ProductStatus;
+  deployment?: {
+    accelerators: string[];
+    camerasPerDevice: string;
+    standUpTime: string;
+    integration: string;
+  };
 }
 
 export const products: Product[] = [
@@ -45,7 +52,13 @@ export const products: Product[] = [
     appliedTo: ["Retail", "Loss prevention", "In-store analytics"],
     image: "/images/products/retail-analytics.png",
     featured: true,
-    status: "ready",
+    status: "In deployment",
+    deployment: {
+      accelerators: ["NVIDIA Jetson", "Intel OpenVINO", "Rockchip RK3588"],
+      camerasPerDevice: "8–16 cameras per edge device",
+      standUpTime: "1–2 days per site once hardware is on-site",
+      integration: "Structured JSON events via webhook or REST; optional dashboard included",
+    },
   },
   {
     id: "atriva-facial-intelligence",
@@ -77,7 +90,7 @@ export const products: Product[] = [
     ],
     image: "/images/products/atriva-facial-intelligence.png",
     featured: true,
-    status: "ready",
+    status: "In deployment",
   },  
   {
     id: "smart-parking",
@@ -102,7 +115,7 @@ export const products: Product[] = [
     apis: ["OpenVINO Inference", "Video Pipeline", "Alerts API"],
     appliedTo: ["Smart parking", "Commercial parking facilities", "Airports & transit hubs", "Smart cities", "Campus & enterprise parking"],
     image: "/images/products/smart-parking.png",
-    status: "coming-soon",
+    status: "Available",
   },
   {
     id: "safety-monitor",
@@ -135,7 +148,7 @@ export const products: Product[] = [
     ],
     image: "/images/products/safety-monitor.png",
     featured: true,
-    status: "coming-soon",
+    status: "Available",
   },
   {
     id: "entry-alert-system",
@@ -165,7 +178,7 @@ export const products: Product[] = [
       "Service counters",
       "Waiting areas & reception zones",
     ],
-    status: "coming-soon",
+    status: "Available",
   },
   {
     id: "ai-vision-fall-detection",
@@ -204,7 +217,7 @@ export const products: Product[] = [
       "Shopping malls",
       "Kindergartens",
     ],
-    status: "coming-soon",
+    status: "Available",
   },
   {
     id: "meal-inspection-system",
@@ -238,7 +251,7 @@ export const products: Product[] = [
       "Meal delivery operations",
       "Catering services"
     ],
-    status: "ready",
+    status: "In deployment",
   },
   {
     id: "ai-vision-agent",
@@ -270,7 +283,7 @@ export const products: Product[] = [
       "Smart buildings and facilities",
     ],
     featured: true,
-    status: "coming-soon",
+    status: "Available",
   },
   {
     id: "traffic-intelligence",
@@ -302,7 +315,7 @@ export const products: Product[] = [
       "Municipal traffic operations",
     ],
     image: "/images/products/traffic-intelligence.png",
-    status: "planning",
+    status: "In development",
   },
   {
     id: "access-control",
@@ -334,7 +347,7 @@ export const products: Product[] = [
       "Airports & transit hubs",
     ],
     image: "/images/products/access-control.png",
-    status: "planning",
+    status: "In development",
   },
 ];
 
@@ -345,8 +358,7 @@ export const heroContent = {
     "Examples of Edge AI solutions we have helped design, integrate, and deploy. Every project is customized to the customer's environment, hardware, and requirements.",
 };
 
-// Helper functions to filter products by status
-export const getReadyProducts = () => products.filter(p => p.status === "ready");
-export const getComingSoonProducts = () => products.filter(p => p.status === "coming-soon");
-export const getPlanningProducts = () => products.filter(p => p.status === "planning");
+export const getDeployedProducts = () => products.filter(p => p.status === "In deployment");
+export const getAvailableProducts = () => products.filter(p => p.status === "Available");
+export const getInDevelopmentProducts = () => products.filter(p => p.status === "In development");
 
