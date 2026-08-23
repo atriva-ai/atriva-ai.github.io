@@ -11,6 +11,29 @@ const specs = [
   { label: "Output",            value: "Structured JSON events to your systems, or our dashboard" },
   { label: "Time to stand up",  value: "1–3 days per site once hardware is on-site" },
 ];
+
+const faqs = [
+  {
+    q: "Can it use our existing cameras and VMS?",
+    a: "TODO",
+  },
+  {
+    q: "What happens if the network drops?",
+    a: "TODO",
+  },
+  {
+    q: "Who installs it — you or us?",
+    a: "TODO",
+  },
+  {
+    q: "Can we run it on hardware we already own?",
+    a: "TODO",
+  },
+  {
+    q: "What does ongoing support cost?",
+    a: "TODO",
+  },
+];
 ---
 
 <Layout title="Deployment">
@@ -23,8 +46,120 @@ const specs = [
         Every Atriva solution runs on the same stack. If a site has cameras and power, it's deployable.
       </p>
 
+      <!-- Topology diagram -->
+      <div class="mb-12">
+        <svg
+          viewBox="0 0 560 220"
+          xmlns="http://www.w3.org/2000/svg"
+          class="w-full text-slate-700"
+          aria-label="Atriva deployment topology: cameras and edge device stay on site, events go to your systems or the Atriva dashboard"
+          role="img"
+        >
+          <!-- On-site dashed boundary -->
+          <rect x="8" y="24" width="310" height="172" rx="10"
+            fill="none" stroke="currentColor" stroke-width="1.5"
+            stroke-dasharray="6 4" opacity="0.35" />
+          <text x="20" y="18" font-size="10" fill="currentColor" opacity="0.5"
+            font-family="system-ui, sans-serif" font-weight="600" letter-spacing="0.08em">
+            STAYS ON SITE — NO VIDEO LEAVES THE NETWORK
+          </text>
+
+          <!-- Camera 1 -->
+          <rect x="28" y="60" width="72" height="48" rx="6"
+            fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.6"/>
+          <text x="64" y="80" text-anchor="middle" font-size="18" fill="currentColor" opacity="0.7">⬛</text>
+          <!-- camera icon: simple box + lens -->
+          <rect x="36" y="68" width="36" height="24" rx="3"
+            fill="none" stroke="currentColor" stroke-width="1.5"/>
+          <circle cx="60" cy="80" r="7"
+            fill="none" stroke="currentColor" stroke-width="1.5"/>
+          <line x1="72" y1="76" x2="78" y2="74"
+            stroke="currentColor" stroke-width="1.5"/>
+          <text x="64" y="122" text-anchor="middle" font-size="9"
+            fill="currentColor" opacity="0.6" font-family="system-ui, sans-serif">
+            IP Camera
+          </text>
+          <text x="64" y="133" text-anchor="middle" font-size="8"
+            fill="currentColor" opacity="0.45" font-family="system-ui, sans-serif">
+            RTSP / ONVIF
+          </text>
+
+          <!-- Camera 2 -->
+          <rect x="28" y="148" width="72" height="36" rx="6"
+            fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.35"/>
+          <rect x="36" y="155" width="28" height="18" rx="3"
+            fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.5"/>
+          <circle cx="56" cy="164" r="5"
+            fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.5"/>
+          <text x="64" y="196" text-anchor="middle" font-size="8"
+            fill="currentColor" opacity="0.35" font-family="system-ui, sans-serif">
+            + more cameras
+          </text>
+
+          <!-- Arrow: cameras → edge device -->
+          <line x1="102" y1="84" x2="178" y2="104"
+            stroke="currentColor" stroke-width="1.5" opacity="0.5"/>
+          <line x1="102" y1="164" x2="178" y2="116"
+            stroke="currentColor" stroke-width="1.5" opacity="0.35"/>
+          <polygon points="178,104 170,98 170,110"
+            fill="currentColor" opacity="0.5"/>
+          <polygon points="178,116 170,110 170,122"
+            fill="currentColor" opacity="0.35"/>
+
+          <!-- Edge device box -->
+          <rect x="182" y="72" width="120" height="76" rx="8"
+            fill="none" stroke="#48A18D" stroke-width="2"/>
+          <text x="242" y="100" text-anchor="middle" font-size="10" font-weight="700"
+            fill="#48A18D" font-family="system-ui, sans-serif">
+            Atriva
+          </text>
+          <text x="242" y="114" text-anchor="middle" font-size="9"
+            fill="#48A18D" font-family="system-ui, sans-serif">
+            Edge Device
+          </text>
+          <text x="242" y="128" text-anchor="middle" font-size="8"
+            fill="currentColor" opacity="0.45" font-family="system-ui, sans-serif">
+            on-prem · runs inference
+          </text>
+
+          <!-- Arrow: edge → outputs -->
+          <line x1="302" y1="96" x2="356" y2="72"
+            stroke="currentColor" stroke-width="1.5" opacity="0.6"/>
+          <polygon points="356,72 346,70 349,80"
+            fill="currentColor" opacity="0.6"/>
+          <line x1="302" y1="120" x2="356" y2="148"
+            stroke="currentColor" stroke-width="1.5" opacity="0.6"/>
+          <polygon points="356,148 346,140 349,150"
+            fill="currentColor" opacity="0.6"/>
+
+          <!-- Output 1: Your systems -->
+          <rect x="360" y="44" width="180" height="52" rx="8"
+            fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.6"/>
+          <text x="450" y="67" text-anchor="middle" font-size="10" font-weight="600"
+            fill="currentColor" font-family="system-ui, sans-serif">
+            Your systems
+          </text>
+          <text x="450" y="82" text-anchor="middle" font-size="9"
+            fill="currentColor" opacity="0.55" font-family="system-ui, sans-serif">
+            JSON events via webhook / API
+          </text>
+
+          <!-- Output 2: Atriva dashboard -->
+          <rect x="360" y="124" width="180" height="52" rx="8"
+            fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.6"/>
+          <text x="450" y="147" text-anchor="middle" font-size="10" font-weight="600"
+            fill="currentColor" font-family="system-ui, sans-serif">
+            Atriva dashboard
+          </text>
+          <text x="450" y="162" text-anchor="middle" font-size="9"
+            fill="currentColor" opacity="0.55" font-family="system-ui, sans-serif">
+            live alerts · reports · history
+          </text>
+        </svg>
+      </div>
+
       <!-- Spec table -->
-      <dl class="divide-y divide-slate-200 border-y border-slate-200 mb-12">
+      <dl class="divide-y divide-slate-200 border-y border-slate-200 mb-4">
         {specs.map(({ label, value }) => (
           <div class="grid grid-cols-5 gap-4 py-4">
             <dt class="col-span-2 text-sm font-semibold text-slate-500 uppercase tracking-wide self-center">
@@ -37,17 +172,36 @@ const specs = [
         ))}
       </dl>
 
+      <!-- Integration outputs note -->
+      <p class="text-xs text-slate-400 mb-12">
+        <!-- TODO: confirm which are actually supported before publishing -->
+        Integration outputs: MQTT · Webhook · REST API
+      </p>
+
       <!-- Stack note -->
       <p class="text-slate-600 leading-relaxed mb-12">
         Deployed as containers. The same image runs across every supported accelerator — the runtime is selected at install, so switching hardware doesn't mean rebuilding the application.
       </p>
+
+      <!-- FAQ -->
+      <div class="mb-12">
+        <h2 class="text-xl font-bold text-slate-900 mb-6">Common questions</h2>
+        <dl class="divide-y divide-slate-200 border-y border-slate-200">
+          {faqs.map(({ q, a }) => (
+            <div class="py-5">
+              <dt class="text-sm font-semibold text-slate-900 mb-2">{q}</dt>
+              <dd class="text-sm text-slate-500 italic">TODO</dd>
+            </div>
+          ))}
+        </dl>
+      </div>
 
       <!-- CTA -->
       <a
         href="/contact"
         class="inline-flex items-center gap-2 px-8 py-4 text-white bg-[#48A18D] hover:bg-[#3b8675] font-semibold rounded-lg transition-colors shadow-lg shadow-[#48A18D]/25"
       >
-        <Icon name="bx:bx-message-rounded-dots" class="w-5 h-5" />
+        <Icon name="bx:bx-message-rounded-dots" class="w-5 h5" />
         Talk to us about your site
       </a>
 
