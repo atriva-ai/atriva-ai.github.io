@@ -15,23 +15,23 @@ const specs = [
 const faqs = [
   {
     q: "Can it use our existing cameras and VMS?",
-    a: "TODO",
+    a: "Yes. Atriva works with any IP camera that streams over RTSP or ONVIF, which covers the majority of cameras installed in the last decade. We don't replace your VMS — we sit alongside it, reading the same stream your VMS already records. You keep your existing footage, access control, and recording workflows unchanged.",
   },
   {
     q: "What happens if the network drops?",
-    a: "TODO",
+    a: "The edge device keeps processing. Detection, alerting, and local logging all continue without a cloud connection — there's nothing cloud-side that the on-device runtime depends on. Events queue locally and sync when connectivity is restored. The only thing that goes offline is remote access to the dashboard.",
   },
   {
     q: "Who installs it — you or us?",
-    a: "TODO",
+    a: "Either, depending on what makes sense for your site. For first deployments we typically install ourselves so we can calibrate detection zones and validate performance on-site before handover. For subsequent sites we can train your team or a local integrator to handle it. The containers are designed to be reproducible — the same config that worked on site one works on site ten.",
   },
   {
     q: "Can we run it on hardware we already own?",
-    a: "TODO",
+    a: "Possibly. If you have an x86 server or an NVIDIA Jetson on-site, we can often deploy to it. We'll tell you upfront if the hardware won't meet the throughput requirements for your camera count rather than letting you find out after install. We'd rather right-size the hardware at the start than debug performance issues later.",
   },
   {
     q: "What does ongoing support cost?",
-    a: "TODO",
+    a: "Support is scoped per deployment and quoted before you sign — not hidden in a per-camera annual fee after go-live. It covers threshold tuning, model updates when cameras change position or lighting conditions shift seasonally, and a response SLA for incidents. Most sites run on a flat monthly fee.",
   },
 ];
 ---
@@ -49,112 +49,102 @@ const faqs = [
       <!-- Topology diagram -->
       <div class="mb-12">
         <svg
-          viewBox="0 0 560 220"
+          viewBox="0 0 580 220"
           xmlns="http://www.w3.org/2000/svg"
           class="w-full text-slate-700"
-          aria-label="Atriva deployment topology: cameras and edge device stay on site, events go to your systems or the Atriva dashboard"
+          aria-label="Deployment topology: IP cameras and the Atriva edge device stay on site; structured events go to your systems or the Atriva dashboard"
           role="img"
         >
           <!-- On-site dashed boundary -->
-          <rect x="8" y="24" width="310" height="172" rx="10"
+          <rect x="8" y="30" width="310" height="166" rx="10"
             fill="none" stroke="currentColor" stroke-width="1.5"
-            stroke-dasharray="6 4" opacity="0.35" />
-          <text x="20" y="18" font-size="10" fill="currentColor" opacity="0.5"
+            stroke-dasharray="6 4" opacity="0.3"/>
+          <text x="16" y="24" font-size="9" fill="currentColor" opacity="0.45"
             font-family="system-ui, sans-serif" font-weight="600" letter-spacing="0.08em">
             STAYS ON SITE — NO VIDEO LEAVES THE NETWORK
           </text>
 
+          <!--
+            Camera icon reused twice via <use>.
+            Shape: body rect + lens circle + rear mount nub.
+            Defined at origin; positioned with transform on each <use>.
+          -->
+          <defs>
+            <g id="cam">
+              <!-- rear mount -->
+              <rect x="-10" y="8" width="10" height="12" rx="2"
+                fill="none" stroke="currentColor" stroke-width="1.5"/>
+              <!-- body -->
+              <rect x="0" y="0" width="44" height="28" rx="4"
+                fill="none" stroke="currentColor" stroke-width="1.5"/>
+              <!-- lens ring -->
+              <circle cx="30" cy="14" r="9"
+                fill="none" stroke="currentColor" stroke-width="1.5"/>
+              <!-- lens inner dot -->
+              <circle cx="30" cy="14" r="3"
+                fill="currentColor" opacity="0.4"/>
+            </g>
+          </defs>
+
           <!-- Camera 1 -->
-          <rect x="28" y="60" width="72" height="48" rx="6"
-            fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.6"/>
-          <text x="64" y="80" text-anchor="middle" font-size="18" fill="currentColor" opacity="0.7">⬛</text>
-          <!-- camera icon: simple box + lens -->
-          <rect x="36" y="68" width="36" height="24" rx="3"
-            fill="none" stroke="currentColor" stroke-width="1.5"/>
-          <circle cx="60" cy="80" r="7"
-            fill="none" stroke="currentColor" stroke-width="1.5"/>
-          <line x1="72" y1="76" x2="78" y2="74"
-            stroke="currentColor" stroke-width="1.5"/>
-          <text x="64" y="122" text-anchor="middle" font-size="9"
-            fill="currentColor" opacity="0.6" font-family="system-ui, sans-serif">
-            IP Camera
-          </text>
-          <text x="64" y="133" text-anchor="middle" font-size="8"
-            fill="currentColor" opacity="0.45" font-family="system-ui, sans-serif">
-            RTSP / ONVIF
-          </text>
+          <use href="#cam" transform="translate(34,68)" opacity="0.7"/>
+          <text x="57" y="108" text-anchor="middle" font-size="9"
+            fill="currentColor" opacity="0.6" font-family="system-ui, sans-serif">IP Camera</text>
+          <text x="57" y="119" text-anchor="middle" font-size="8"
+            fill="currentColor" opacity="0.4" font-family="system-ui, sans-serif">RTSP / ONVIF</text>
 
-          <!-- Camera 2 -->
-          <rect x="28" y="148" width="72" height="36" rx="6"
-            fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.35"/>
-          <rect x="36" y="155" width="28" height="18" rx="3"
-            fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.5"/>
-          <circle cx="56" cy="164" r="5"
-            fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.5"/>
-          <text x="64" y="196" text-anchor="middle" font-size="8"
-            fill="currentColor" opacity="0.35" font-family="system-ui, sans-serif">
-            + more cameras
-          </text>
+          <!-- Camera 2 (identical, offset down) -->
+          <use href="#cam" transform="translate(34,148)" opacity="0.35"/>
+          <text x="57" y="190" text-anchor="middle" font-size="8"
+            fill="currentColor" opacity="0.3" font-family="system-ui, sans-serif">+ more cameras</text>
 
-          <!-- Arrow: cameras → edge device -->
-          <line x1="102" y1="84" x2="178" y2="104"
+          <!-- Arrows: cameras → edge device -->
+          <line x1="78" y1="82" x2="168" y2="104"
             stroke="currentColor" stroke-width="1.5" opacity="0.5"/>
-          <line x1="102" y1="164" x2="178" y2="116"
-            stroke="currentColor" stroke-width="1.5" opacity="0.35"/>
-          <polygon points="178,104 170,98 170,110"
+          <polygon points="168,104 160,98 160,110"
             fill="currentColor" opacity="0.5"/>
-          <polygon points="178,116 170,110 170,122"
-            fill="currentColor" opacity="0.35"/>
 
-          <!-- Edge device box -->
-          <rect x="182" y="72" width="120" height="76" rx="8"
+          <line x1="78" y1="162" x2="168" y2="120"
+            stroke="currentColor" stroke-width="1.5" opacity="0.3"/>
+          <polygon points="168,120 160,124 160,114"
+            fill="currentColor" opacity="0.3"/>
+
+          <!-- Edge device -->
+          <rect x="172" y="68" width="130" height="84" rx="8"
             fill="none" stroke="#48A18D" stroke-width="2"/>
-          <text x="242" y="100" text-anchor="middle" font-size="10" font-weight="700"
-            fill="#48A18D" font-family="system-ui, sans-serif">
-            Atriva
-          </text>
-          <text x="242" y="114" text-anchor="middle" font-size="9"
-            fill="#48A18D" font-family="system-ui, sans-serif">
-            Edge Device
-          </text>
-          <text x="242" y="128" text-anchor="middle" font-size="8"
-            fill="currentColor" opacity="0.45" font-family="system-ui, sans-serif">
-            on-prem · runs inference
-          </text>
+          <text x="237" y="97" text-anchor="middle" font-size="11" font-weight="700"
+            fill="#48A18D" font-family="system-ui, sans-serif">Atriva</text>
+          <text x="237" y="112" text-anchor="middle" font-size="10"
+            fill="#48A18D" font-family="system-ui, sans-serif">Edge Device</text>
+          <text x="237" y="128" text-anchor="middle" font-size="8"
+            fill="currentColor" opacity="0.45" font-family="system-ui, sans-serif">on-prem · runs inference</text>
 
-          <!-- Arrow: edge → outputs -->
-          <line x1="302" y1="96" x2="356" y2="72"
+          <!-- Arrows: edge device → outputs -->
+          <line x1="302" y1="96" x2="352" y2="74"
             stroke="currentColor" stroke-width="1.5" opacity="0.6"/>
-          <polygon points="356,72 346,70 349,80"
+          <polygon points="352,74 343,74 347,84"
             fill="currentColor" opacity="0.6"/>
-          <line x1="302" y1="120" x2="356" y2="148"
+
+          <line x1="302" y1="124" x2="352" y2="148"
             stroke="currentColor" stroke-width="1.5" opacity="0.6"/>
-          <polygon points="356,148 346,140 349,150"
+          <polygon points="352,148 343,142 347,152"
             fill="currentColor" opacity="0.6"/>
 
           <!-- Output 1: Your systems -->
-          <rect x="360" y="44" width="180" height="52" rx="8"
-            fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.6"/>
-          <text x="450" y="67" text-anchor="middle" font-size="10" font-weight="600"
-            fill="currentColor" font-family="system-ui, sans-serif">
-            Your systems
-          </text>
-          <text x="450" y="82" text-anchor="middle" font-size="9"
-            fill="currentColor" opacity="0.55" font-family="system-ui, sans-serif">
-            JSON events via webhook / API
-          </text>
+          <rect x="356" y="44" width="212" height="56" rx="8"
+            fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.55"/>
+          <text x="462" y="68" text-anchor="middle" font-size="10" font-weight="600"
+            fill="currentColor" font-family="system-ui, sans-serif">Your systems</text>
+          <text x="462" y="84" text-anchor="middle" font-size="9"
+            fill="currentColor" opacity="0.5" font-family="system-ui, sans-serif">JSON events · webhook / API</text>
 
           <!-- Output 2: Atriva dashboard -->
-          <rect x="360" y="124" width="180" height="52" rx="8"
-            fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.6"/>
-          <text x="450" y="147" text-anchor="middle" font-size="10" font-weight="600"
-            fill="currentColor" font-family="system-ui, sans-serif">
-            Atriva dashboard
-          </text>
-          <text x="450" y="162" text-anchor="middle" font-size="9"
-            fill="currentColor" opacity="0.55" font-family="system-ui, sans-serif">
-            live alerts · reports · history
-          </text>
+          <rect x="356" y="124" width="212" height="56" rx="8"
+            fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.55"/>
+          <text x="462" y="148" text-anchor="middle" font-size="10" font-weight="600"
+            fill="currentColor" font-family="system-ui, sans-serif">Atriva dashboard</text>
+          <text x="462" y="164" text-anchor="middle" font-size="9"
+            fill="currentColor" opacity="0.5" font-family="system-ui, sans-serif">live alerts · reports · history</text>
         </svg>
       </div>
 
@@ -172,9 +162,8 @@ const faqs = [
         ))}
       </dl>
 
-      <!-- Integration outputs note -->
+      <!-- Integration outputs — TODO: confirm which are supported -->
       <p class="text-xs text-slate-400 mb-12">
-        <!-- TODO: confirm which are actually supported before publishing -->
         Integration outputs: MQTT · Webhook · REST API
       </p>
 
@@ -190,7 +179,7 @@ const faqs = [
           {faqs.map(({ q, a }) => (
             <div class="py-5">
               <dt class="text-sm font-semibold text-slate-900 mb-2">{q}</dt>
-              <dd class="text-sm text-slate-500 italic">TODO</dd>
+              <dd class="text-sm text-slate-600 leading-relaxed">{a}</dd>
             </div>
           ))}
         </dl>
@@ -201,7 +190,7 @@ const faqs = [
         href="/contact"
         class="inline-flex items-center gap-2 px-8 py-4 text-white bg-[#48A18D] hover:bg-[#3b8675] font-semibold rounded-lg transition-colors shadow-lg shadow-[#48A18D]/25"
       >
-        <Icon name="bx:bx-message-rounded-dots" class="w-5 h5" />
+        <Icon name="bx:bx-message-rounded-dots" class="w-5 h-5" />
         Talk to us about your site
       </a>
 
