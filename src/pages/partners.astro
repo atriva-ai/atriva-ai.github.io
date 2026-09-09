@@ -1,0 +1,121 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Container from "@/components/container.astro";
+import Features from "@/components/features.astro";
+import HowItWorks from "@/components/HowItWorks.astro";
+import Logos from "@/components/logos.astro";
+import BusinessModel from "@/components/BusinessModel.astro";
+import Community from "@/components/Community.astro";
+import { Icon } from "astro-icon/components";
+---
+
+<Layout title="For Software Partners">
+  <!-- Hero -->
+  <section class="relative overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-tl from-[#48A18D]/15 via-[#48A18D]/5 to-transparent"></div>
+    <div class="absolute bottom-0 right-0 w-[500px] h-[500px] bg-[#48A18D]/10 rounded-full blur-3xl translate-x-1/4 translate-y-1/4"></div>
+
+    <Container>
+      <div class="relative pt-20 pb-16 text-center">
+        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#48A18D]/10 text-[#48A18D] text-sm font-medium mb-6">
+          <Icon name="bx:bx-globe" class="w-4 h-4" />
+          Software Partners
+        </div>
+
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6 tracking-tight">
+          For Software Partners
+        </h1>
+
+        <p class="text-lg md:text-xl text-slate-600 max-w-2xl mx-auto mb-10">
+          You built the software. We bring the customers, the hardware, and the deployment. We don't build competing products — we extend your reach into markets you can't access alone.
+        </p>
+
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a
+            href="/contact"
+            class="inline-flex items-center justify-center gap-2 px-8 py-4 text-white bg-[#48A18D] hover:bg-[#3b8675] font-semibold rounded-lg transition-colors shadow-lg shadow-[#48A18D]/25"
+          >
+            <Icon name="bx:bx-message-rounded-dots" class="w-5 h-5" />
+            Explore Partnership
+          </a>
+          <a
+            href="https://github.com/atriva-ai-community/"
+            target="_blank"
+            rel="noopener"
+            class="inline-flex items-center justify-center gap-2 px-8 py-4 text-slate-700 border-2 border-slate-200 hover:border-slate-300 font-semibold rounded-lg transition-colors"
+          >
+            <Icon name="bx:bxl-github" class="w-5 h-5" />
+            GitHub
+          </a>
+        </div>
+      </div>
+    </Container>
+  </section>
+
+  <!-- What we do for partners -->
+  <section class="py-16 bg-slate-50">
+    <Container>
+      <div class="max-w-4xl mx-auto">
+        <h2 class="text-2xl font-bold text-slate-900 mb-8">What we do for partners</h2>
+        <div class="grid sm:grid-cols-3 gap-6">
+          <div class="bg-white rounded-xl border border-slate-200 p-6">
+            <div class="w-10 h-10 rounded-lg bg-[#48A18D]/10 flex items-center justify-center mb-4">
+              <Icon name="bx:bx-door-open" class="w-5 h-5 text-[#48A18D]" />
+            </div>
+            <h3 class="font-semibold text-slate-900 mb-2">Open doors</h3>
+            <p class="text-sm text-slate-600 leading-relaxed">We work directly with enterprise customers and SIs who need your software but don't know you exist. We introduce you and stay in the deal to make it close.</p>
+          </div>
+          <div class="bg-white rounded-xl border border-slate-200 p-6">
+            <div class="w-10 h-10 rounded-lg bg-[#48A18D]/10 flex items-center justify-center mb-4">
+              <Icon name="bx:bx-chip" class="w-5 h-5 text-[#48A18D]" />
+            </div>
+            <h3 class="font-semibold text-slate-900 mb-2">Handle the hardware layer</h3>
+            <p class="text-sm text-slate-600 leading-relaxed">We select, source, and integrate the edge hardware — cameras, compute, network — so you can focus on what your software does best.</p>
+          </div>
+          <div class="bg-white rounded-xl border border-slate-200 p-6">
+            <div class="w-10 h-10 rounded-lg bg-[#48A18D]/10 flex items-center justify-center mb-4">
+              <Icon name="bx:bx-wrench" class="w-5 h-5 text-[#48A18D]" />
+            </div>
+            <h3 class="font-semibold text-slate-900 mb-2">Deploy and support</h3>
+            <p class="text-sm text-slate-600 leading-relaxed">We run the on-site deployment and coordinate local support partners, so neither of us is fielding late-night calls about a router config.</p>
+          </div>
+        </div>
+      </div>
+    </Container>
+  </section>
+
+  <Container>
+    <Features />
+    <HowItWorks />
+    <Logos />
+    <BusinessModel />
+    <Community />
+  </Container>
+
+  <!-- Bottom CTA -->
+  <section class="py-20 bg-slate-50">
+    <Container>
+      <div class="relative rounded-3xl bg-gradient-to-br from-[#48A18D] to-[#3b8675] p-12 md:p-16 text-center overflow-hidden">
+        <div class="absolute inset-0 opacity-10">
+          <div class="absolute top-0 right-0 w-64 h-64 bg-white rounded-full blur-3xl transform translate-x-1/2 -translate-y-1/2"></div>
+          <div class="absolute bottom-0 left-0 w-96 h-96 bg-white rounded-full blur-3xl transform -translate-x-1/2 translate-y-1/2"></div>
+        </div>
+        <div class="relative z-10">
+          <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
+            Ready to expand your reach?
+          </h2>
+          <p class="text-white/80 max-w-xl mx-auto mb-8">
+            Tell us about your software and who you're trying to reach. We'll tell you where we can help.
+          </p>
+          <a
+            href="/contact"
+            class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-[#48A18D] font-semibold rounded-lg hover:bg-slate-50 transition-colors"
+          >
+            <Icon name="bx:bx-message-rounded-dots" class="w-5 h-5" />
+            Explore Partnership
+          </a>
+        </div>
+      </div>
+    </Container>
+  </section>
+</Layout>

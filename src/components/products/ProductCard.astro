@@ -22,27 +22,6 @@ const { product } = Astro.props;
     ))}
   </div>
 
-  <!-- Badges -->
-  {(product.status || product.partner) && (
-    <div class="flex flex-wrap gap-2 mb-3">
-      {product.status && (
-        <span class:list={[
-          "inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium border",
-          product.status === "In deployment" && "bg-[#48A18D]/10 text-[#48A18D] border-[#48A18D]/20",
-          product.status === "Available" && "bg-blue-50 text-blue-700 border-blue-200",
-          product.status === "In development" && "bg-slate-100 text-slate-500 border-slate-200",
-        ]}>
-          {product.status}
-        </span>
-      )}
-      {product.partner && (
-        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium border bg-purple-50 text-purple-700 border-purple-200">
-          Partner solution
-        </span>
-      )}
-    </div>
-  )}
-
   <!-- Solution Name -->
   <h3 class="text-xl font-bold text-slate-900 mb-2 group-hover:text-[#48A18D] transition-colors">
     {product.name}
@@ -74,11 +53,11 @@ const { product } = Astro.props;
       View Details
     </button>
     <a
-      href={`/contact?product=${product.id}`}
+      href="/contact"
       class="flex-1 px-4 py-2.5 text-sm font-medium rounded-lg transition-colors flex items-center justify-center gap-1.5 text-white bg-[#48A18D] hover:bg-[#3b8675]"
     >
       <Icon name="bx:bx-message-rounded-dots" class="w-4 h-4" />
-      Discuss This
+      Talk to Us
     </a>
   </div>
 </div>

@@ -40,31 +40,17 @@ const rest = solutions.filter(p => !p.featured);
           Edge AI Solutions
         </h1>
 
-        <p class="text-lg md:text-xl text-slate-600 max-w-2xl mx-auto mb-4">
-          Examples of Edge AI solutions we have helped design, integrate, and deploy. Every project is customized to the customer's environment, hardware, and requirements.
+        <p class="text-lg md:text-xl text-slate-600 max-w-2xl mx-auto mb-10">
+          Solutions we've built, deployed, or developed with partners. Tell us what you need and we'll tell you what fits.
         </p>
 
-        <!-- ISV partnership note -->
-        <p class="text-sm text-slate-500 max-w-xl mx-auto mb-10">
-          Already have software in one of these areas? We work with existing software partners — we don't require you to use ours. <a href="/contact?type=hardware-partner" class="text-[#48A18D] hover:underline font-medium">Talk to us about partnering →</a>
-        </p>
-
-        <div class="flex flex-col sm:flex-row gap-4 justify-center">
-          <a
-            href="/contact"
-            class="inline-flex items-center justify-center gap-2 px-8 py-4 text-white bg-[#48A18D] hover:bg-[#3b8675] font-semibold rounded-lg transition-colors shadow-lg shadow-[#48A18D]/25"
-          >
-            <Icon name="bx:bx-message-rounded-dots" class="w-5 h-5" />
-            Discuss Your Requirements
-          </a>
-          <a
-            href="/docs"
-            class="inline-flex items-center justify-center gap-2 px-8 py-4 text-slate-700 bg-white hover:bg-slate-50 font-semibold rounded-lg transition-colors border border-slate-200"
-          >
-            <Icon name="bx:bx-book-open" class="w-5 h-5" />
-            Technical Docs
-          </a>
-        </div>
+        <a
+          href="/contact"
+          class="inline-flex items-center justify-center gap-2 px-8 py-4 text-white bg-[#48A18D] hover:bg-[#3b8675] font-semibold rounded-lg transition-colors shadow-lg shadow-[#48A18D]/25"
+        >
+          <Icon name="bx:bx-message-rounded-dots" class="w-5 h-5" />
+          Talk to Us
+        </a>
       </div>
     </Container>
   </section>
@@ -77,18 +63,6 @@ const rest = solutions.filter(p => !p.featured);
           <div class="grid md:grid-cols-2 gap-0">
             <!-- Left: headline + description + features -->
             <div class="p-8 md:p-10">
-              <div class="flex flex-wrap gap-2 mb-4">
-                {featured.status && (
-                  <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium border bg-[#48A18D]/10 text-[#48A18D] border-[#48A18D]/20">
-                    {featured.status}
-                  </span>
-                )}
-                {featured.partner && (
-                  <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium border bg-purple-50 text-purple-700 border-purple-200">
-                    Partner solution
-                  </span>
-                )}
-              </div>
               <div class="flex gap-2 mb-4">
                 {featured.useCaseIcons.map((icon) => (
                   <div class="w-10 h-10 rounded-lg bg-[#48A18D]/10 flex items-center justify-center">
@@ -117,11 +91,11 @@ const rest = solutions.filter(p => !p.featured);
                   View Details
                 </button>
                 <a
-                  href={`/contact?product=${featured.id}`}
+                  href="/contact"
                   class="flex-1 px-5 py-2.5 text-sm font-medium rounded-lg transition-colors flex items-center justify-center gap-1.5 text-white bg-[#48A18D] hover:bg-[#3b8675]"
                 >
                   <Icon name="bx:bx-message-rounded-dots" class="w-4 h-4" />
-                  Discuss This
+                  Talk to Us
                 </a>
               </div>
             </div>

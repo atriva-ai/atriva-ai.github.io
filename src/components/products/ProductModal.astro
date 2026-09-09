@@ -64,18 +64,6 @@ const { products } = Astro.props;
                   </div>
                 </div>
                 
-                <!-- Floating Stats -->
-                <div class="absolute -bottom-4 -right-4 bg-white rounded-lg shadow-lg p-3 border border-slate-200">
-                  <div class="flex items-center gap-2">
-                    <div class="w-8 h-8 rounded-full bg-[#48A18D]/10 flex items-center justify-center">
-                      <Icon name="bx:bx-trending-up" class="w-4 h-4 text-[#48A18D]" />
-                    </div>
-                    <div>
-                      <p class="text-xs text-slate-500">Processing</p>
-                      <p class="text-sm font-bold text-slate-900">30+ FPS</p>
-                    </div>
-                  </div>
-                </div>
               </div>
             </div>
 
@@ -159,29 +147,12 @@ const { products } = Astro.props;
 
               <!-- CTAs -->
               <div class="flex flex-col sm:flex-row gap-3">
-                {product.status !== "In development" ? (
-                  <a
-                    href={`/contact?product=${product.id}`}
-                    class="flex-1 px-6 py-3 text-center font-semibold text-white bg-[#48A18D] hover:bg-[#3b8675] rounded-lg transition-colors flex items-center justify-center gap-2"
-                  >
-                    <Icon name="bx:bx-calendar" class="w-5 h-5" />
-                    Request Demo
-                  </a>
-                ) : (
-                  <a
-                    href={`/contact?product=${product.id}&type=feature`}
-                    class="flex-1 px-6 py-3 text-center font-semibold text-slate-700 bg-slate-200 hover:bg-slate-300 rounded-lg transition-colors flex items-center justify-center gap-2 border border-slate-300"
-                  >
-                    <Icon name="bx:bx-heart" class="w-5 h-5" />
-                    Show Interest
-                  </a>
-                )}
                 <a
-                  href="/docs"
-                  class="flex-1 px-6 py-3 text-center font-semibold text-slate-700 bg-slate-100 hover:bg-slate-200 rounded-lg transition-colors flex items-center justify-center gap-2"
+                  href="/contact"
+                  class="flex-1 px-6 py-3 text-center font-semibold text-white bg-[#48A18D] hover:bg-[#3b8675] rounded-lg transition-colors flex items-center justify-center gap-2"
                 >
-                  <Icon name="bx:bx-book-open" class="w-5 h-5" />
-                  View Documentation
+                  <Icon name="bx:bx-message-rounded-dots" class="w-5 h-5" />
+                  Talk to Us
                 </a>
               </div>
             </div>

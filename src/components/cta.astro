@@ -1,66 +1,23 @@
 ---
-import Link from "./ui/link.astro";
 import { Icon } from "astro-icon/components";
 ---
 
 <section class="py-16 bg-gradient-to-r from-slate-50 to-slate-100">
   <div class="max-w-4xl mx-auto px-6 text-center">
     <h2 class="text-3xl font-bold text-slate-800 sm:text-4xl">
-      Ready to get started?
+      Tell us what you need to detect.
     </h2>
-
     <p class="mt-4 text-lg text-slate-600">
-      Join our community, explore the code, and help us shape the future of Edge AI.
+      We'll tell you what fits and what it takes to deploy it.
     </p>
-
-    <div class="mt-8 flex flex-wrap justify-center gap-4">
-
-      <!-- GitHub Repo -->
-      <Link
-        size="lg"
-        rel="noopener"
-        href="https://github.com/atriva-ai-community"
-        target="_blank"
-        class="flex gap-2 items-center justify-center bg-[#48A18D] text-white px-6 py-3 rounded-lg hover:bg-[#3b8675] transition"
-      >
-        <Icon class="w-5 h-5 text-white" name="bx:bxl-github" />
-        <span class="font-medium">GitHub Repo</span>
-      </Link>
-
-      <!-- Discord -->
-      <Link
-        size="lg"
-        rel="noopener"
-        href="https://discord.gg/rhqRZP55Dg"
-        target="_blank"
-        class="flex gap-2 items-center justify-center bg-[#5865F2] text-white px-6 py-3 rounded-lg hover:bg-[#4752C4] transition"
-      >
-        <Icon class="w-5 h-5 text-white" name="bx:bxl-discord-alt" />
-        <span class="font-medium">Join Discord</span>
-      </Link>
-
-      <!-- LinkedIn -->
-      <Link
-        size="lg"
-        rel="noopener"
-        href="https://www.linkedin.com/company/atriva-ai/"
-        target="_blank"
-        class="flex gap-2 items-center justify-center bg-[#0A66C2] text-white px-6 py-3 rounded-lg hover:bg-[#084F99] transition"
-      >
-        <Icon class="w-5 h-5 text-white" name="bx:bxl-linkedin-square" />
-        <span class="font-medium">LinkedIn</span>
-      </Link>
-
-      <!-- Contact -->
-      <Link
-        size="lg"
+    <div class="mt-8 flex justify-center">
+      <a
         href="/contact"
-        class="flex gap-2 items-center justify-center bg-slate-800 text-white px-6 py-3 rounded-lg hover:bg-slate-700 transition"
+        class="flex gap-2 items-center justify-center bg-[#48A18D] text-white font-semibold px-8 py-4 rounded-lg hover:bg-[#3b8675] transition"
       >
-        <Icon class="w-5 h-5 text-white" name="bx:bx-envelope" />
-        <span class="font-medium">Contact Us</span>
-      </Link>
-
+        <Icon class="w-5 h-5 text-white" name="bx:bx-message-rounded-dots" />
+        Talk to Us
+      </a>
     </div>
   </div>
 </section>
